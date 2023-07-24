@@ -1,0 +1,28 @@
+name: 'ビルドできるか確認'
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
+
+    steps:
+      - name: 現ブランチからチェックアウト
+        uses: actions/checkout@v3
+
+      - name: Node.js v${{ matrix.node-version }}を設定
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: ビルドを実行
+        run: npm run build --if-present
