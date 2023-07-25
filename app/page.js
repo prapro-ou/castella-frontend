@@ -3,7 +3,9 @@ export default function Home() {
     <main>
       <p>
         LAページ
-        <a href='/login' className='text-blue-600'>Loginページ</a>
+        <a href='/login' className='text-blue-600'>
+          Loginページ
+        </a>
       </p>
     </main>
   );
