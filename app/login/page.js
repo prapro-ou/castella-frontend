@@ -6,5 +6,5 @@ export default function Login() {
         <a href='/talks' className='text-blue-600'>Login</a>
       </p>
     </main>
-  )
+  );
 }

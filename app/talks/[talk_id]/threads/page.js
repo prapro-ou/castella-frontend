@@ -6,5 +6,5 @@ export default function Threads() {
         <a href='/talks/1/threads/1/messages' className='text-blue-600'>Messageページ</a>
       </p>
     </main>
-  )
+  );
 }

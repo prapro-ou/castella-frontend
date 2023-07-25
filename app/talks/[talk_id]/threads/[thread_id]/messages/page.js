@@ -5,5 +5,5 @@ export default function Threads() {
         メッセージ内容
       </p>
     </main>
-  )
+  );
 }

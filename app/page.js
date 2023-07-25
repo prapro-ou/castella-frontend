@@ -6,5 +6,5 @@ export default function Home() {
         <a href='/login' className='text-blue-600'>Loginページ</a>
       </p>
     </main>
-  )
+  );
 }

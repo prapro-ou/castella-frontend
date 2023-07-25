@@ -3,5 +3,9 @@
   "env": {
     "browser": true
   },
-  "extends": ["next/core-web-vitals", "eslint:recommended"]
+  "extends": ["next", "next/core-web-vitals", "eslint:recommended"],
+  "rules": {
+    // セミコロンない場合、エラー出力
+    "semi": ["error", "always"]
+  }
 }

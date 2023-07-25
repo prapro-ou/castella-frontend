@@ -6,5 +6,5 @@ export default function Talks() {
         <a href='/talks/1/threads' className='text-blue-600'>Threadsページ</a>
       </p>
     </main>
-  )
+  );
 }
