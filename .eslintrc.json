@@ -1,3 +1,11 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "env": {
+    "browser": true
+  },
+  "extends": ["next", "next/core-web-vitals", "eslint:recommended", "prettier"],
+  "rules": {
+    // セミコロンない場合、エラー出力
+    "semi": ["error", "always"]
+  }
 }
