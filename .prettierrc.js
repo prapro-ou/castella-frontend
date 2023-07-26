@@ -4,4 +4,5 @@ module.exports = {
   semi: true, // セミコロンあり
   singleQuote: true, // シングルクォーテーションに統一
   jsxSingleQuote: true, //jsx もシングルクォーテーションに統一
+  plugins: [require('prettier-plugin-tailwindcss')],
 };
