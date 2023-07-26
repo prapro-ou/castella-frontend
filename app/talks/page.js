@@ -3,7 +3,7 @@ export default function Talks() {
     <main>
       <p>
         チャット相手を選ぶページ
-        <a href='/talks/1/threads' className='text-blue-600'>
+        <a href='/talks/1/threads' className='text-primary'>
           Threadsページ
         </a>
       </p>
