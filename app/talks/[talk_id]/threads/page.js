@@ -3,7 +3,7 @@ export default function Threads() {
     <main>
       <p>
         スレッド内容を選ぶページ
-        <a href='/talks/1/threads/1/messages' className='text-blue-600'>
+        <a href='/talks/1/threads/1/messages' className='text-primary'>
           Messageページ
         </a>
       </p>

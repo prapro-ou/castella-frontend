@@ -8,10 +8,10 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'primary': '#99A866',
-      'default': '#49454F',
-      'thin': '#888888',
-      'white': '#FFFFFF',
+      primary: '#99A866',
+      default: '#49454F',
+      thin: '#888888',
+      white: '#FFFFFF',
     },
     extend: {
       backgroundImage: {

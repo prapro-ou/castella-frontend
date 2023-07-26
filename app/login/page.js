@@ -3,7 +3,7 @@ export default function Login() {
     <main>
       <p>
         Loginページ
-        <a href='/talks' className='text-blue-600'>
+        <a href='/talks' className='text-primary'>
           Login
         </a>
       </p>
