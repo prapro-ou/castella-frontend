@@ -3,9 +3,15 @@
   "env": {
     "browser": true
   },
-  "extends": ["next", "next/core-web-vitals", "eslint:recommended", "prettier"],
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:tailwindcss/recommended",
+    "prettier"
+  ],
+  "plugins": ["tailwindcss"],
   "rules": {
-    // セミコロンない場合、エラー出力
     "semi": ["error", "always"]
   }
 }
