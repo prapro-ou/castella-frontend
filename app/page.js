@@ -1,5 +1,3 @@
-import Icon from '@/features/components/Icon';
-
 export default function Home() {
   return (
     <main>
