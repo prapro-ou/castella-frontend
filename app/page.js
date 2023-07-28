@@ -8,8 +8,7 @@ export default function Home() {
       <h2 class="text-blue-500">Hello World!!</h2>
       <p>
         LAページ
-
-        <a href='/login' className='text-blue-600'>
+        <a href='/login' className='text-primary'>
           Loginページ
         </a>
       </p>
