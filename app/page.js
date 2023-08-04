@@ -1,3 +1,5 @@
+import FloatActionButton from '@/features/components/FloatActionButton';
+
 export default function Home() {
   return (
     <main>
@@ -7,6 +9,7 @@ export default function Home() {
           Loginページ
         </a>
       </p>
+      <FloatActionButton src='/add.svg' alt='add icon' />
     </main>
   );
 }
