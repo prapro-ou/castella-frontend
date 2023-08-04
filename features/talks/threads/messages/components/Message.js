@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from 'react';
-
 /**
  * メッセージの枠組みを作り，メッセージを表示
  * @param {value} 表示するメッセージ
