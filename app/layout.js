@@ -20,13 +20,5 @@ export default function RootLayout({ children }) {
 }
 
 function Header() {
-  return (
-    <header className='shadow-md p-8 bg-primary'>
-      {/* <h1 className='title'>Test</h1> */}
-    </header>
-  );
+  return <header className='shadow-md h-16 bg-primary'>{}</header>;
 }
-
-/* 
-cssググる 用語をtailwindで検索．凡例をclassnameに打ち込む
-*/
