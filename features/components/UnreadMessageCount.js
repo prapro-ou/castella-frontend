@@ -1,22 +1,21 @@
+'use Client';
 import React from 'react';
 
-//This component shows number of unread message
-//count:number of unread message
+
+/**
+ * This component shows number of unread message
+ * @param {count} *number of unread message
+ * @author Jaja-UMA
+*/
 export default function UnreadMessageCount({ count })  {
-  /*Nothing shown count is zero
-  if(count == 0){
-    return null;
-  }
-  */
-  //Show '9+'
-  //I don't know its helpful
-  if(count > 9){
-    count = "9+";
-  }
-  //rentering
+  /**
+   * Show '9+'or count
+   * @type {showCount} 未読数として表示する値
+   */
+  const showCount = (count > 9)? '9+' : count;
   return (
-    <div className="rounded-full h-10 w-10 flex justify-center items-center bg-primary text-white">
-        <span>{count}</span>
+    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white">
+        <span>{showCount}</span>
     </div>
   );
 };
