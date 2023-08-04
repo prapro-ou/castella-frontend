@@ -1,6 +1,3 @@
-import Icon from '@/features/components/Icon';
-import Tips from '@/features/components/Tips';
-
 export default function Home() {
   return (
     <main>
@@ -10,7 +7,6 @@ export default function Home() {
           Loginページ
         </a>
       </p>
-      <Tips />
     </main>
   );
 }
