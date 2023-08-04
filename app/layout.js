@@ -11,7 +11,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
+
+function Header() {
+  return (
+    <header className='shadow-md p-8 bg-primary'>
+      {/* <h1 className='title'>Test</h1> */}
+    </header>
+  );
+}
+
+/* 
+cssググる 用語をtailwindで検索．凡例をclassnameに打ち込む
+*/
