@@ -20,5 +20,5 @@ export default function RootLayout({ children }) {
 }
 
 function Header() {
-  return <header className='shadow-md h-16 bg-primary'>{}</header>;
+  return <header className='h-16 bg-primary shadow-md'>{}</header>;
 }
