@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Tips() {
   return (
-    <>
+    <div className='w-fit'>
       <div className='flex justify-center'>
         <Image
           width={40}
@@ -12,6 +12,6 @@ export default function Tips() {
         />
       </div>
       <div className='text-thin flex justify-center'>左欄から選択できます</div>
-    </>
+    </div>
   );
 }
