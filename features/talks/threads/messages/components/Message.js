@@ -9,7 +9,7 @@ export default function Message({ value }) {
   const messageNum = value.length;
   const displayText =
     isExpanded === false && messageNum > 100
-      ? value.substr(0, 100) + '...'
+      ? value.slice(0, 100) + '...'
       : value;
   return (
     <button
