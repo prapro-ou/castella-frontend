@@ -14,7 +14,7 @@ export default function Message({ value }) {
   return (
     <button
       onClick={() => setIsExpanded(!isExpanded)}
-      className='mx-auto mt-4 w-96 overflow-hidden whitespace-pre-line rounded-lg bg-primary p-4 text-left text-white shadow-md'
+      className=' w-96 overflow-hidden whitespace-pre-line rounded-lg bg-primary p-4 text-left text-white shadow-md'
     >
       {displayText}
     </button>
