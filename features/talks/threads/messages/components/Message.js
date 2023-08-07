@@ -6,9 +6,7 @@ import React from 'react';
  */
 export default function Message({ value }) {
   return (
-    <div
-      className=' w-96 overflow-hidden whitespace-pre-line rounded-lg bg-primary p-4 text-left text-white shadow-md'
-    >
+    <div className=' w-96 overflow-hidden whitespace-pre-line rounded-lg bg-primary p-4 text-left text-white shadow-md'>
       {value}
     </div>
   );
