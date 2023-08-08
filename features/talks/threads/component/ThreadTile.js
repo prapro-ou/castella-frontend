@@ -8,9 +8,9 @@ export default function ThreadTile({
 }) {
   const bgColor = selected === true ? 'bg-primary' : 'bg-card';
   return (
-    <div className={`rounded-lg w-64 h-24 ${bgColor}`}>
+    <div className={`rounded-lg w-72 h-24 ${bgColor}`}>
       {WriteText(subject, body, isNew, selected)}
-      <div className='mr-4 mt-2 flex flex-row-reverse'>
+      <div className='mr-4 mt-1 flex flex-row-reverse'>
         {NumberOfReplies(messageCount, onClickMessageCount, selected)}
       </div>
     </div>
@@ -32,9 +32,9 @@ function WriteText(subject, body, isNew, selected) {
   }
   return (
     <div className={` ${color}`}>
-      <p className='text-xl ml-4 '>{displaySubject}</p>
-      <div className={`border w-60 ml-2 mt-2 + ${borderColor}`}></div>
-      <p className='text-base ml-4 mt-2'>{displayBody}</p>
+      <p className='text-xl ml-5 pt-2'>{displaySubject}</p>
+      <div className={`border w-64 ml-3 + ${borderColor}`}></div>
+      <p className='text-base ml-5 mt-2'>{displayBody}</p>
     </div>
   );
 }
