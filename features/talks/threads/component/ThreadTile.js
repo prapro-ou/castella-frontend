@@ -9,7 +9,7 @@ export default function ThreadTile({
   const bgColor = selected === true ? 'bg-primary' : 'bg-card';
   return (
     <div className={`relative rounded-lg w-64 h-24 ${bgColor}`}>
-      {writetext(subject, body, isNew, selected)}
+      {WriteText(subject, body, isNew, selected)}
       <div className='absolute bottom-1 right-3'>
         {NumberOfReplies(messageCount, onClickMessageCount, selected)}
       </div>
@@ -17,7 +17,7 @@ export default function ThreadTile({
   );
 }
 
-function writetext(subject, body, isNew, selected) {
+function WriteText(subject, body, isNew, selected) {
   const subjectNum = subject.length;
   const bodyNum = body.length;
   const displaySubject = subjectNum > 9 ? subject.slice(0, 9) + '...' : subject;
