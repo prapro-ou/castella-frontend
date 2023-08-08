@@ -8,7 +8,7 @@ export default function ThreadTile({
 }) {
   const bgColor = selected === true ? 'bg-primary' : 'bg-card';
   return (
-    <div className={'relative rounded-lg w-64 h-24 ' + bgColor}>
+    <div className={`relative rounded-lg w-64 h-24 ${bgColor}`}>
       {writetext(subject, body, isNew, selected)}
       <div className='absolute bottom-1 right-3'>
         {NumberOfReplies(messageCount, onClickMessageCount, selected)}
@@ -34,7 +34,7 @@ function writetext(subject, body, isNew, selected) {
     <div className={color}>
       <p className='relative top-2 left-4 text-xl '>{displaySubject}</p>
       <div className='relative top-2 flex justify-center'>
-        <div className={'border w-60 ' + borderColor}></div>
+        <div className={`border w-60  + ${borderColor}`}></div>
       </div>
       <p className='relative top-4 left-4 text-base'>{displayBody}</p>
     </div>
@@ -46,7 +46,7 @@ function NumberOfReplies(messageCount, onClickMessageCount, selected) {
 
   return (
     <button className='' onclick={onClickMessageCount}>
-      <div className={'text-xs ' + numColor}>{messageCount}件の返信</div>
+      <div className={`text-xs ${numColor}`}>{messageCount}件の返信</div>
     </button>
   );
 }
