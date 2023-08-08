@@ -12,6 +12,8 @@ module.exports = {
       default: '#49454F',
       thin: '#888888',
       white: '#FFFFFF',
+      card: 'DBDBDB',
+      url: '#6192BB',
     },
     extend: {
       backgroundImage: {
