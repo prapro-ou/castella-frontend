@@ -1,23 +1,23 @@
 export default function ThreadTile({
   subject,
   body,
-  message_count,
-  is_new,
+  messageCount,
+  isNew,
   onClickMessageCount,
   selected,
 }) {
-  const bgColor = selected === true ? 'bg-primary' : 'bg-backcolor';
+  const bgColor = selected === true ? 'bg-primary' : 'bg-card';
   return (
     <div className={'relative rounded-lg w-64 h-24 ' + bgColor}>
-      {writetext(subject, body, is_new, selected)}
+      {writetext(subject, body, isNew, selected)}
       <div className='absolute bottom-1 right-3'>
-        {NumberOfReplies(message_count, onClickMessageCount, selected)}
+        {NumberOfReplies(messageCount, onClickMessageCount, selected)}
       </div>
     </div>
   );
 }
 
-function writetext(subject, body, is_new, selected) {
+function writetext(subject, body, isNew, selected) {
   const subjectNum = subject.length;
   const bodyNum = body.length;
   const displaySubject = subjectNum > 9 ? subject.slice(0, 9) + '...' : subject;
@@ -27,7 +27,7 @@ function writetext(subject, body, is_new, selected) {
   if (selected == true) {
     color = 'text-white';
     borderColor = 'border-white';
-  } else if (is_new == true) {
+  } else if (isNew == true) {
     color = 'text-black';
   }
   return (
@@ -41,12 +41,12 @@ function writetext(subject, body, is_new, selected) {
   );
 }
 
-function NumberOfReplies(message_count, onClickMessageCount, selected) {
+function NumberOfReplies(messageCount, onClickMessageCount, selected) {
   const numColor = selected == true ? 'text-white' : 'text-url';
 
   return (
     <button className='' onclick={onClickMessageCount}>
-      <div className={'text-xs ' + numColor}>{message_count}件の返信</div>
+      <div className={'text-xs ' + numColor}>{messageCount}件の返信</div>
     </button>
   );
 }
