@@ -12,11 +12,14 @@ import Message from './Message';
  */
 export default function MessageTile({src,value,created_at}){
     return(
-        <div className='flex items-center' >
-        <div><Icon /></div>
-        <div className='ml-1'/>
-        <div><Message value={value}/></div>
-        {created_at}
+        <div className='flex' >
+            <div><Icon src={src}/></div>
+            <div className='ml-3'/>
+            <div><Message value={value}/></div>
+            <div className='flex flex-col-reverse items-end '>
+
+                <div>{created_at}</div>
+            </div>
         </div>
     );
 }
