@@ -11,7 +11,7 @@ export default function Home() {
           Loginページ
         </a>
       </p>
-      <DestinationTile src='./add_white.svg' alt='a' name='DM' messageCount='3' selected={false} />
+      <DestinationTile src='./add_white.svg' alt='a' name='DM' messageCount='3' selected={true} />
     </main>
   );
 }
