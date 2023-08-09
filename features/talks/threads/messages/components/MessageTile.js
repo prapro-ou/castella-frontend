@@ -5,10 +5,10 @@ import Icon from '@/features/components/Icon';
 
 /**
  * メッセージそのものを表すコンポーネント
- * @param {} src IconのURL
- * @param {} value メッセージ内容
- * @param {} createdAt メッセージ作成日時
- * @param {} alt 画像が表示されなかった場合に表示される文字
+ * @param {string} src IconのURL
+ * @param {string} value メッセージ内容
+ * @param {string} createdAt メッセージ作成日時
+ * @param {string} alt 画像が表示されなかった場合に表示される文字
  */
 export default function MessageTile({src,value,createdAt,alt}){
     return(
