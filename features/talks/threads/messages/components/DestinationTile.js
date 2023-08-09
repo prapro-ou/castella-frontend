@@ -12,22 +12,9 @@ export default function DestinationTile({ src, alt, name, messageCount, selected
                 {name}
             </div>
             <div className={`absolute left-28`}>
-                {/*<UnreadMessageCountForDT count={messageCount} size='6' isSelected={selected} />*/}
                 <UnreadMessageCount count={messageCount} reversed={selected} />
             </div>
         </div>
 
     );
 }
-
-function UnreadMessageCountForDT({ count,size,isSelected }) { 
-    {/*UnreadMessageCountForDestinationTile 元の関数内のマジックナンバーを書き換えて良いか判断しかねたので代替案として実装 */ }
-    const showCount = count > 9 ? '9+' : count;
-    const H_SIZE = "h-" + size;
-    const W_SIZE = "w-" + size;
-    return (
-        <div className={`flex ${H_SIZE} ${W_SIZE} items-center justify-center ${isSelected ? 'bg-white' : 'bg-primary'} ${isSelected ? 'text-primary':'text-white'} rounded-full`}>
-            {showCount}
-        </div>
-    );
-    }
