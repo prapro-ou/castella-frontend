@@ -3,8 +3,7 @@ import React from 'react';
 
 /**
  * 未読数を表示するためのコンポーネント
- * @param {count} *number of unread message
- * @author Jaja-UMA
+ * @param {int} count 未読数
  */
 export default function UnreadMessageCount({ count }) {
   const showCount = count > 9 ? '9+' : count;

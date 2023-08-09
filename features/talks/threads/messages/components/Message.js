@@ -2,7 +2,7 @@
 import React from 'react';
 /**
  * メッセージの枠組みを作り，メッセージを表示
- * @param {value} 表示するメッセージ
+ * @param {string} value 表示するメッセージ
  */
 export default function Message({ value }) {
   return (
