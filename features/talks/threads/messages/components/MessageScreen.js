@@ -2,16 +2,15 @@
 import React from 'react';
 import MessageTile from './MessageTile';
 import Image from 'next/image';
-import botan from 'app/favicon.ico';
+import buttonPic from 'app/favicon.ico';
+
 /**
  * メッセージと返信欄を示すためのコンポーネント
+ * @param {Array} messages 子コンポーネントMessageTileに必要となる引数を持つ配列
  * @param {} onClickCreateReplyButton ボタンを押した時に動かす関数
  */
-
 export default function MessageScreen({messages,onClickCreateReplyButton}){
-    console.log(messages);
     return(
-
         <div>
             {messages.map((message)=> (
                 <div key={message.id} >
@@ -24,7 +23,7 @@ export default function MessageScreen({messages,onClickCreateReplyButton}){
                     <Image
                         width={36}
                         height={36}
-                        src={botan}
+                        src={buttonPic}
                         alt={"aiu"}
                     />
                 </button>
