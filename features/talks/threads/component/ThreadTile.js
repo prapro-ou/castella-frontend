@@ -15,7 +15,7 @@ export default function ThreadTile({
         isNew={isNew}
         selected={selected}
       />
-      <div className='mr-4 mt-1 flex flex-row-reverse'>
+      <div className='ml-auto mr-0 w-1/4'>
         <NumberOfReplies
           messageCount={messageCount}
           onClickMessageCount={onClickMessageCount}
@@ -26,7 +26,7 @@ export default function ThreadTile({
   );
 }
 
-function WriteText(subject, body, isNew, selected) {
+function WriteText({ subject, body, isNew, selected }) {
   const subjectNum = subject.length;
   const bodyNum = body.length;
   const displaySubject = subjectNum > 9 ? subject.slice(0, 9) + '...' : subject;
@@ -40,7 +40,7 @@ function WriteText(subject, body, isNew, selected) {
     color = 'text-black';
   }
   return (
-    <div className={` ${color}`}>
+    <div className={`${color}`}>
       <p className='text-xl ml-5 pt-2'>{displaySubject}</p>
       <div className={`border w-64 ml-3 + ${borderColor}`}></div>
       <p className='text-base ml-5 mt-2'>{displayBody}</p>
@@ -48,7 +48,7 @@ function WriteText(subject, body, isNew, selected) {
   );
 }
 
-function NumberOfReplies(messageCount, onClickMessageCount, selected) {
+function NumberOfReplies({ messageCount, onClickMessageCount, selected }) {
   const numColor = selected == true ? 'text-white' : 'text-url';
 
   return (
