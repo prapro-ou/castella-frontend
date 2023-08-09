@@ -27,10 +27,9 @@ export default function ThreadTile({
 }
 
 function WriteText({ subject, body, isNew, selected }) {
-  const subjectNum = subject.length;
-  const bodyNum = body.length;
-  const displaySubject = subjectNum > 9 ? subject.slice(0, 9) + '...' : subject;
-  const displayBody = bodyNum > 9 ? body.slice(0, 9) + '...' : body;
+  const displaySubject =
+    subject.length > 9 ? subject.slice(0, 9) + '...' : subject;
+  const displayBody = body.length > 9 ? body.slice(0, 9) + '...' : body;
   var color = 'text-thin';
   var borderColor = 'border-thin';
   if (selected == true) {
