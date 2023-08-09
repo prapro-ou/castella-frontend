@@ -30,16 +30,14 @@ function WriteText({ subject, body, isNew, selected }) {
   const displaySubject =
     subject.length > 9 ? subject.slice(0, 9) + '...' : subject;
   const displayBody = body.length > 9 ? body.slice(0, 9) + '...' : body;
-  var color = 'text-thin';
-  var borderColor = 'border-thin';
-  if (selected == true) {
-    color = 'text-white';
-    borderColor = 'border-white';
-  } else if (isNew == true) {
-    color = 'text-black';
-  }
+  const textColor = selected
+    ? 'text-white'
+    : isNew
+    ? 'text-black'
+    : 'text-thin';
+  const borderColor = selected ? 'border-white' : 'border-thin';
   return (
-    <div className={`${color}`}>
+    <div className={textColor}>
       <p className='text-xl ml-5 pt-2'>{displaySubject}</p>
       <div className={`border w-64 ml-3 + ${borderColor}`}></div>
       <p className='text-base ml-5 mt-2'>{displayBody}</p>
