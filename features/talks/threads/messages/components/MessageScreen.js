@@ -12,7 +12,7 @@ import MessageTile from './MessageTile';
  * @param {} onClickCreateReplyButton ボタンを押した時に動かす関数
  */
 
-export default function MessageScreen([{messages,onClickCreateReplyButton}){
+export default function MessageScreen({messages,onClickCreateReplyButton}){
 
     return(
         <div>
