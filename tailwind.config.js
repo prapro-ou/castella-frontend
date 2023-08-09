@@ -12,7 +12,7 @@ module.exports = {
       default: '#49454F',
       thin: '#888888',
       white: '#FFFFFF',
-      card: '#DBDBDB',
+      card: '#F5F5F5',
       url: '#6192BB',
     },
     extend: {
