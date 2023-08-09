@@ -9,9 +9,18 @@ export default function ThreadTile({
   const bgColor = selected === true ? 'bg-primary' : 'bg-card';
   return (
     <div className={`rounded-lg w-72 h-24 ${bgColor}`}>
-      {WriteText(subject, body, isNew, selected)}
+      <WriteText
+        subject={subject}
+        body={body}
+        isNew={isNew}
+        selected={selected}
+      />
       <div className='mr-4 mt-1 flex flex-row-reverse'>
-        {NumberOfReplies(messageCount, onClickMessageCount, selected)}
+        <NumberOfReplies
+          messageCount={messageCount}
+          onClickMessageCount={onClickMessageCount}
+          selected={selected}
+        />
       </div>
     </div>
   );
