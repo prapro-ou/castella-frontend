@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "@/features/components/Icon";
-//import UnreadMessageCount from "@/features/components/UnreadMessageCount";
+import UnreadMessageCount from "@/features/components/UnreadMessageCount";
 
 export default function DestinationTile({ src, alt, name, messageCount, selected }) {
     return(
@@ -12,8 +12,8 @@ export default function DestinationTile({ src, alt, name, messageCount, selected
                 {name}
             </div>
             <div className={`absolute left-28`}>
-                <UnreadMessageCountForDT count={messageCount} size='6' isSelected={selected} />
-                {/*<UnreadMessageCount count={messageCount}>*/}
+                {/*<UnreadMessageCountForDT count={messageCount} size='6' isSelected={selected} />*/}
+                <UnreadMessageCount count={messageCount} reversed={selected} />
             </div>
         </div>
 
