@@ -14,7 +14,7 @@ export default function MessageTile({src,value,createdAt,alt}){
     return(
         <div className='flex' >
             <Icon src={src} alt={alt}/>
-            <div className='ml-5'/>
+            <div className='ml-4'/>
             <Message value={value}/>
             <div className='flex flex-col-reverse'>
                 <div className='text-xs text-thin ml-2'>{createdAt}</div>
