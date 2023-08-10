@@ -21,7 +21,7 @@ export default function MessageScreen({messages,onClickCreateReplyButton}){
             ))}
 
             <div className='fixed bottom-2.5 right-2.5'>
-                <FloatActionButton src={buttonPic}/>
+                <button onClick={onClickCreateReplyButton}><FloatActionButton  src={buttonPic}/></button>
             </div>
         </div>
     );
