@@ -3,7 +3,7 @@ import React from 'react';
 import MessageTile from './MessageTile';
 import Image from 'next/image';
 import FloatActionButton from '@/features/components/FloatActionButton';
-import buttonPic from 'app/favicon.ico';
+import buttonPic from 'features/talks/threads/messages/components/stylus_FILL0_wght400_GRAD0_opsz48.svg';
 
 /**
  * メッセージと返信欄を示すためのコンポーネント
@@ -19,15 +19,9 @@ export default function MessageScreen({messages,onClickCreateReplyButton}){
                     <div className='mb-3'/>
                 </div>
             ))}
+
             <div className='fixed bottom-2.5 right-2.5'>
-                <button onClick={onClickCreateReplyButton}>
-                    <Image
-                        width={36}
-                        height={36}
-                        src={buttonPic}
-                        alt={"aiu"}
-                    />
-                </button>
+                <FloatActionButton src={buttonPic}/>
             </div>
         </div>
     );
