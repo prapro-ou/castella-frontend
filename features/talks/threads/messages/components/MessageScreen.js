@@ -2,6 +2,7 @@
 import React from 'react';
 import MessageTile from './MessageTile';
 import Image from 'next/image';
+import FloatActionButton from '@/features/components/FloatActionButton';
 import buttonPic from 'app/favicon.ico';
 
 /**
@@ -18,7 +19,7 @@ export default function MessageScreen({messages,onClickCreateReplyButton}){
                     <div className='mb-3'/>
                 </div>
             ))}
-            <div className='fixed right-2.5 bottom-2.5'>
+            <div className='fixed bottom-2.5 right-2.5'>
                 <button onClick={onClickCreateReplyButton}>
                     <Image
                         width={36}
