@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import MessageTile from './MessageTile';
-import Image from 'next/image';
 import FloatActionButton from '@/features/components/FloatActionButton';
 import buttonPic from 'features/talks/threads/messages/components/stylus_FILL0_wght400_GRAD0_opsz48.svg';
 
