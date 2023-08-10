@@ -11,7 +11,7 @@ import buttonPic from 'features/talks/threads/messages/components/stylus_FILL0_w
  */
 export default function MessageScreen({messages,onClickCreateReplyButton}){
     return(
-        <div>
+        <>
             {messages.map((message)=> (
                 <div key={message.id} >
                     <MessageTile createdAt={message.createdAt} value={message.value} src={message.src} alt={message.alt} />
@@ -20,8 +20,8 @@ export default function MessageScreen({messages,onClickCreateReplyButton}){
             ))}
 
             <div className='fixed bottom-2.5 right-2.5'>
-                <button onClick={onClickCreateReplyButton}><FloatActionButton  src={buttonPic}/></button>
+                <button onClick={onClickCreateReplyButton}><FloatActionButton  src={buttonPic} alt={"メールを作成"}/></button>
             </div>
-        </div>
+        </> 
     );
 }
