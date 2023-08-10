@@ -12,7 +12,7 @@ export default function DestinationTile({ name, messageCount, selected }) {
             <div>
                 <Icon src={src} alt={alt} />
             </div>
-            <div className={`${textColor}`}>
+            <div className={`ml-2 text-sm ${textColor}`}>
                 {name}
             </div>
             <div className={`ml-auto`}>
