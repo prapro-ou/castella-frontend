@@ -1,5 +1,7 @@
 'use client';
 
+import DestinationTile from "@/features/talks/threads/messages/components/DestinationTile";
+
 export default function Home() {
   return (
     <main>
@@ -9,6 +11,8 @@ export default function Home() {
           Loginページ
         </a>
       </p>
+      <DestinationTile name='DM' messageCount='3' selected={true} />
+      <DestinationTile name='DM' messageCount='3' selected={false} />
     </main>
   );
 }

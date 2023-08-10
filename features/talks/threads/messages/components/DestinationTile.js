@@ -8,14 +8,14 @@ export default function DestinationTile({ name, messageCount, selected }) {
     const bgColor = selected ? 'bg-primary':'';
     const textColor = selected ? 'text-white':'text-default';
     return(
-        <div className={`relative flex h-12 w-64 items-center rounded-full p-3 ${bgColor}`}> {/* ` バッククォートと ' シングルクォートの違いに注意*/}
+        <div className={`flex h-12 w-64 items-center rounded-full p-3 ${bgColor}`}> {/* ` バッククォートと ' シングルクォートの違いに注意*/}
             <div>
                 <Icon src={src} alt={alt} />
             </div>
-            <div className={`relative left-2 ${textColor}`}>
+            <div className={`${textColor}`}>
                 {name}
             </div>
-            <div className={`absolute left-52`}>
+            <div className={`ml-auto`}>
                 <UnreadMessageCount count={messageCount} reversed={selected} />
             </div>
         </div>
