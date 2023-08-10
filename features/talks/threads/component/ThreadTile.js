@@ -8,14 +8,14 @@ export default function ThreadTile({
 }) {
   const bgColor = selected === true ? 'bg-primary' : 'bg-card';
   return (
-    <div className={`rounded-lg w-72 h-24 ${bgColor}`}>
+    <div className={`rounded-2xl w-72 h-28 ${bgColor}`}>
       <WriteText
         subject={subject}
         body={body}
         isNew={isNew}
         selected={selected}
       />
-      <div className='ml-auto mr-0 w-1/4'>
+      <div className='ml-auto mr-2 w-1/4 mt-2'>
         <NumberOfReplies
           messageCount={messageCount}
           onClickMessageCount={onClickMessageCount}
@@ -38,8 +38,9 @@ function WriteText({ subject, body, isNew, selected }) {
   const borderColor = selected ? 'border-white' : 'border-thin';
   return (
     <div className={textColor}>
-      <p className='text-xl ml-5 pt-2'>{displaySubject}</p>
-      <div className={`border w-64 ml-3 + ${borderColor}`}></div>
+      <p className={`text-xl pt-3 ml-3 pl-2 border-b w-64 + ${borderColor}`}>
+        {displaySubject}
+      </p>
       <p className='text-base ml-5 mt-2'>{displayBody}</p>
     </div>
   );
