@@ -8,11 +8,13 @@ import React from 'react';
  */
 export default function UnreadMessageCount({ count, reversed }) {
   const showCount = count > 9 ? '9+' : count;
-  const bgColor = reversed ? 'bg-white':'bg-primary';
-  const textColor = reversed ? 'text-primary':'text-white';
+  const bgColor = reversed ? 'bg-white' : 'bg-primary';
+  const textColor = reversed ? 'text-primary' : 'text-white';
 
   return (
-    <div className={`flex h-8 w-8 items-center justify-center rounded-full ${bgColor} ${textColor}`}>
+    <div
+      className={`flex h-8 w-8 items-center justify-center rounded-full ${bgColor} ${textColor}`}
+    >
       {showCount}
     </div>
   );
