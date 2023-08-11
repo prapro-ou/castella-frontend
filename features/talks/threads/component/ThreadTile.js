@@ -14,17 +14,19 @@ export default function ThreadTile({
   const borderColor = selected ? 'border-white' : 'border-thin';
 
   return (
-    <div className={`rounded-2xl w-72 h-28 ${bgColor}`}>
+    <div className={`rounded-3xl w-fit p-4 ${bgColor}`}>
       <div className={textColor}>
-        <p className={`text-xl pt-3 ml-3 pl-2 border-b w-64 + ${borderColor}`}>
+        <p className={`text-3xl px-4 pb-4 border-b ${borderColor}`}>
           {textOverflow(subject)}
         </p>
-        <p className='text-base ml-5 mt-2'>{textOverflow(body)}</p>
-      </div>
-      <div className='ml-auto mr-2 w-1/4 mt-2'>
-        <button className='' onClick={onClickMessageCount}>
-          <div className={`text-xs ${numColor}`}>{messageCount}件の返信</div>
-        </button>
+        <div className='flex'>
+          <p className='text-2xl px-4 py-4'>{textOverflow(body)}</p>
+          <div className='ml-auto mt-auto w-fit'>
+            <button onClick={onClickMessageCount}>
+              <div className={`text-base ${numColor}`}>{messageCount}件の返信</div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
