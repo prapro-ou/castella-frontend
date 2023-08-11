@@ -47,10 +47,10 @@ function WriteText({ subject, body, isNew, selected }) {
 }
 
 function NumberOfReplies({ messageCount, onClickMessageCount, selected }) {
-  const numColor = selected == true ? 'text-white' : 'text-url';
+  const numColor = selected === true ? 'text-white' : 'text-url';
 
   return (
-    <button className='' onclick={onClickMessageCount}>
+    <button className='' onClick={onClickMessageCount}>
       <div className={`text-xs ${numColor}`}>{messageCount}件の返信</div>
     </button>
   );
