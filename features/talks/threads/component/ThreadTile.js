@@ -9,8 +9,10 @@ export default function ThreadTile({
   const bgColor = selected === true ? 'bg-primary' : 'bg-card';
   const numColor = selected === true ? 'text-white' : 'text-url';
   const textColor = selected
-    ? 'text-white' : isNew
-      ? 'text-black' : 'text-thin';
+    ? 'text-white'
+    : isNew
+    ? 'text-black'
+    : 'text-thin';
   const borderColor = selected ? 'border-white' : 'border-thin';
 
   return (
@@ -23,7 +25,9 @@ export default function ThreadTile({
           <p className='text-2xl px-4 py-4'>{textOverflow(body)}</p>
           <div className='ml-auto mt-auto w-fit'>
             <button onClick={onClickMessageCount}>
-              <div className={`text-base ${numColor}`}>{messageCount}件の返信</div>
+              <div className={`text-base ${numColor}`}>
+                {messageCount}件の返信
+              </div>
             </button>
           </div>
         </div>
