@@ -7,6 +7,8 @@ export default function ThreadTile({
   selected,
 }) {
   const bgColor = selected === true ? 'bg-primary' : 'bg-card';
+  const numColor = selected === true ? 'text-white' : 'text-url';
+
   return (
     <div className={`rounded-2xl w-72 h-28 ${bgColor}`}>
       <WriteText
@@ -16,11 +18,9 @@ export default function ThreadTile({
         selected={selected}
       />
       <div className='ml-auto mr-2 w-1/4 mt-2'>
-        <NumberOfReplies
-          messageCount={messageCount}
-          onClickMessageCount={onClickMessageCount}
-          selected={selected}
-        />
+        <button className='' onClick={onClickMessageCount}>
+          <div className={`text-xs ${numColor}`}>{messageCount}件の返信</div>
+        </button>
       </div>
     </div>
   );
@@ -43,15 +43,5 @@ function WriteText({ subject, body, isNew, selected }) {
       </p>
       <p className='text-base ml-5 mt-2'>{displayBody}</p>
     </div>
-  );
-}
-
-function NumberOfReplies({ messageCount, onClickMessageCount, selected }) {
-  const numColor = selected === true ? 'text-white' : 'text-url';
-
-  return (
-    <button className='' onClick={onClickMessageCount}>
-      <div className={`text-xs ${numColor}`}>{messageCount}件の返信</div>
-    </button>
   );
 }
