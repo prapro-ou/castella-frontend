@@ -10,15 +10,15 @@ import Icon from '@/features/components/Icon';
  * @param {string} createdAt メッセージ作成日時
  * @param {string} alt 画像が表示されなかった場合に表示される文字
  */
-export default function MessageTile({src,value,createdAt,alt}){
-    return(
-        <div className='flex' >
-            <Icon src={src} alt={alt}/>
-            <div className='ml-4'/>
-            <Message value={value}/>
-            <div className='flex flex-col-reverse'>
-                <div className='text-xs text-thin ml-2'>{createdAt}</div>
-            </div>
-        </div>
-    );
+export default function MessageTile({ src, value, createdAt, alt }) {
+  return (
+    <div className='flex'>
+      <Icon src={src} alt={alt} />
+      <div className='ml-4' />
+      <Message value={value} />
+      <div className='flex flex-col-reverse'>
+        <div className='ml-2 text-xs text-thin'>{createdAt}</div>
+      </div>
+    </div>
+  );
 }
