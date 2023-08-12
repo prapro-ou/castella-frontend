@@ -16,13 +16,13 @@ export default function ThreadTile({
   const borderColor = selected ? 'border-white' : 'border-thin';
 
   return (
-    <div className={`rounded-3xl w-fit p-4 ${bgColor}`}>
+    <div className={`w-fit rounded-3xl p-4 ${bgColor}`}>
       <div className={textColor}>
-        <p className={`text-3xl px-4 pb-4 border-b ${borderColor}`}>
+        <p className={`border-b px-4 pb-4 text-3xl ${borderColor}`}>
           {textOverflow(subject)}
         </p>
         <div className='flex'>
-          <p className='text-2xl px-4 py-4'>{textOverflow(body)}</p>
+          <p className='p-4 text-2xl'>{textOverflow(body)}</p>
           <div className='ml-auto mt-auto w-fit'>
             <button onClick={onClickMessageCount}>
               <div className={`text-base ${numColor}`}>
