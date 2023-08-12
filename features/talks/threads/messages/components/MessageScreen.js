@@ -2,7 +2,7 @@
 import React from 'react';
 import MessageTile from './MessageTile';
 import FloatActionButton from '@/features/components/FloatActionButton';
-import buttonPic from 'features/talks/threads/messages/components/stylus_FILL0_wght400_GRAD0_opsz48.svg';
+import editWhite from '@/public/edit_white.svg';
 
 /**
  * メッセージと返信欄を示すためのコンポーネント
@@ -13,14 +13,15 @@ export default function MessageScreen({messages,onClickCreateReplyButton}){
     return(
         <>
             {messages.map((message)=> (
-                <div key={message.id} >
+                <div className='mb-3' key={message.id} >
                     <MessageTile createdAt={message.createdAt} value={message.value} src={message.src} alt={message.alt} />
-                    <div className='mb-3'/>
                 </div>
             ))}
 
             <div className='fixed bottom-2.5 right-2.5'>
-                <button onClick={onClickCreateReplyButton}><FloatActionButton  src={buttonPic} alt={"メールを作成"}/></button>
+                <button onClick={onClickCreateReplyButton}>
+                  <FloatActionButton  src={editWhite} alt={"メールを作成"}/>
+                </button>
             </div>
         </> 
     );
