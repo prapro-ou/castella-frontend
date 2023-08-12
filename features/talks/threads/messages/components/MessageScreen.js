@@ -19,9 +19,7 @@ export default function MessageScreen({messages,onClickCreateReplyButton}){
             ))}
 
             <div className='fixed bottom-2.5 right-2.5'>
-                <button onClick={onClickCreateReplyButton}>
-                  <FloatActionButton  src={editWhite} alt={"メールを作成"}/>
-                </button>
+              <FloatActionButton  src={editWhite} alt={"メールを作成"} onClickButton={onClickCreateReplyButton}/>
             </div>
         </> 
     );

@@ -1,9 +1,11 @@
 import Image from 'next/image';
 
-export default function FloatActionButton({ src, alt }) {
+export default function FloatActionButton({ src, alt, onClickButton }) {
   return (
-    <div className='bg-primary w-24 h-24 rounded-lg shadow-lg'>
-      <Image src={src} alt={alt} width={96} height={96} />
-    </div>
+    <button onClick={onClickButton}>
+      <div className='flex h-16 w-16 items-center justify-center rounded-lg bg-primary shadow-lg'>
+        <Image src={src} alt={alt} width={32} height={32} />
+      </div>
+    </button>
   );
 }
