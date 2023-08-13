@@ -13,9 +13,11 @@ export default function DestinationTile({ name, messageCount, selected }) {
         <Icon src={src} alt={alt} />
       </div>
       <div className={`ml-2 text-sm ${textColor}`}>{name}</div>
+      {(messageCount>0)?(//未読件数が1以上の時のみアイコンを表示
       <div className={`ml-auto`}>
         <UnreadMessageCount count={messageCount} reversed={selected} />
       </div>
+      ):''}
     </div>
   );
 }
