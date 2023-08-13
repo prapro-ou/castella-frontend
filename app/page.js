@@ -1,6 +1,6 @@
 'use client';
 
-import DestinationTile from "@/features/talks/threads/messages/components/DestinationTile";
+import DestinationList from "@/features/talks/threads/component/DestinationList";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
           Loginページ
         </a>
       </p>
-      <DestinationTile name="DM" messageCount={2} selected={true} />
+    <DestinationList />
     </main>
   );
 }
