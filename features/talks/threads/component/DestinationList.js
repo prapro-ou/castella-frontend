@@ -1,10 +1,10 @@
 export default function DestinationList(){
     return(
-      <div>
+      <div className="flex w-64">
         <div>
         DM
         </div>
-        <div>
+        <div className="ml-auto">
         plus
         </div>
       </div>
