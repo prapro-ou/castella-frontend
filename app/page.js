@@ -1,5 +1,28 @@
 'use client';
+
+import DestinationList from "@/features/talks/threads/component/DestinationList";
+
 export default function Home() {
+  const DEST = [
+    {
+      name: 'DM1',
+      messageCount: '3',
+      selected: true,
+    },
+    {
+      name: 'DM2',
+      messageCount: '3',
+      selected: false,
+    },
+    {
+      name: 'DM3',
+      messageCount: '0',
+      selected: false,
+    },
+  ];
+  function handleClickTest(){
+    alert("Hello");
+  }
   return (
     <main>
       <p>
@@ -8,6 +31,7 @@ export default function Home() {
           Loginページ
         </a>
       </p>
+      <DestinationList destinations={DEST} onClickAddButton={handleClickTest} />
     </main>
   );
 }

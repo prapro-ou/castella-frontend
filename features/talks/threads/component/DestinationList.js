@@ -1,7 +1,7 @@
 import Icon from '@/features/components/Icon';
 import DestinationTile from '../messages/components/DestinationTile';
 
-export default function DestinationList({ Destinations, onClickAddButton }) {
+export default function DestinationList({ destinations, onClickAddButton }) {
   // Destinationsの頭文字を小文字のdにするとmap関数でエラー
   const add_src = './add_black.svg';
 
@@ -16,7 +16,7 @@ export default function DestinationList({ Destinations, onClickAddButton }) {
         </div>
       </div>
       <div>
-        {Destinations.map((item) => (
+        {destinations.map((item) => (
           <div key={item.name}>
             <DestinationTile
               name={item.name}
