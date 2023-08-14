@@ -1,7 +1,8 @@
 import Icon from "@/features/components/Icon";
+import DestinationTile from "../messages/components/DestinationTile";
 
 
-export default function DestinationList(){
+export default function DestinationList(Destinations){
     const add_src='./add_black.svg';
 
     return(
@@ -13,6 +14,15 @@ export default function DestinationList(){
           <div className="ml-auto">
             <Icon src={add_src} alt="add icon" />
           </div>
+        </div>
+        <div>
+          {Destinations.map((destination)=>{
+          return(
+            <div key={destination.name}>
+            <DestinationTile name={destination.name} messageCount={destination.messageCount} selected={destination.selected} />
+            </div>
+          );
+        })}
         </div>
       </div>
     );
