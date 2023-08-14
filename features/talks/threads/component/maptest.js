@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
 
-export default function Example({ dest }){
+export default function Example({ dest }) {
   return (
     <ul>
-      {dest.map((item)=>(
-        <li key={item.name}>{item.name}-MessageCount:{item.messageCount}</li>
+      {dest.map((item) => (
+        <li key={item.name}>
+          {item.name}-MessageCount:{item.messageCount}
+        </li>
       ))}
     </ul>
   );
