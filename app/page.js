@@ -12,11 +12,11 @@ export default function Home() {
     },{
       name:"DM2",
       messageCount:"3",
-      selected:true,
+      selected:false,
     },{
       name:"DM3",
-      messageCount:"3",
-      selected:true,
+      messageCount:"0",
+      selected:false,
     },
   ];
   return (
