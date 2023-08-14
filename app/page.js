@@ -20,6 +20,9 @@ export default function Home() {
       selected: false,
     },
   ];
+  function handleClickTest(){
+    alert("Hello");
+  }
   return (
     <main>
       <p>
@@ -28,7 +31,7 @@ export default function Home() {
           Loginページ
         </a>
       </p>
-      <DestinationList Destinations={DEST} />
+      <DestinationList Destinations={DEST} onClickAddButton={handleClickTest} />
     </main>
   );
 }

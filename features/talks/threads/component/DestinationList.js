@@ -25,7 +25,6 @@ export default function DestinationList({ Destinations, onClickAddButton }) {
             />
           </div>
         ))}
-        ;
       </div>
     </div>
   );
