@@ -2,7 +2,7 @@ import Icon from "@/features/components/Icon";
 import DestinationTile from "../messages/components/DestinationTile";
 
 
-export default function DestinationList(Destinations){
+export default function DestinationList({ Destinations }){
     const add_src='./add_black.svg';
 
     return(
@@ -16,13 +16,11 @@ export default function DestinationList(Destinations){
           </div>
         </div>
         <div>
-          {Destinations.map((destination)=>{
-          return(
-            <div key={destination.name}>
-            <DestinationTile name={destination.name} messageCount={destination.messageCount} selected={destination.selected} />
+          {Destinations.map((item)=>(
+            <div key={item.name}>
+            <DestinationTile name={item.name} messageCount={item.messageCount} selected={item.selected} />
             </div>
-          );
-        })}
+          ))};
         </div>
       </div>
     );
