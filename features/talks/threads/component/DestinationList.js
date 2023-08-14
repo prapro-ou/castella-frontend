@@ -8,7 +8,7 @@ export default function DestinationList({ Destinations, onClickAddButton }) {
   return (
     <div className='w-64'>
       <div className='flex items-center'>
-        <div className='text-3xl'>DM</div>
+        <div className='text-3xl text-default'>DM</div>
         <div className='ml-auto'>
           <button onClick={onClickAddButton}>
             <Icon src={add_src} alt='add icon' />
@@ -26,6 +26,7 @@ export default function DestinationList({ Destinations, onClickAddButton }) {
           </div>
         ))}
       </div>
+      <div className='border-t-4' />
     </div>
   );
 }
