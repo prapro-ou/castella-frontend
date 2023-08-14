@@ -1,6 +1,5 @@
 'use client';
 
-import Example from '@/features/talks/threads/component/maptest';
 import DestinationList from '@/features/talks/threads/component/DestinationList';
 
 export default function Home() {
@@ -29,7 +28,6 @@ export default function Home() {
           Loginページ
         </a>
       </p>
-      <Example dest={DEST} />
       <DestinationList Destinations={DEST} />
     </main>
   );
