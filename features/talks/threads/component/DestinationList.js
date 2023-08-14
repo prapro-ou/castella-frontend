@@ -26,7 +26,7 @@ export default function DestinationList({ Destinations, onClickAddButton }) {
           </div>
         ))}
       </div>
-      <div className='border-t-4' />
+      <div className='ml-2 border-t border-thin' />
     </div>
   );
 }
