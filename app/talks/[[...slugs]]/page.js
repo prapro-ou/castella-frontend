@@ -4,7 +4,7 @@ export default function Talks() {
       <p>
         チャット相手を選ぶページ
         <a href='/talks/1/threads' className='text-primary'>
-        Threadsページ
+          Threadsページ
         </a>
       </p>
     </main>
