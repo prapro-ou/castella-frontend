@@ -3,7 +3,7 @@ import DestinationTile from '../messages/components/DestinationTile';
 
 export default function DestinationList({ destinations, onClickAddButton }) {
   // Destinationsの頭文字を小文字のdにするとmap関数でエラー
-  const add_src = './add_black.svg';
+  const addSrc = './addBlack.svg';
 
   return (
     <div className='w-64'>
@@ -11,7 +11,7 @@ export default function DestinationList({ destinations, onClickAddButton }) {
         <div className='text-3xl text-default'>DM</div>
         <div className='ml-auto'>
           <button onClick={onClickAddButton}>
-            <Icon src={add_src} alt='add icon' />
+            <Icon src={addSrc} alt='add icon' />
           </button>
         </div>
       </div>
