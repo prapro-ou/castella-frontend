@@ -2,7 +2,6 @@ import Icon from '@/features/components/Icon';
 import DestinationTile from '../messages/components/DestinationTile';
 
 export default function DestinationList({ destinations, onClickAddButton }) {
-  // Destinationsの頭文字を小文字のdにするとmap関数でエラー
   const addSrc = './addBlack.svg';
 
   return (
