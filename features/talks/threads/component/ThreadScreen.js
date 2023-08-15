@@ -15,7 +15,7 @@ export default function ThreadScreen ({threads, onClickCreateThreadBotton}){
     return(
         <>
             <div className="grid-cols-1 space-y-10" >{list}</div>
-            <button className="drop-shadow-xl fixed bottom-2 right-2 " onClick={onClickCreateThreadBotton}><FloatActionButton/></button>
+            <button className="drop-shadow-xl fixed bottom-2 right-2" onClick={onClickCreateThreadBotton}><FloatActionButton/></button>
 </>
 );
 }
