@@ -9,7 +9,7 @@ export default function ThreadScreen({ threads, onClickCreateThreadButton }) {
   ));
   return (
     <>
-      <div className='grid-cols-1 space-y-10'>{list}</div>
+      <div className='flex flex-col space-y-10'>{list}</div>
       <button
         className='fixed bottom-2 right-2 drop-shadow-xl '
       >
