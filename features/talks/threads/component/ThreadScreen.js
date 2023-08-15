@@ -18,5 +18,4 @@ export default function ThreadScreen ({threads, onClickCreateThreadBotton}){
             <button className="drop-shadow-xl fixed bottom-2 right-2 " onClick={onClickCreateThreadBotton}><FloatActionButton/></button>
 </>
 );
-
 }
