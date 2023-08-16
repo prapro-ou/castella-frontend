@@ -12,7 +12,7 @@ export default function UnreadMessageCount({ count, reversed }) {
 
   return (
     <div
-      className={`flex h-8 w-8 items-center justify-center rounded-full ${bgColor} ${textColor}`}
+      className={`flex h-[28px] w-[28px] items-center justify-center rounded-full text-sm ${bgColor} ${textColor}`}
     >
       {showCount}
     </div>
