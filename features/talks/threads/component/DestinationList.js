@@ -9,10 +9,10 @@ export default function DestinationList({ destinations, onClickAddButton }) {
   return (
     <div className='w-64'>
       <div className='flex items-center'>
-        <div className='text-3xl text-default'>DM</div>
-        <div className='ml-auto'>
+        <div className='ml-2.5 text-lg font-medium text-default'>DM</div>
+        <div className='ml-auto mr-5'>
           <button onClick={onClickAddButton}>
-            <Image width={48} height={48} src={'./addBlack.svg'} alt='add' />
+            <Image width={24} height={24} src={`./addBlack.svg`} alt='add' />
           </button>
         </div>
       </div>
