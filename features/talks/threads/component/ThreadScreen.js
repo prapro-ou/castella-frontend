@@ -10,11 +10,11 @@ export default function ThreadScreen({ threads, onClickCreateThreadButton }) {
   return (
     <>
       <div className='flex flex-col space-y-10'>{list}</div>
-      <button
+      <div
         className='fixed bottom-2 right-2 drop-shadow-xl '
       >
         <FloatActionButton src='/plus.svg' alt='プラスマーク' onClickButton={onClickCreateThreadButton}/>
-      </button>
+      </div>
     </>
   );
 }
