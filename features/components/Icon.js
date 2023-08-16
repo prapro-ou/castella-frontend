@@ -11,7 +11,7 @@ export default function Icon({ src, alt }) {
   }
   return (
     <Image
-      className='h-11 w-11 rounded-full'
+      className='h-8 w-8 rounded-full'
       width={36}
       height={36}
       src={src}
