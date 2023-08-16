@@ -1,12 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-// import Icon from '@/features/components/Icon';
 import DestinationTile from '../messages/components/DestinationTile';
 import addBlack from '@/public/addBlack.svg';
 
 
 export default function DestinationList({ destinations, onClickAddButton }) {
-  // const addSrc = './addBlack.svg';
 
   return (
     <div className='w-64'>
