@@ -1,8 +1,10 @@
-import Icon from '@/features/components/Icon';
+import React from 'react';
+import Image from 'next/image';
+// import Icon from '@/features/components/Icon';
 import DestinationTile from '../messages/components/DestinationTile';
 
 export default function DestinationList({ destinations, onClickAddButton }) {
-  const addSrc = './addBlack.svg';
+  // const addSrc = './addBlack.svg';
 
   return (
     <div className='w-64'>
@@ -10,7 +12,7 @@ export default function DestinationList({ destinations, onClickAddButton }) {
         <div className='text-3xl text-default'>DM</div>
         <div className='ml-auto'>
           <button onClick={onClickAddButton}>
-            <Icon src={addSrc} alt='add icon' />
+            <Image width={48} height={48} src={'./addBlack.svg'} alt='add' />
           </button>
         </div>
       </div>
