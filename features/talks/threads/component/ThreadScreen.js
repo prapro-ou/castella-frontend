@@ -13,7 +13,7 @@ export default function ThreadScreen({ threads, onClickCreateThreadButton }) {
       <div
         className='fixed bottom-2 right-2 drop-shadow-xl '
       >
-        <FloatActionButton src='/plus.svg' alt='プラスマーク' onClickButton={onClickCreateThreadButton}/>
+        <FloatActionButton src='/plus_white.svg' alt='プラスマーク' onClickButton={onClickCreateThreadButton}/>
       </div>
     </>
   );
