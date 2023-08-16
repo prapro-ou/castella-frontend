@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 // import Icon from '@/features/components/Icon';
 import DestinationTile from '../messages/components/DestinationTile';
+import addBlack from '@/public/addBlack.svg';
+
 
 export default function DestinationList({ destinations, onClickAddButton }) {
   // const addSrc = './addBlack.svg';
@@ -12,7 +14,7 @@ export default function DestinationList({ destinations, onClickAddButton }) {
         <div className='ml-2.5 text-lg font-medium text-default'>DM</div>
         <div className='ml-auto mr-5'>
           <button onClick={onClickAddButton}>
-            <Image width={24} height={24} src={`./addBlack.svg`} alt='add' />
+            <Image width={24} height={24} src={addBlack} alt='add' />
           </button>
         </div>
       </div>
