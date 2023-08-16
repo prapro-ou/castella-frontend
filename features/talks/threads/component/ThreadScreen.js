@@ -2,9 +2,9 @@ import FloatActionButton from '@/features/components/FloatActionButton';
 import ThreadTile from './ThreadTile';
 
 export default function ThreadScreen({ threads, onClickCreateThreadButton }) {
-  const list = threads.map((threads, index) => (
+  const list = threads.map((thread, index) => (
     <div key={index}>
-        {ThreadTile (threads)}
+        {ThreadTile (thread)}
     </div>
   ));
   return (
