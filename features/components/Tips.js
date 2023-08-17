@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import questionThin from '@/public/icon/question/question_thin.svg';
 
 export default function Tips() {
   return (
@@ -7,7 +8,7 @@ export default function Tips() {
         width={40}
         height={40}
         alt='ハテナマーク'
-        src='/question_thin.svg'
+        src={questionThin}
       />
 
       <div className='text-thin'>左欄から選択できます</div>
