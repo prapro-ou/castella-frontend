@@ -3,9 +3,7 @@ import Image from 'next/image';
 import DestinationTile from '../messages/components/DestinationTile';
 import addBlack from '@/public/addBlack.svg';
 
-
 export default function DestinationList({ destinations, onClickAddButton }) {
-
   return (
     <div className='w-64'>
       <div className='flex items-center'>
