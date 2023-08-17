@@ -1,4 +1,7 @@
 'use client';
+
+import MessageDialog from "@/features/MessageDialog";
+
 export default function Home() {
   return (
     <main>
@@ -8,6 +11,7 @@ export default function Home() {
           Loginページ
         </a>
       </p>
+      <MessageDialog />
     </main>
   );
 }
