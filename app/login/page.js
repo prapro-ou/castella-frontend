@@ -1,12 +1,7 @@
 export default function Login() {
   return (
     <main>
-      <p>
-        Loginページ
-        <a href='/talks' className='text-primary'>
-          Login
-        </a>
-      </p>
+      <h1>Loginページ</h1>
     </main>
   );
 }

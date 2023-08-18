@@ -1,9 +1,11 @@
 import React from 'react';
 import Icon from '@/features/components/Icon';
-import UnreadMessageCount from '@/features/components/UnreadMessageCount';
+import UnreadMessageCount from '@/features/destinations/components/UnreadMessageCount';
+import personWhite from '@/public/icon/person/person_white.svg';
+import personBlack from '@/public/icon/person/person_black.svg';
 
 export default function DestinationTile({ name, messageCount, selected }) {
-  const src = selected ? './personIcon_white.svg' : './personIcon_black.svg';
+  const src = selected ? personWhite : personBlack;
   const alt = 'personIcon';
   const bgColor = selected ? 'bg-primary' : '';
   const textColor = selected ? 'text-white' : 'text-default';
