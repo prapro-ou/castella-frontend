@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 
 export default function MessageDialog(){
     const [open, setOpen] = React.useState(false);
+    let [email, setEmail] = useState("");
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -12,8 +13,6 @@ export default function MessageDialog(){
     const handleClose = () => {
       setOpen(false);
     };
-
-    let [email, setEmail] = useState("");
   
     return (
       <div>
