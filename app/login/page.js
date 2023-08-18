@@ -1,23 +1,40 @@
+"use client";
+
+import { useState } from "react";
+import 'whatwg-fetch';
+
 export default function Login() {
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
   return (
     <main>
-      <p>
-        Loginページ
-        <a href='/talks' className='text-primary'>
-          Login
-        </a>
-      </p>
-      <form method="POST" action=""> 
+      <div> 
         <div>
-          <label for="email">メールアドレス</label>
-          <input className="ring-2" type="mail" id="emial" name="email" />
+          <label>メールアドレス</label>
+          <input className="ring-2" type="mail" value={email} onChange={(event) => setEmail(event.target.value)} />
         </div>
         <div>
-          <label for="password">パスワード</label>
-          <input className="ring-2" type="password" id="password" name="password"/>
+          <label>パスワード</label>
+          <input className="ring-2" type="password" value={password} onChange={(event) => setPassword(event.target.value)}/>
         </div>
-        <button className = "bg-thin">送信</button>
-      </form>
+        <button onClick={()=>{
+          fetch('https://c6af-150-46-200-18.ngrok-free.app', {
+            method: 'POST',
+            mode:"cors",
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: email,
+              password: password,
+            })
+          }).then(function(response) {
+            console.log(response);
+          }, function(error) {
+            console.error(error);
+          });
+        }} className = "bg-thin">送信</button>
+      </div>
     </main>
   );
 }
