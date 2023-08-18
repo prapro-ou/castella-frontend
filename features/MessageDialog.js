@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@mui/material";
-import styled from "@emotion/styled";
+// import styled from "@emotion/styled";
 
 export default function MessageDialog(){
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     let [email, setEmail] = useState("");
 
     const handleClickOpen = () => {
