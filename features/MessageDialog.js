@@ -4,7 +4,7 @@ import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,D
 
 export default function MessageDialog(){
     const [open, setOpen] = useState(false);
-    let [email, setEmail] = useState("");
+    let [message, setMessage] = useState("");
 
     const handleClickOpen = () => {
       setOpen(true);
@@ -13,7 +13,7 @@ export default function MessageDialog(){
     const handleClose = () => {
       setOpen(false);
     };
-  
+ 
     return (
       <div>
         <Button variant="outlined" onClick={handleClickOpen}>
@@ -30,13 +30,14 @@ export default function MessageDialog(){
               margin="dense"
               id="message"
               label="body"
-              type="email"
+              type="text"
               fullWidth
-              value={email}
-              onChange={(value)=>{setEmail(value);}}
+              value
+              onChange={(event)=>{setMessage(event.target.value);}}
               variant="standard"
             />
           </DialogContent>
+          <div mr-auto ml-auto>{message}</div>
           <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
             <Button onClick={handleClose}>Send</Button>
