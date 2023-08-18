@@ -32,15 +32,14 @@ export default function MessageDialog(){
               label="body"
               type="text"
               fullWidth
-              value
-              onChange={(event)=>{setMessage(event.target.value);}}
+              value={message}//前回の入力を記憶
+              onChange={(event)=> setMessage(event.target.value)}
               variant="standard"
             />
           </DialogContent>
-          <div mr-auto ml-auto>{message}</div>
           <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={handleClose}>Send</Button>
+            <Button onClick={()=>{console.log(message);handleClose();}}>Send</Button>
           </DialogActions>
         </Dialog>
       </div>
