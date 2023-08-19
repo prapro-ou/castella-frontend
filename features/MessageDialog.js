@@ -10,16 +10,16 @@ export default function MessageDialog({open,setOpen,onClickSend}){
     return (
       <div>
         <Dialog open={open} onClose={handleClose}>
-          <DialogTitle>New reply</DialogTitle>
+          <DialogTitle>新しい返信</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              Please write a new reply here!
+              下の欄に本文を書いてください
             </DialogContentText>
             <TextField
               autoFocus={true}
               margin="dense"
               id="message"
-              label="body"
+              label="本文"
               type="text"
               fullWidth
               value={message}//前回の入力を記憶
@@ -28,8 +28,8 @@ export default function MessageDialog({open,setOpen,onClickSend}){
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={()=>{onClickSend(message);handleClose();}}>Send</Button>
+            <Button onClick={handleClose}>閉じる</Button>
+            <Button onClick={()=>{onClickSend(message);handleClose();}}>送信</Button>
           </DialogActions>
         </Dialog>
       </div>
