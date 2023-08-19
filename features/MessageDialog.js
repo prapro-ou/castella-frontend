@@ -4,7 +4,7 @@ import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,D
 
 export default function MessageDialog({onClickSend}){
     const [open, setOpen] = useState(false);
-    let [message, setMessage] = useState("");
+    const [message, setMessage] = useState("");
 
     const handleClickOpen = () => {
       setOpen(true);
