@@ -3,6 +3,9 @@
 import MessageDialog from "@/features/MessageDialog";
 
 export default function Home() {
+  function onClickSend(){
+    console.log("text");
+  }
   return (
     <main>
       <p>
@@ -11,7 +14,7 @@ export default function Home() {
           Loginページ
         </a>
       </p>
-      <MessageDialog />
+      <MessageDialog onClickSend={onClickSend}/>
     </main>
   );
 }

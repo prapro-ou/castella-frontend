@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@mui/material";
 // import styled from "@emotion/styled";
 
-export default function MessageDialog(){
+export default function MessageDialog({onClickSend}){
     const [open, setOpen] = useState(false);
     let [message, setMessage] = useState("");
 
@@ -39,7 +39,7 @@ export default function MessageDialog(){
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={()=>{console.log(message);handleClose();}}>Send</Button>
+            <Button onClick={()=>{onClickSend();handleClose();}}>Send</Button>
           </DialogActions>
         </Dialog>
       </div>
