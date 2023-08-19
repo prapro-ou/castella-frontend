@@ -1,14 +1,14 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@mui/material";
 // import styled from "@emotion/styled";
 
-export default function MessageDialog({onClickSend}){
-    const [open, setOpen] = useState(false);
+export default function MessageDialog({open,setOpen,onClickSend}){
+    // const [open, setOpen] = useState(true);
     const [message, setMessage] = useState("");
 
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
+    // const handleClickOpen = () => {
+    //   setOpen(true);
+    // };
   
     const handleClose = () => {
       setOpen(false);
@@ -16,9 +16,9 @@ export default function MessageDialog({onClickSend}){
  
     return (
       <div>
-        <Button variant="outlined" onClick={handleClickOpen}>
+        {/* <Button variant="outlined" onClick={handleClickOpen}>
           Open form dialog
-        </Button>
+        </Button> */}
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle>New reply</DialogTitle>
           <DialogContent>
