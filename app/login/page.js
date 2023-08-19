@@ -11,14 +11,14 @@ export default function Login() {
       <div> 
         <div>
           <label>メールアドレス</label>
-          <input className="ring-2" type="mail" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <input className="ring-2" type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
         </div>
         <div>
           <label>パスワード</label>
           <input className="ring-2" type="password" value={password} onChange={(event) => setPassword(event.target.value)}/>
         </div>
         <button onClick={()=>{
-          fetch('https://c6af-150-46-200-18.ngrok-free.app', {
+          fetch('https://3385-113-197-158-64.ngrok-free.app/login', {
             method: 'POST',
             mode:"cors",
             headers: {
@@ -30,7 +30,12 @@ export default function Login() {
             })
           }).then(function(response) {
             console.log(response);
-          }, function(error) {
+            return response.json();
+          })
+          .then(function(data){
+            console.log(data);
+          })
+         .catch(function(error) {
             console.error(error);
           });
         }} className = "bg-thin">送信</button>
