@@ -3,8 +3,8 @@
 import MessageDialog from "@/features/MessageDialog";
 
 export default function Home() {
-  function onClickSend(){
-    console.log("text");
+  function onClickSend(text){
+    console.log(text);
   }
   return (
     <main>

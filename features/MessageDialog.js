@@ -39,7 +39,7 @@ export default function MessageDialog({onClickSend}){
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose}>Cancel</Button>
-            <Button onClick={()=>{onClickSend();handleClose();}}>Send</Button>
+            <Button onClick={()=>{onClickSend(message);handleClose();}}>Send</Button>
           </DialogActions>
         </Dialog>
       </div>
