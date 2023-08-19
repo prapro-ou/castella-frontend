@@ -1,22 +1,15 @@
 import {OpenState} from '@/app/page.js';
 import { useContext, useState } from "react";
 import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@mui/material";
-// import FloatActionButton from "./components/FloatActionButton";
-// import addWhite from '@/public/add_white.svg';
 
 export default function MessageDialogNotUsingFAB({onClickCancel,onClickSend}){
     const [message, setMessage] = useState("");
-    // const [open,setOpen]=useState(false);
-    // function handleOpen(){
-    //   setOpen(true);
-    // };
     function handleClose(){
       setOpenDialog(false);
     };
     const {openDialog,setOpenDialog}=useContext(OpenState);
     return (
       <div>
-        {/* <FloatActionButton src={addWhite} alt="add" onClickButton={handleOpen} /> */}
         <Dialog open={openDialog} onClose={handleClose}>
           <DialogTitle>新しい返信
           </DialogTitle>
