@@ -6,7 +6,15 @@ import addBlack from '@/public/addBlack.svg';
 import { useState } from "react";
 
 export default function Home() {
-  const[open,setOpen]=useState(false);
+  
+  const [openDialog,setOpenDialog]=useState(false);
+
+  function onClickAdd(){
+    setOpenDialog(true);
+  }
+  function onClickCancel(){
+    console.log("Canceled");
+  }
   function onClickSend(text){
     console.log(text);
   }
@@ -18,8 +26,8 @@ export default function Home() {
           Loginページ
         </a>
       </p>
-      <FloatActionButton src={addBlack} alt="add" onClickButton={()=>setOpen(true)} />
-      <MessageDialog open={open} setOpen={setOpen} onClickSend={onClickSend} />
+      <FloatActionButton src={addBlack} alt="add" onClickButton={()=>{onClickAdd();}} />
+      <MessageDialog isOpened={openDialog} onClickCancel={onClickCancel} onClickSend={onClickSend} />
     </main>
   );
 }

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@mui/material";
 
-export default function MessageDialog({open,setOpen,onClickSend}){
+export default function MessageDialog({isOpened,onClickCancel,onClickSend}){
     const [message, setMessage] = useState("");
+    const [open,setOpen]=useState(isOpened);
     function handleClose(){
       setOpen(false);
     };
@@ -28,7 +29,7 @@ export default function MessageDialog({open,setOpen,onClickSend}){
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>閉じる</Button>
+            <Button onClick={()=>{onClickCancel();handleClose();}}>閉じる</Button>
             <Button onClick={()=>{onClickSend(message);handleClose();}}>送信</Button>
           </DialogActions>
         </Dialog>
