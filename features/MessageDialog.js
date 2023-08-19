@@ -1,24 +1,14 @@
 import { useState } from "react";
 import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@mui/material";
-// import styled from "@emotion/styled";
 
 export default function MessageDialog({open,setOpen,onClickSend}){
-    // const [open, setOpen] = useState(true);
     const [message, setMessage] = useState("");
-
-    // const handleClickOpen = () => {
-    //   setOpen(true);
-    // };
-  
     function handleClose(){
       setOpen(false);
     };
  
     return (
       <div>
-        {/* <Button variant="outlined" onClick={handleClickOpen}>
-          Open form dialog
-        </Button> */}
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle>New reply</DialogTitle>
           <DialogContent>
