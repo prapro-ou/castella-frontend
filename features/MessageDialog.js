@@ -10,7 +10,7 @@ export default function MessageDialog({open,setOpen,onClickSend}){
     //   setOpen(true);
     // };
   
-    const handleClose = () => {
+    function handleClose(){
       setOpen(false);
     };
  
