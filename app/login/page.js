@@ -1,6 +1,5 @@
 "use client";
 
-import { cookies } from "next/dist/client/components/headers";
 import { useState } from "react";
 import 'whatwg-fetch';
 
@@ -25,7 +24,7 @@ export default function Login() {
 }
 
 function onClickLoginPageSendButton({email,password}){
-  fetch(process.env.NEXT_PUBLIC_URL+'/login', {
+  fetch(`${process.env.NEXT_PUBLIC_URL}/login`, {
     method: 'POST',
     mode:"cors",
     headers: {
@@ -42,7 +41,7 @@ function onClickLoginPageSendButton({email,password}){
     if (!navigator.cookieEnabled) {
       alert('cookieを有効にしてください');
       return;
-    };
+    }
 
     // cookieに情報がない場合
     if(!document.cookie) {
@@ -54,7 +53,6 @@ function onClickLoginPageSendButton({email,password}){
       cookieAsJson.token = data.token;
       document.cookie = JSON.stringify(cookieAsJson);
     }
-    console.log(document.cookie);
   })
  .catch(function(error) {
     console.error(error);
