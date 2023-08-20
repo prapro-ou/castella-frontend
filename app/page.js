@@ -1,8 +1,9 @@
 'use client';
+
+import Destinations from "./destinations/[[...slugs]]/page";
+
 export default function Home() {
   return (
-    <main>
-      <h1>LAページ</h1>
-    </main>
+    <Destinations />
   );
 }
