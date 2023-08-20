@@ -3,20 +3,20 @@ import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,D
 // import FloatActionButton from "./components/FloatActionButton";
 // import addWhite from '@/public/add_white.svg';
 
-export default function MessageDialog({onClickCancel,onClickSend}){
+export default function MessageDialog({isOpened,onClickCancel,onClickSend,handleClose}){
     const [message, setMessage] = useState("");
-    const [open,setOpen]=useState(false);
-    function handleOpen(){
-      setOpen(true);
-    };
-    function handleClose(){
-      setOpen(false);
-    };
+    // const [open,setOpen]=useState(false);
+    // function handleOpen(){
+    //   setOpen(true);
+    // };
+    // function handleClose(){
+    //   setOpen(false);
+    // };
  
     return (
       <div>
         {/* <FloatActionButton src={addWhite} alt="add" onClickButton={handleOpen} /> */}
-        <Dialog open={open} onClose={handleClose}>
+        <Dialog open={isOpened} onClose={handleClose}>
           <DialogTitle>新しい返信</DialogTitle>
           <DialogContent>
             <DialogContentText>
