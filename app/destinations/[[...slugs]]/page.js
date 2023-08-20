@@ -8,7 +8,7 @@ import postDestinationsRequest from "@/features/destinations/data/PostDestinatio
 import { useEffect, useState } from "react";
 
 
-export default function Destinations() {
+export default function App() {
   const [dms, setDms]=useState([]);
   const [openCreatDMDialog,setOpenCreatDMDialog]=useState(false);
 
