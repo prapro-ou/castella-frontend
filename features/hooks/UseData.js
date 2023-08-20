@@ -4,6 +4,7 @@ import getDMThreadsRequest from '@/features/threads/data/GetDMThreadsRequest';
 import getDMMessagesRequest from '@/features/messages/data/GetDMMessagesRequest';
 import postDestinationsRequest from '@/features/destinations/dm/data/PostDestinationsRequest';
 import postDMThreadsRequest from "@/features/threads/data/PostDMThreadsRequest";
+import postDMMessagesRequest from "@/features/messages/data/PostDMMessagesRequest";
 
 export default function useData() {
   const [destinations, setDestinations] = useState({ dms: [], groups: [] });
@@ -30,6 +31,8 @@ export default function useData() {
 
   const createDMThread = async (subject, body) => postDMThreadsRequest(dmId, subject, body);
 
+  const createDMMessage = async (body) => postDMMessagesRequest(dmId, messageId, body);
+
   const setSelectedDMId = (dmId) => {
     const newDMs = destinations.dms.map((dm) => {
       dm.selected = dm.id === dmId;
@@ -53,6 +56,7 @@ export default function useData() {
     messages,
     createDM,
     createDMThread,
+    createDMMessage,
     setSelectedDMId,
     setSelectedMessageId,
   ];

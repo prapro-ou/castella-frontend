@@ -7,6 +7,7 @@ import ThreadScreen from '@/features/threads/components/ThreadScreen';
 import MessageScreen from '@/features/messages/components/MessageScreen';
 import useData from '@/features/hooks/UseData';
 import CreateDMThreadDialog from "@/features/threads/components/CreateDMThreadDialog";
+import CreateDMMessageDialog from "@/features/messages/components/CreateDMMessageDialog";
 
 export default function App() {
   const [
@@ -15,11 +16,14 @@ export default function App() {
     messages,
     createDM,
     createDMThread,
+    createDMMessage,
     setSelectedDMId,
     setSelectedMessageId,
   ] = useData();
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
   const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] = useState(false);
+  const [openCreateDMMessageDialog, setOpenCreateDMMessageDialog] = useState(false);
+
 
   return (
     <>
@@ -58,6 +62,14 @@ export default function App() {
         onClickSend={(subject, body) => {
           createDMThread(subject, body);
           setOpenCreateDMThreadDialog(false);
+        }}
+      />
+      <CreateDMMessageDialog
+        isOpened={openCreateDMMessageDialog}
+        onClickCancel={() => setOpenCreateDMMessageDialog(false)}
+        onClickSend={(body) => {
+          createDMMessage(body);
+          setOpenCreateDMMessageDialog(false);
         }}
       />
     </>

@@ -11,7 +11,7 @@ import {
   DialogTitle,
 } from '@mui/material';
 
-export default function MessageDialog({
+export default function CreateDMMessageDialog({
   isOpened,
   onClickCancel,
   onClickSend,
