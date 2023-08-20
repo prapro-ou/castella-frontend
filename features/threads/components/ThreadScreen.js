@@ -5,7 +5,14 @@ import plusWhite from '@/public/icon/plus/plus_white.svg';
 export default function ThreadScreen({ threads, onClickCreateThreadButton }) {
   const list = threads.map((thread) => (
     <div key={thread.id}>
-      <ThreadTile {...thread} />
+      <ThreadTile
+        subject={thread.subject}
+        body={thread.body}
+        messageCount={thread.new_message_count}
+        isNew={thread.is_new}
+        onClickMessageCount={()=>{}}
+        selected={false}
+      />
     </div>
   ));
   return (
