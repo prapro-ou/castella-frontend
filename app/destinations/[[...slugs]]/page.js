@@ -30,9 +30,13 @@ export default function Destinations() {
   }
 
   return (
-    <div className="flex">
-    <DestinationList destinations={dests} onClickAddButton={clickTest} />
-    <Tips />
+    <div className="flex h-screen">
+      <div>
+        <DestinationList destinations={dests} onClickAddButton={clickTest} />
+      </div>
+      <div className="m-auto">
+        <Tips />
+      </div>
     </div>
   );
 }
