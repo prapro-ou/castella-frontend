@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
-import DestinationTile from '../messages/components/DestinationTile';
-import addBlack from '@/public/addBlack.svg';
+import addBlack from '@/public/icon/add/add_black.svg';
+import DestinationTile from '@/features/destinations/components/DestinationTile';
 
 export default function DestinationList({ destinations, onClickAddButton }) {
   return (

@@ -1,5 +1,6 @@
 import FloatActionButton from '@/features/components/FloatActionButton';
 import ThreadTile from './ThreadTile';
+import plusWhite from '@/public/icon/plus/plus_white.svg';
 
 export default function ThreadScreen({ threads, onClickCreateThreadButton }) {
   const list = threads.map((thread) => (
@@ -12,7 +13,7 @@ export default function ThreadScreen({ threads, onClickCreateThreadButton }) {
       <div className='flex flex-col space-y-10'>{list}</div>
       <div className='fixed bottom-2 right-2 drop-shadow-xl '>
         <FloatActionButton
-          src='/plus_white.svg'
+          src={plusWhite}
           alt='プラスマーク'
           onClickButton={onClickCreateThreadButton}
         />
