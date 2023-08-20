@@ -9,8 +9,8 @@ export default function ThreadScreen({
   className,
 }) {
   return (
-    <div className={`bg-white ${className}`}>
-      <div className='flex flex-col space-y-10'>
+    <div className={`relative bg-white ${className}`}>
+      <div className='flex h-screen flex-col items-center space-y-10 overflow-auto py-10'>
         {threads.map((thread) => (
           <div key={thread.id}>
             <ThreadTile
@@ -26,7 +26,7 @@ export default function ThreadScreen({
           </div>
         ))}
       </div>
-      <div className='fixed bottom-2 right-2 drop-shadow-xl '>
+      <div className='absolute bottom-28 right-14 drop-shadow-xl '>
         <FloatActionButton
           src={plusWhite}
           alt='プラスマーク'
