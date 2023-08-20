@@ -1,21 +1,29 @@
 'use client';
 
 import { useState } from "react";
-import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@mui/material";
+import { Button,TextField,Dialog,DialogActions,DialogContent,DialogTitle } from "@mui/material";
 
-export default function MessageDialog({isOpened,onClickCancel,onClickSend}){
+export default function ThreadDialog({isOpened,onClickCancel,onClickSend}){
+    const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
  
     return (
       <div>
         <Dialog open={isOpened}>
-          <DialogTitle>新しい返信</DialogTitle>
+          <DialogTitle>新たなスレッド</DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              下の欄に本文を書いてください
-            </DialogContentText>
             <TextField
               autoFocus={true}
+              margin="dense"
+              id="subject"
+              label="件名"
+              type="text"
+              fullWidth
+              value={subject}//前回の入力を記憶
+              onChange={(event)=> setSubject(event.target.value)}
+              variant="standard"
+            />
+            <TextField
               margin="dense"
               id="message"
               label="本文"
@@ -28,7 +36,7 @@ export default function MessageDialog({isOpened,onClickCancel,onClickSend}){
           </DialogContent>
           <DialogActions>
             <Button onClick={()=>{onClickCancel();}}>閉じる</Button>
-            <Button onClick={()=>{onClickSend(message);}}>送信</Button>
+            <Button onClick={()=>{onClickSend(subject,message);}}>送信</Button>
           </DialogActions>
         </Dialog>
       </div>
