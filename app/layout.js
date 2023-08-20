@@ -1,5 +1,6 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,6 +22,6 @@ export default function RootLayout({ children }) {
 
 function Header() {
   return <header className='h-16 bg-primary shadow-md'>
-    <img src="./favicon.ico" width={64} height={64}/>
+    <Image src='/icon/castella/icon.png' width={64} height={64}/>
       </header>;{}
 }
