@@ -54,6 +54,7 @@ function onClickLoginPageSendButton({email,password}){
       cookieAsJson.token = data.token;
       document.cookie = JSON.stringify(cookieAsJson);
     }
+    console.log(document.cookie);
   })
  .catch(function(error) {
     console.error(error);
