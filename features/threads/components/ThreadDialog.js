@@ -10,7 +10,7 @@ export default function ThreadDialog({isOpened,onClickCancel,onClickSend}){
     return (
       <div>
         <Dialog open={isOpened}>
-          <DialogTitle>新たなスレッド</DialogTitle>
+          <DialogTitle>新規スレッド</DialogTitle>
           <DialogContent>
             <TextField
               autoFocus={true}
