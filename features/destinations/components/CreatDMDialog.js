@@ -27,7 +27,7 @@ export default function CreatDMDialog({isOpened,onClickCancel,onClickSend}){
               margin="dense"
               id="address"
               label="メールアドレス"
-              type="text"
+              type="email"
               fullWidth
               value={address}//前回の入力を記憶
               onChange={(event)=> setAddress(event.target.value)}
