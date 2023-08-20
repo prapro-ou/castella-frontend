@@ -4,39 +4,39 @@ import { useState } from "react";
 import { Button,TextField,Dialog,DialogActions,DialogContent,DialogTitle } from "@mui/material";
 
 export default function CreatDMDialog({isOpened,onClickCancel,onClickSend}){
-    const [subject, setSubject] = useState("");
-    const [message, setMessage] = useState("");
+    const [name, setName] = useState("");
+    const [address, setAddress] = useState("");
  
     return (
       <div>
         <Dialog open={isOpened}>
-          <DialogTitle>新規スレッド</DialogTitle>
+          <DialogTitle>新規DM</DialogTitle>
           <DialogContent>
             <TextField
               autoFocus={true}
               margin="dense"
-              id="subject"
-              label="件名"
+              id="name"
+              label="名前"
               type="text"
               fullWidth
-              value={subject}//前回の入力を記憶
-              onChange={(event)=> setSubject(event.target.value)}
+              value={name}//前回の入力を記憶
+              onChange={(event)=> setName(event.target.value)}
               variant="standard"
             />
             <TextField
               margin="dense"
-              id="message"
-              label="本文"
+              id="address"
+              label="メールアドレス"
               type="text"
               fullWidth
-              value={message}//前回の入力を記憶
-              onChange={(event)=> setMessage(event.target.value)}
+              value={address}//前回の入力を記憶
+              onChange={(event)=> setAddress(event.target.value)}
               variant="standard"
             />
           </DialogContent>
           <DialogActions>
             <Button onClick={()=>{onClickCancel();}}>閉じる</Button>
-            <Button onClick={()=>{onClickSend(subject,message);}}>送信</Button>
+            <Button onClick={()=>{onClickSend(name,address);}}>送信</Button>
           </DialogActions>
         </Dialog>
       </div>
