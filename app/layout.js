@@ -21,11 +21,6 @@ export default function RootLayout({ children }) {
 
 function Header() {
   return <header className='h-16 bg-primary shadow-md'>
-    <h1>
-          <a className='image'>
-            <img
-            src="./favicon.ico" width={64} height={64}
-            /></a>
-      </h1>
-      </header>;
+    <img src="./favicon.ico" width={64} height={64}/>
+      </header>;{}
 }
