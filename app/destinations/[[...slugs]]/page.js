@@ -31,7 +31,7 @@ export default function Destinations() {
 
   return (
     <div className="flex h-screen bg-gray">
-      <div>
+      <div className="w-72 bg-white">
         <DestinationList destinations={dests} onClickAddButton={clickTest} />
       </div>
       <div className="m-auto">
