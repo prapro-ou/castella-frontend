@@ -42,14 +42,14 @@ export default function Register() {
         </div>
         <button
           onClick={async () => {
-            const isRegisterSuccess = await PostRegisterRequest(
+            const isSuccessToRegister = await PostRegisterRequest(
               email,
               loginPassword,
               emailPassword,
             );
-            if (!isRegisterSuccess) return;
-            const isLoginSuccess = postLoginRequest(email, loginPassword);
-            if (!isLoginSuccess) return;
+            if (!isSuccessToRegister) return;
+            const isSuccessToLogin = postLoginRequest(email, loginPassword);
+            if (!isSuccessToLogin) return;
             router.push(`/destinations`);
           }}
           className='bg-thin'
