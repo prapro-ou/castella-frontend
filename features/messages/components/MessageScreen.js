@@ -9,9 +9,9 @@ import editWhite from '@/public/icon/edit/edit_white.svg';
  * @param {Array} messages 子コンポーネントMessageTileに必要となる引数を持つ配列
  * @param {() => void} onClickCreateReplyButton ボタンを押した時に動かす関数
  */
-export default function MessageScreen({ messages, onClickCreateReplyButton }) {
+export default function MessageScreen({ messages, onClickCreateReplyButton, className }) {
   return (
-    <>
+    <div className={`bg-white ${className}`}>
       <div className='flex flex-col'>
         {messages.map((message) => (
           <div className='mb-3' key={message.id}>
@@ -32,6 +32,6 @@ export default function MessageScreen({ messages, onClickCreateReplyButton }) {
           onClickButton={onClickCreateReplyButton}
         />
       </div>
-    </>
+    </div>
   );
 }

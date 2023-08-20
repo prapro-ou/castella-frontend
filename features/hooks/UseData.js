@@ -1,8 +1,8 @@
-import {useEffect, useState} from "react";
-import getDestinationsRequest from "@/features/destinations/dm/data/GetDestinationsRequest";
-import getDMThreadsRequest from "@/features/threads/data/GetDMThreadsRequest";
-import getDMMessagesRequest from "@/features/messages/data/GetDMMessagesRequest";
-import postDestinationsRequest from "@/features/destinations/dm/data/PostDestinationsRequest";
+import { useEffect, useState } from 'react';
+import getDestinationsRequest from '@/features/destinations/dm/data/GetDestinationsRequest';
+import getDMThreadsRequest from '@/features/threads/data/GetDMThreadsRequest';
+import getDMMessagesRequest from '@/features/messages/data/GetDMMessagesRequest';
+import postDestinationsRequest from '@/features/destinations/dm/data/PostDestinationsRequest';
 
 export default function useData() {
   const [destinations, setDestinations] = useState({ dms: [], groups: [] });
@@ -12,7 +12,7 @@ export default function useData() {
   const [dmId, setDMId] = useState();
   const [messageId, setMessageId] = useState();
 
-  useEffect(()=>{
+  useEffect(() => {
     (async () => {
       const des = await getDestinationsRequest();
       setDestinations(des);
@@ -36,7 +36,7 @@ export default function useData() {
       group.selected = false;
       return group;
     });
-    setDestinations({ dms: newDMs, groups: newGroups});
+    setDestinations({ dms: newDMs, groups: newGroups });
     setDMId(dmId);
   };
 
@@ -44,5 +44,12 @@ export default function useData() {
     setMessageId(messageId);
   };
 
-  return [destinations, threads, messages, createDM, setSelectedDMId, setSelectedMessageId];
+  return [
+    destinations,
+    threads,
+    messages,
+    createDM,
+    setSelectedDMId,
+    setSelectedMessageId,
+  ];
 }

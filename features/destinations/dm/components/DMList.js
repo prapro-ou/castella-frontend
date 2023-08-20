@@ -5,26 +5,26 @@ import DestinationTile from '@/features/destinations/components/DestinationTile'
 
 export default function DMList({ dms, onClickTile, onClickAddButton }) {
   return (
-    <div className='w-64'>
-      <div className='mt-5 flex items-center'>
-        <div className='ml-4 text-lg font-medium text-default'>DM</div>
-        <button className='ml-auto mr-5' onClick={onClickAddButton}>
-            <Image width={24} height={24} src={addBlack} alt='add' />
+    <div className='w-full'>
+      <div className='flex items-center'>
+        <div className='text-xl font-bold text-default'>DM</div>
+        <button className='ml-auto' onClick={onClickAddButton}>
+          <Image width={36} height={36} src={addBlack} alt='add' />
         </button>
       </div>
-      <div>
+      <div className='my-4 flex flex-col gap-2'>
         {dms.map((item) => (
           <div key={item.id}>
             <DestinationTile
               name={item.name}
               messageCount={item.messageCount}
               selected={item.selected}
-              onClick={ () => onClickTile(item.id) }
+              onClick={() => onClickTile(item.id)}
             />
           </div>
         ))}
       </div>
-      <div className='ml-2 border-t border-thin' />
+      <div className='border-t border-thin' />
     </div>
   );
 }
