@@ -4,13 +4,13 @@ import UnreadMessageCount from '@/features/destinations/components/UnreadMessage
 import personWhite from '@/public/icon/person/person_white.svg';
 import personBlack from '@/public/icon/person/person_black.svg';
 
-export default function DestinationTile({ name, messageCount, selected }) {
+export default function DestinationTile({ name, messageCount, selected, onClick }) {
   const src = selected ? personWhite : personBlack;
   const alt = 'personIcon';
   const bgColor = selected ? 'bg-primary' : '';
   const textColor = selected ? 'text-white' : 'text-default';
   return (
-    <div className={`flex h-12 w-64 items-center rounded-full p-3 ${bgColor}`}>
+    <div className={`flex h-12 w-64 items-center rounded-full p-3 ${bgColor}`} onClick={onClick}>
       <div>
         <Icon src={src} alt={alt} />
       </div>

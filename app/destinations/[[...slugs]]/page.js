@@ -1,40 +1,31 @@
 'use client';
 
-import Tips from "@/features/components/Tips";
-import CreatDMDialog from "@/features/destinations/components/CreatDMDialog";
-import DestinationList from "@/features/destinations/components/DestinationList";
-import getDestinationsRequest from "@/features/destinations/data/GetDestinationsRequest";
-import postDestinationsRequest from "@/features/destinations/data/PostDestinationsRequest";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import DestinationScreen from "@/features/destinations/components/DestinationScreen";
+import CreatDMDialog from "@/features/destinations/dm/components/CreatDMDialog";
+import useDestination from "@/features/destinations/hooks/UseDestination";
 
 
 export default function App() {
-  const [dms, setDms]=useState([]);
-  const [openCreatDMDialog,setOpenCreatDMDialog]=useState(false);
-
-  useEffect(()=>{
-    setInterval(async () => {
-      const json = await getDestinationsRequest();
-      setDms(json.dms);
-    }, 5000);
-  },[]);
+  const [destinations, createDM, selectDM] = useDestination();
+  const [openCreatDMDialog, setOpenCreatDMDialog] = useState(false);
 
 
   return (
     <div className="flex h-screen bg-gray">
-      <div className="w-72 bg-white">
-        <DestinationList destinations={dms} onClickAddButton={()=>{setOpenCreatDMDialog(true);}} />
-        <CreatDMDialog
-         isOpened={openCreatDMDialog}
-          onClickCancel={()=>{setOpenCreatDMDialog(false);}}
-          onClickSend={(name, to) => {
-            postDestinationsRequest(name, to);
-            setOpenCreatDMDialog(false);
-          }} />
-      </div>
-      <div className="m-auto">
-        <Tips />
-      </div>
+      <DestinationScreen
+        destinations={destinations}
+        onClickAddButton={()=>{setOpenCreatDMDialog(true);}}
+        onClickTile={selectDM}
+      />
+
+      <CreatDMDialog
+        isOpened={openCreatDMDialog}
+        onClickCancel={()=>{setOpenCreatDMDialog(false);}}
+        onClickSend={(name, to) => {
+          createDM(name, to);
+          setOpenCreatDMDialog(false);
+        }} />
     </div>
   );
 }

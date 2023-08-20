@@ -3,7 +3,7 @@ import Image from 'next/image';
 import addBlack from '@/public/icon/add/add_black.svg';
 import DestinationTile from '@/features/destinations/components/DestinationTile';
 
-export default function DestinationList({ destinations, onClickAddButton }) {
+export default function DMList({ dms, onClickTile, onClickAddButton }) {
   return (
     <div className='w-64'>
       <div className='mt-5 flex items-center'>
@@ -13,12 +13,13 @@ export default function DestinationList({ destinations, onClickAddButton }) {
         </button>
       </div>
       <div>
-        {destinations.map((item) => (
-          <div key={item.name}>
+        {dms.map((item) => (
+          <div key={item.id}>
             <DestinationTile
               name={item.name}
               messageCount={item.messageCount}
               selected={item.selected}
+              onClick={ () => onClickTile(item.id) }
             />
           </div>
         ))}
