@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@mui/material";
 
-export default function MessageDialog({isOpened,onClickCancel,onClickSend,handleClose}){
+export default function MessageDialog({isOpened,onClickCancel,onClickSend}){
     const [message, setMessage] = useState("");
  
     return (
       <div>
-        <Dialog open={isOpened} onClose={handleClose}>
+        <Dialog open={isOpened}>
           <DialogTitle>新しい返信</DialogTitle>
           <DialogContent>
             <DialogContentText>
@@ -25,8 +25,8 @@ export default function MessageDialog({isOpened,onClickCancel,onClickSend,handle
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={()=>{onClickCancel();handleClose();}}>閉じる</Button>
-            <Button onClick={()=>{onClickSend(message);handleClose();}}>送信</Button>
+            <Button onClick={()=>{onClickCancel();}}>閉じる</Button>
+            <Button onClick={()=>{onClickSend(message);}}>送信</Button>
           </DialogActions>
         </Dialog>
       </div>

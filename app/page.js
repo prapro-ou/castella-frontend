@@ -22,10 +22,6 @@ export default function Home() {
     console.log("Send Clicked");
     console.log(text);
   }
-  function handleClose(){
-    console.log("closing...");
-    setOpenDialog(false);
-  }
 
   return (
     <main>
@@ -36,7 +32,7 @@ export default function Home() {
         </a>
       </p>
       <FloatActionButton src={addBlack} alt="add" onClickButton={onClickAdd} />
-      <MessageDialog isOpened={openDialog} onClickCancel={onClickCancel} onClickSend={onClickSend} handleClose={handleClose} />
+      <MessageDialog isOpened={openDialog} onClickCancel={onClickCancel} onClickSend={onClickSend} />
     </main>
   );
 }
