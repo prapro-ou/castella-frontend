@@ -21,6 +21,16 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      // フォントを追加
+      fontFamily: {
+        dela: ['Dela Gothic One'],
+        italic: ['Noto Serif Display'],
+        dot: ['DotGothic16'],
+        mincho: ['Noto Serif JP'],
+        zenkaku: ['Zen Kaku Gothic New'],
+        hikki: ['Zen Antique Soft'],
+        penji: ['Zen Kurenaido'],
+      },
     },
   },
   plugins: [],
