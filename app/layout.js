@@ -1,5 +1,7 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
+import Image from 'next/image';
+import icon from '@/public/icon/castella/icon.png';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,5 +22,9 @@ export default function RootLayout({ children }) {
 }
 
 function Header() {
-  return <header className='h-16 bg-primary shadow-md'>{}</header>;
+  return (
+    <header className='flex h-16 items-center bg-primary shadow-md'>
+      <Image className='ml-2' src={icon} width={56} height={56} alt='icon' />
+    </header>
+  );
 }
