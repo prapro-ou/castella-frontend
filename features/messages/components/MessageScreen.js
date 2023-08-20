@@ -12,16 +12,18 @@ import editWhite from '@/public/icon/edit/edit_white.svg';
 export default function MessageScreen({ messages, onClickCreateReplyButton }) {
   return (
     <>
-      {messages.map((message) => (
-        <div className='mb-3' key={message.id}>
-          <MessageTile
-            createdAt={message.createdAt}
-            value={message.value}
-            src={message.src}
-            alt={message.alt}
-          />
-        </div>
-      ))}
+      <div className='flex flex-col'>
+        {messages.map((message) => (
+          <div className='mb-3' key={message.id}>
+            <MessageTile
+              createdAt={message.createdAt}
+              value={message.body}
+              src={message.src}
+              alt={message.alt}
+            />
+          </div>
+        ))}
+      </div>
 
       <div className='fixed bottom-2.5 right-2.5'>
         <FloatActionButton

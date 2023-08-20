@@ -2,7 +2,7 @@ import FloatActionButton from '@/features/components/FloatActionButton';
 import ThreadTile from './ThreadTile';
 import plusWhite from '@/public/icon/plus/plus_white.svg';
 
-export default function ThreadScreen({ threads, onClickCreateThreadButton }) {
+export default function ThreadScreen({ threads, onClickCreateThreadButton, onClickTile }) {
   const list = threads.map((thread) => (
     <div key={thread.id}>
       <ThreadTile
@@ -10,7 +10,7 @@ export default function ThreadScreen({ threads, onClickCreateThreadButton }) {
         body={thread.body}
         messageCount={thread.new_message_count}
         isNew={thread.is_new}
-        onClickMessageCount={()=>{}}
+        onClickMessageCount={()=>{ onClickTile(thread.id); }}
         selected={false}
       />
     </div>
