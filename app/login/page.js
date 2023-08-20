@@ -23,7 +23,7 @@ export default function Login() {
         <button onClick={async ()=> {
           const isSuccess = await postLoginRequest(email, password);
           if (isSuccess) {
-            router.push(`${process.env.NEXT_PUBLIC_URL}/destinations`);
+            router.push(`/destinations`);
           }
           }} className = "bg-thin">送信</button>
       </div>
