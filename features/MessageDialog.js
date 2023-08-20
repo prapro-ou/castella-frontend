@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@mui/material";
-import FloatActionButton from "./components/FloatActionButton";
-import addWhite from '@/public/add_white.svg';
+// import FloatActionButton from "./components/FloatActionButton";
+// import addWhite from '@/public/add_white.svg';
 
 export default function MessageDialog({onClickCancel,onClickSend}){
     const [message, setMessage] = useState("");
@@ -15,7 +15,7 @@ export default function MessageDialog({onClickCancel,onClickSend}){
  
     return (
       <div>
-        <FloatActionButton src={addWhite} alt="add" onClickButton={handleOpen} />
+        {/* <FloatActionButton src={addWhite} alt="add" onClickButton={handleOpen} /> */}
         <Dialog open={open} onClose={handleClose}>
           <DialogTitle>新しい返信</DialogTitle>
           <DialogContent>
