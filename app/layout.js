@@ -23,5 +23,5 @@ export default function RootLayout({ children }) {
 function Header() {
   return <header className='h-16 bg-primary shadow-md'>
     <Image src='/icon/castella/icon.png' width={64} height={64} alt="icon"/>
-      </header>;{}
+      </header>;
 }
