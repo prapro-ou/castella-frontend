@@ -3,6 +3,7 @@ import getDestinationsRequest from '@/features/destinations/dm/data/GetDestinati
 import getDMThreadsRequest from '@/features/threads/data/GetDMThreadsRequest';
 import getDMMessagesRequest from '@/features/messages/data/GetDMMessagesRequest';
 import postDestinationsRequest from '@/features/destinations/dm/data/PostDestinationsRequest';
+import postDMThreadsRequest from "@/features/threads/data/PostDMThreadsRequest";
 
 export default function useData() {
   const [destinations, setDestinations] = useState({ dms: [], groups: [] });
@@ -27,6 +28,8 @@ export default function useData() {
 
   const createDM = async (name, email) => postDestinationsRequest(name, email);
 
+  const createDMThread = async (subject, body) => postDMThreadsRequest(dmId, subject, body);
+
   const setSelectedDMId = (dmId) => {
     const newDMs = destinations.dms.map((dm) => {
       dm.selected = dm.id === dmId;
@@ -49,6 +52,7 @@ export default function useData() {
     threads,
     messages,
     createDM,
+    createDMThread,
     setSelectedDMId,
     setSelectedMessageId,
   ];

@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from '@mui/material';
 
-export default function ThreadDialog({ isOpened, onClickCancel, onClickSend }) {
+export default function CreateDMThreadDialog({ isOpened, onClickCancel, onClickSend }) {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
