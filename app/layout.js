@@ -22,7 +22,9 @@ export default function RootLayout({ children }) {
 }
 
 function Header() {
-  return (<header className='flex items-center h-16 bg-primary shadow-md'>
-    <Image className='ml-2' src={icon} width={56} height={56} alt="icon"/>
-      </header>
-);}
+  return (
+    <header className='flex h-16 items-center bg-primary shadow-md'>
+      <Image className='ml-2' src={icon} width={56} height={56} alt='icon' />
+    </header>
+  );
+}
