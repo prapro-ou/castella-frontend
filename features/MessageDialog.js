@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from "react";
 import { Button,TextField,Dialog,DialogActions,DialogContent,DialogContentText,DialogTitle } from "@mui/material";
 
