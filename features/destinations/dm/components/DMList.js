@@ -12,7 +12,7 @@ export default function DMList({ dms, onClickTile, onClickAddButton }) {
           <Image width={36} height={36} src={addBlack} alt='add' />
         </button>
       </div>
-      <div className='my-4 flex flex-col gap-2'>
+      <div className='my-4 flex flex-col space-y-2'>
         {dms.map((item) => (
           <div key={item.id}>
             <DestinationTile

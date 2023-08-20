@@ -7,7 +7,7 @@ import Image from 'next/image';
  */
 export default function Icon({ src, alt }) {
   if (src === undefined) {
-    return <div className='h-11 w-11 rounded-full bg-thin'></div>;
+    return <div className='h-12 w-12 rounded-full bg-gray'></div>;
   }
   return (
     <Image

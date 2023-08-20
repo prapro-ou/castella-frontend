@@ -8,11 +8,12 @@ import editWhite from '@/public/icon/edit/edit_white.svg';
  * メッセージと返信欄を示すためのコンポーネント
  * @param {Array} messages 子コンポーネントMessageTileに必要となる引数を持つ配列
  * @param {() => void} onClickCreateReplyButton ボタンを押した時に動かす関数
+ * @param className
  */
 export default function MessageScreen({ messages, onClickCreateReplyButton, className }) {
   return (
-    <div className={`bg-white ${className}`}>
-      <div className='flex flex-col'>
+    <div className={`relative bg-white ${className}`}>
+      <div className='flex h-screen flex-col items-center space-y-10 overflow-auto py-10'>
         {messages.map((message) => (
           <div className='mb-3' key={message.id}>
             <MessageTile
@@ -25,10 +26,10 @@ export default function MessageScreen({ messages, onClickCreateReplyButton, clas
         ))}
       </div>
 
-      <div className='fixed bottom-2.5 right-2.5'>
+      <div className='absolute bottom-28 right-14'>
         <FloatActionButton
           src={editWhite}
-          alt={'メールを作成'}
+          alt='メール作成'
           onClickButton={onClickCreateReplyButton}
         />
       </div>

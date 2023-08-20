@@ -26,10 +26,10 @@ export default function ThreadScreen({
           </div>
         ))}
       </div>
-      <div className='absolute bottom-28 right-14 drop-shadow-xl '>
+      <div className='absolute bottom-28 right-14'>
         <FloatActionButton
           src={plusWhite}
-          alt='プラスマーク'
+          alt='スレッド作成'
           onClickButton={onClickCreateThreadButton}
         />
       </div>
