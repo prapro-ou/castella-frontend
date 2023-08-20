@@ -25,6 +25,7 @@ function Header() {
   return (
     <header className='flex h-16 items-center bg-primary shadow-md'>
       <Image className='ml-2' src={icon} width={56} height={56} alt='icon' />
+      <div className='text-white text-2xl indent-2 font-zenkaku tracking-widest'>かすていら</div>
     </header>
   );
 }
