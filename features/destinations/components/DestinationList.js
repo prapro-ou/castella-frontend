@@ -6,13 +6,11 @@ import DestinationTile from '@/features/destinations/components/DestinationTile'
 export default function DestinationList({ destinations, onClickAddButton }) {
   return (
     <div className='w-64'>
-      <div className='flex items-center'>
-        <div className='ml-2.5 text-lg font-medium text-default'>DM</div>
-        <div className='ml-auto mr-5'>
-          <button onClick={onClickAddButton}>
+      <div className='mt-5 flex items-center'>
+        <div className='ml-4 text-lg font-medium text-default'>DM</div>
+        <button className='ml-auto mr-5' onClick={onClickAddButton}>
             <Image width={24} height={24} src={addBlack} alt='add' />
-          </button>
-        </div>
+        </button>
       </div>
       <div>
         {destinations.map((item) => (

@@ -14,6 +14,7 @@ module.exports = {
       white: '#FFFFFF',
       card: '#F5F5F5',
       url: '#6192BB',
+      gray:'#E5E7EB',
     },
     extend: {
       backgroundImage: {
