@@ -21,7 +21,7 @@ export default function ThreadScreen({
               onClickMessageCount={() => {
                 onClickTile(thread.id);
               }}
-              selected={false}
+              selected={thread.selected}
             />
           </div>
         ))}

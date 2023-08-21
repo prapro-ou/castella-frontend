@@ -15,9 +15,9 @@ export default function MessageScreen({ messages, onClickCreateReplyButton, clas
     <div className={`relative bg-white ${className}`}>
       <div className='flex h-screen flex-col items-center space-y-10 overflow-auto py-10'>
         {messages.map((message) => (
-          <div className='mb-3' key={message.id}>
+          <div key={message.id}>
             <MessageTile
-              createdAt={message.createdAt}
+              createdAt={message.created_at}
               value={message.body}
               src={message.src}
               alt={message.alt}

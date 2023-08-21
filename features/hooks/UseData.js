@@ -16,28 +16,62 @@ export default function useData() {
 
   useEffect(() => {
     (async () => {
-      const getDestination = await getDestinationsRequest();
-      const newDMs = getDestination.dms.map((dm) => {
+      const getDestination = getDestinationsRequest();
+      if (dmId) {
+        const getThreads = getDMThreadsRequest(dmId);
+        if (messageId) {
+          const getMessage = getDMMessagesRequest(dmId, messageId);
+          setMessages(await getMessage);
+        }
+        const newThreads = (await getThreads).map((thread) => {
+          const correspondThread = threads.find((t) => t.id === thread.id);
+          correspondThread ? thread.selected = correspondThread.selected : thread.selected = false;
+          return thread;
+        });
+        setThreads(await newThreads);
+      }
+      const newDMs = (await getDestination).dms.map((dm) => {
         const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
         correspondDMs ? dm.selected = correspondDMs.selected : dm.selected = false;
         return dm;
       });
 
       setDestinations({ dms: newDMs, groups: []});
-      if (!dmId) return;
-      const th = await getDMThreadsRequest(dmId);
-      setThreads(th);
-      if (!messageId) return;
-      const me = await getDMMessagesRequest(dmId, messageId);
-      setMessages(me);
     })();
   }, [dmId, messageId]);
 
-  const createDM = async (name, email) => postDestinationsRequest(name, email);
+  const createDM = async (name, email) => {
+    await postDestinationsRequest(name, email);
+    const getDestination = getDestinationsRequest();
+    const newDMs = (await getDestination).dms.map((dm) => {
+      const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
+      correspondDMs ? dm.selected = correspondDMs.selected : dm.selected = false;
+      return dm;
+    });
 
-  const createDMThread = async (subject, body) => postDMThreadsRequest(dmId, subject, body);
+    setDestinations({ dms: newDMs, groups: []});
+  };
 
-  const createDMMessage = async (body) => postDMMessagesRequest(dmId, messageId, body);
+  const createDMThread = async (subject, body) => {
+    await postDMThreadsRequest(dmId, subject, body);
+    const getThreads = getDMThreadsRequest(dmId);
+    if (messageId) {
+      const getMessage = getDMMessagesRequest(dmId, messageId);
+      setMessages(await getMessage);
+    }
+    const newThreads = (await getThreads).map((thread) => {
+      const correspondThread = threads.find((t) => t.id === thread.id);
+      correspondThread ? thread.selected = correspondThread.selected : thread.selected = false;
+      return thread;
+    });
+    setThreads(await newThreads);
+  };
+
+  const createDMMessage = async (body) => {
+    await postDMMessagesRequest(dmId, messageId, body);
+    const getMessage = getDMMessagesRequest(dmId, messageId);
+    setMessages(await getMessage);
+  };
 
   const setSelectedDMId = (dmId) => {
     const newDMs = destinations.dms.map((dm) => {
@@ -53,6 +87,11 @@ export default function useData() {
   };
 
   const setSelectedMessageId = (messageId) => {
+    const newThreads = threads.map((thread) => {
+      thread.selected = thread.id === messageId;
+      return thread;
+    });
+    setThreads(newThreads);
     setMessageId(messageId);
   };
 

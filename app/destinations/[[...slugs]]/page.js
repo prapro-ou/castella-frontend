@@ -44,7 +44,7 @@ export default function App() {
 
         <MessageScreen
           messages={messages}
-          onClickCreateReplyButton={() => {}}
+          onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
           className='col-span-2'
         />
       </div>
