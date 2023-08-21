@@ -16,8 +16,14 @@ export default function useData() {
 
   useEffect(() => {
     (async () => {
-      const des = await getDestinationsRequest();
-      setDestinations(des);
+      const getDestination = await getDestinationsRequest();
+      const newDMs = getDestination.dms.map((dm) => {
+        const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
+        correspondDMs ? dm.selected = correspondDMs.selected : dm.selected = false;
+        return dm;
+      });
+
+      setDestinations({ dms: newDMs, groups: []});
       if (!dmId) return;
       const th = await getDMThreadsRequest(dmId);
       setThreads(th);

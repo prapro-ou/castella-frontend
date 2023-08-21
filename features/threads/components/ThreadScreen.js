@@ -16,7 +16,7 @@ export default function ThreadScreen({
             <ThreadTile
               subject={thread.subject}
               body={thread.body}
-              messageCount={thread.new_message_count}
+              messageCount={thread.reply_count}
               isNew={thread.is_new}
               onClickMessageCount={() => {
                 onClickTile(thread.id);
