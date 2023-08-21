@@ -27,25 +27,25 @@ export default function App() {
 
   return (
     <>
-      <div className='grid h-screen grid-cols-5 bg-gray'>
+      <div className='grid h-screen grid-cols-8 bg-gray'>
         <DestinationScreen
           destinations={destinations}
           onClickAddButton={() => setOpenCreateDMDialog(true)}
           onClickDMTile={setSelectedDMId}
-          className='col-span-1 border-r-2 border-r-gray'
+          className='col-span-2 border-r-2 border-r-gray'
         />
 
         <ThreadScreen
           threads={threads}
           onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
           onClickTile={setSelectedMessageId}
-          className='col-span-2 border-r-2 border-r-gray'
+          className='col-span-3 border-r-2 border-r-gray'
         />
 
         <MessageScreen
           messages={messages}
           onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
-          className='col-span-2'
+          className='col-span-3'
         />
       </div>
       <CreateDMDialog

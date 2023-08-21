@@ -13,7 +13,7 @@ import editWhite from '@/public/icon/edit/edit_white.svg';
 export default function MessageScreen({ messages, onClickCreateReplyButton, className }) {
   return (
     <div className={`relative bg-white ${className}`}>
-      <div className='flex h-screen flex-col items-center space-y-10 overflow-auto py-10'>
+      <div className='flex h-[calc(100vh-96px)] flex-col items-center space-y-10 overflow-auto py-10'>
         {messages.map((message) => (
           <div key={message.id}>
             <MessageTile

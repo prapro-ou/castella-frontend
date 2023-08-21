@@ -10,7 +10,7 @@ export default function ThreadScreen({
 }) {
   return (
     <div className={`relative bg-white ${className}`}>
-      <div className='flex h-screen flex-col items-center space-y-10 overflow-auto py-10'>
+      <div className='flex h-[calc(100vh-96px)] flex-col items-center space-y-10 overflow-auto py-10'>
         {threads.map((thread) => (
           <div key={thread.id}>
             <ThreadTile
