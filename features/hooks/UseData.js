@@ -22,14 +22,14 @@ export default function useData() {
         if (messageId) {
           const getMessage = getDMMessagesRequest(dmId, messageId);
           setMessages(await getMessage);
-        }
+        } else { setMessages([]); }
         const newThreads = (await getThreads).map((thread) => {
           const correspondThread = threads.find((t) => t.id === thread.id);
           correspondThread ? thread.selected = correspondThread.selected : thread.selected = false;
           return thread;
         });
         setThreads(await newThreads);
-      }
+      } else { setThreads([]); }
       const newDMs = (await getDestination).dms.map((dm) => {
         const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
         correspondDMs ? dm.selected = correspondDMs.selected : dm.selected = false;
@@ -84,6 +84,7 @@ export default function useData() {
     });
     setDestinations({ dms: newDMs, groups: newGroups });
     setDMId(dmId);
+    setMessageId(undefined);
   };
 
   const setSelectedMessageId = (messageId) => {

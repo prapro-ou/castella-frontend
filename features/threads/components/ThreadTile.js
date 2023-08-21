@@ -37,5 +37,5 @@ export default function ThreadTile({
 }
 
 function textOverflow(value) {
-  return value.length > 30 ? value.slice(0, 20) + '...' : value;
+  return value.length > 20 ? value.slice(0, 20) + '...' : value;
 }
