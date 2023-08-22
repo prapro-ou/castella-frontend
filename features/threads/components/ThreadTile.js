@@ -23,7 +23,7 @@ export default function ThreadTile({
         </p>
         <div className='flex'>
           <p className='p-4 text-2xl'>{textOverflow(body)}</p>
-          <div className='ml-auto mt-auto w-fit'>
+          <div className='ml-auto mt-auto'>
             <button onClick={onClickMessageCount}>
               <div className={`text-base ${numColor}`}>
                 {messageCount}件の返信

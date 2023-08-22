@@ -14,6 +14,7 @@ module.exports = {
       white: '#FFFFFF',
       card: '#F5F5F5',
       url: '#6192BB',
+      gray: '#E5E7EB',
     },
     extend: {
       backgroundImage: {
@@ -23,13 +24,7 @@ module.exports = {
       },
       // フォントを追加
       fontFamily: {
-        dela: ['Dela Gothic One'],
-        italic: ['Noto Serif Display'],
-        dot: ['DotGothic16'],
-        mincho: ['Noto Serif JP'],
         zenkaku: ['Zen Kaku Gothic New'],
-        hikki: ['Zen Antique Soft'],
-        penji: ['Zen Kurenaido'],
       },
     },
   },
