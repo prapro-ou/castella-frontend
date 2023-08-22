@@ -20,25 +20,28 @@ export default function Register() {
             label="メールアドレス"
             id="address"
             type="email"
-            variant="outlined"
+            color="success"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            variant="outlined"
           />
           <TextField
             label="ログインパスワード"
             id="loginPassword"
-            variant="outlined"
             type="password"
+            color="success"
             value={loginPassword}
             onChange={(event) => setLoginPassword(event.target.value)}
+            variant="outlined"
           />
           <TextField
             label="メールパスワード"
             id="mailPassword"
-            variant="outlined"
             type="password"
+            color="success"
             value={emailPassword}
             onChange={(event) => setEmailPassword(event.target.value)}
+            variant="outlined"
           />
           <Button
             variant="contained"
@@ -59,7 +62,7 @@ export default function Register() {
             送信
           </Button>
         </div>
-        <div className="h-1/4">{/* 上の要素の位置調整のための余白 */}</div>
+        <div>{/* 上の要素の位置調整のための余白 */}</div>
       </div>
     </main>
   );
