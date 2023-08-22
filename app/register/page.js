@@ -17,9 +17,11 @@ export default function Register() {
     palette: {
       castella: {
         main: "#99A866", //tailwindのprimaryと同じ
+        contrastText: "#ffffff",
       },
     },
   });
+
   return (
     <main>
       <ThemeProvider theme={theme}>
@@ -55,7 +57,7 @@ export default function Register() {
             <Button
               variant="contained"
               className="bg-primary"
-              color="success"
+              color="castella"
               onClick={async () => {
                 const isSuccessToRegister = await PostRegisterRequest(
                   email,
