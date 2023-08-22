@@ -2,6 +2,7 @@
 
 import postLoginRequest from '@/features/auth/data/PostLoginRequest';
 import PostRegisterRequest from '@/features/auth/data/PostRegisterRequest';
+import { Button } from '@mui/material';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -41,7 +42,8 @@ export default function Register() {
             onChange={(event) => setEmailPassword(event.target.value)}
           />
         </div>
-        <button
+        <Button
+          variant='contained'
           onClick={async () => {
             const isSuccessToRegister = await PostRegisterRequest(
               email,
@@ -53,10 +55,9 @@ export default function Register() {
             if (!isSuccessToLogin) return;
             router.push(`/destinations`);
           }}
-          className='bg-thin'
         >
           送信
-        </button>
+        </Button>
       </div>
     </main>
   );
