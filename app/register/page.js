@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import postLoginRequest from '@/features/auth/data/PostLoginRequest';
 import PostRegisterRequest from '@/features/auth/data/PostRegisterRequest';
 import { Button } from '@mui/material';
@@ -44,6 +45,8 @@ export default function Register() {
         </div>
         <Button
           variant='contained'
+          className='bg-primary'
+          color='success'
           onClick={async () => {
             const isSuccessToRegister = await PostRegisterRequest(
               email,
