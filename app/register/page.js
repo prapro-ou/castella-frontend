@@ -44,7 +44,6 @@ export default function Register() {
           />
         </div> */}
         <TextField
-          id="address"
           label="メールアドレス"
           type='email'
           variant="outlined"
@@ -52,7 +51,6 @@ export default function Register() {
           onChange={(event) => setEmail(event.target.value)}
         />
         <TextField
-          id="loginPassword"
           label="ログインパスワード"
           variant="outlined" 
           type='password'
@@ -60,7 +58,6 @@ export default function Register() {
           onChange={(event) => setLoginPassword(event.target.value)}
         />
         <TextField
-          id="mailPassword"
           label="メールパスワード"
           variant="outlined"
           type='password'
