@@ -12,9 +12,13 @@ export default function Register() {
   let [emailPassword, setEmailPassword] = useState('');
   return (
     <main>
-      <div>
-        <div>
+      <div className='flex'>
+        <div className='grid'>
           <label htmlFor='address'>メールアドレス</label>
+          <label htmlFor='loginPassword'>ログインパスワード</label>
+          <label htmlFor='mailPassword'>メールパスワード</label>
+        </div>
+        <div className='grid'>
           <input
             className='ring-2'
             type='email'
@@ -22,9 +26,6 @@ export default function Register() {
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
-        </div>
-        <div>
-          <label htmlFor='loginPassword'>ログインパスワード</label>
           <input
             className='ring-2'
             type='password'
@@ -32,9 +33,6 @@ export default function Register() {
             value={loginPassword}
             onChange={(event) => setLoginPassword(event.target.value)}
           />
-        </div>
-        <div>
-          <label htmlFor='mailPassword'>メールパスワード</label>
           <input
             className='ring-2'
             type='password'
