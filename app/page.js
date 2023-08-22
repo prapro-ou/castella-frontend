@@ -2,5 +2,7 @@
 import LoadingScreen from "@/features/components/LoadingScreen";
 
 export default function Home() {
-  return <main> LA </main>;
+  return <main> LA
+      <LoadingScreen />
+     </main>;
 }
