@@ -3,7 +3,7 @@
 import React from 'react';
 import postLoginRequest from '@/features/auth/data/PostLoginRequest';
 import PostRegisterRequest from '@/features/auth/data/PostRegisterRequest';
-import { Button } from '@mui/material';
+import { Button , TextField } from '@mui/material';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -14,8 +14,8 @@ export default function Register() {
   let [emailPassword, setEmailPassword] = useState('');
   return (
     <main>
-      <div className='flex'>
-        <div className='grid'>
+      <div className='grid w-fit'>
+        {/* <div className='grid'>
           <label htmlFor='address'>メールアドレス</label>
           <label htmlFor='loginPassword'>ログインパスワード</label>
           <label htmlFor='mailPassword'>メールパスワード</label>
@@ -42,7 +42,31 @@ export default function Register() {
             value={emailPassword}
             onChange={(event) => setEmailPassword(event.target.value)}
           />
-        </div>
+        </div> */}
+        <TextField
+          id="address"
+          label="メールアドレス"
+          type='email'
+          variant="outlined"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
+        <TextField
+          id="loginPassword"
+          label="ログインパスワード"
+          variant="outlined" 
+          type='password'
+          value={loginPassword}
+          onChange={(event) => setLoginPassword(event.target.value)}
+        />
+        <TextField
+          id="mailPassword"
+          label="メールパスワード"
+          variant="outlined"
+          type='password'
+          value={emailPassword}
+          onChange={(event) => setEmailPassword(event.target.value)}          
+        />
         <Button
           variant='contained'
           className='bg-primary'
