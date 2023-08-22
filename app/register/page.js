@@ -17,6 +17,7 @@ export default function Register() {
       <div className='grid w-fit'>
         <TextField
           label="メールアドレス"
+          id='address'
           type='email'
           variant="outlined"
           value={email}
@@ -24,6 +25,7 @@ export default function Register() {
         />
         <TextField
           label="ログインパスワード"
+          id='loginPassword'
           variant="outlined" 
           type='password'
           value={loginPassword}
@@ -31,6 +33,7 @@ export default function Register() {
         />
         <TextField
           label="メールパスワード"
+          id='mailPassword'
           variant="outlined"
           type='password'
           value={emailPassword}
