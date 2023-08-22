@@ -15,34 +15,6 @@ export default function Register() {
   return (
     <main>
       <div className='grid w-fit'>
-        {/* <div className='grid'>
-          <label htmlFor='address'>メールアドレス</label>
-          <label htmlFor='loginPassword'>ログインパスワード</label>
-          <label htmlFor='mailPassword'>メールパスワード</label>
-        </div>
-        <div className='grid'>
-          <input
-            className='ring-2'
-            type='email'
-            id='address'
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <input
-            className='ring-2'
-            type='password'
-            id='loginPassword'
-            value={loginPassword}
-            onChange={(event) => setLoginPassword(event.target.value)}
-          />
-          <input
-            className='ring-2'
-            type='password'
-            id='mailPassword'
-            value={emailPassword}
-            onChange={(event) => setEmailPassword(event.target.value)}
-          />
-        </div> */}
         <TextField
           label="メールアドレス"
           type='email'
