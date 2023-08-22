@@ -3,7 +3,7 @@
 import React from "react";
 import postLoginRequest from "@/features/auth/data/PostLoginRequest";
 import PostRegisterRequest from "@/features/auth/data/PostRegisterRequest";
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, ThemeProvider, createTheme } from "@mui/material";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -12,58 +12,68 @@ export default function Register() {
   let [email, setEmail] = useState("");
   let [loginPassword, setLoginPassword] = useState("");
   let [emailPassword, setEmailPassword] = useState("");
+
+  const theme = createTheme({
+    palette: {
+      castella: {
+        main: "#99A866", //tailwindのprimaryと同じ
+      },
+    },
+  });
   return (
     <main>
-      <div className="grid h-screen w-screen items-center justify-center">
-        <div className="grid h-fit w-fit space-y-3">
-          <TextField
-            label="メールアドレス"
-            id="address"
-            type="email"
-            color="success"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            variant="outlined"
-          />
-          <TextField
-            label="ログインパスワード"
-            id="loginPassword"
-            type="password"
-            color="success"
-            value={loginPassword}
-            onChange={(event) => setLoginPassword(event.target.value)}
-            variant="outlined"
-          />
-          <TextField
-            label="メールパスワード"
-            id="mailPassword"
-            type="password"
-            color="success"
-            value={emailPassword}
-            onChange={(event) => setEmailPassword(event.target.value)}
-            variant="outlined"
-          />
-          <Button
-            variant="contained"
-            className="bg-primary"
-            color="success"
-            onClick={async () => {
-              const isSuccessToRegister = await PostRegisterRequest(
-                email,
-                loginPassword,
-                emailPassword
-              );
-              if (!isSuccessToRegister) return;
-              const isSuccessToLogin = postLoginRequest(email, loginPassword);
-              if (!isSuccessToLogin) return;
-              router.push(`/destinations`);
-            }}
-          >
-            送信
-          </Button>
+      <ThemeProvider theme={theme}>
+        <div className="grid h-screen w-screen items-center justify-center">
+          <div className="grid h-fit w-fit space-y-3">
+            <TextField
+              label="メールアドレス"
+              id="address"
+              type="email"
+              color="castella"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              variant="outlined"
+            />
+            <TextField
+              label="ログインパスワード"
+              id="loginPassword"
+              type="password"
+              color="castella"
+              value={loginPassword}
+              onChange={(event) => setLoginPassword(event.target.value)}
+              variant="outlined"
+            />
+            <TextField
+              label="メールパスワード"
+              id="mailPassword"
+              type="password"
+              color="castella"
+              value={emailPassword}
+              onChange={(event) => setEmailPassword(event.target.value)}
+              variant="outlined"
+            />
+            <Button
+              variant="contained"
+              className="bg-primary"
+              color="success"
+              onClick={async () => {
+                const isSuccessToRegister = await PostRegisterRequest(
+                  email,
+                  loginPassword,
+                  emailPassword
+                );
+                if (!isSuccessToRegister) return;
+                const isSuccessToLogin = postLoginRequest(email, loginPassword);
+                if (!isSuccessToLogin) return;
+                router.push(`/destinations`);
+              }}
+            >
+              送信
+            </Button>
+          </div>
+          <div>{/* 上の要素の位置調整のための余白 */}</div>
         </div>
-        <div>{/* 上の要素の位置調整のための余白 */}</div>
-      </div>
+      </ThemeProvider>
     </main>
   );
 }
