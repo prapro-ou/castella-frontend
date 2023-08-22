@@ -14,7 +14,8 @@ export default function Register() {
   let [emailPassword, setEmailPassword] = useState('');
   return (
     <main>
-      <div className='grid w-fit'>
+      <div className='grid h-screen w-screen items-center justify-center'>
+      <div className='grid h-fit w-fit space-y-3'>
         <TextField
           label="メールアドレス"
           id='address'
@@ -57,6 +58,8 @@ export default function Register() {
         >
           送信
         </Button>
+      </div>
+      <div className='h-1/4'>{/* 上の要素の位置調整のための余白 */}</div>
       </div>
     </main>
   );
