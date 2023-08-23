@@ -79,32 +79,6 @@ export default function Login() {
                 送信
               </Button>
             </ThemeProvider>
-
-            {/* <label>メールアドレス</label>
-            <input
-              className="ring-2"
-              type="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-            />
-            <label>パスワード</label>
-            <input
-              className="ring-2"
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
-            <button
-              className="bg-thin"
-              onClick={async () => {
-                const isSuccess = await postLoginRequest(email, password);
-                if (isSuccess) {
-                  router.push(`/destinations`);
-                }
-              }}
-            >
-              送信
-            </button> */}
           </div>
         </div>
       </div>
