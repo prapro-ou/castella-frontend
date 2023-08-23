@@ -1,4 +1,5 @@
 'use client';
+import { React,useState,useEffect } from 'react';
 import { Oval } from  'react-loader-spinner';
 
 /**
@@ -7,10 +8,14 @@ import { Oval } from  'react-loader-spinner';
  * @author Jaja-UMA
  */
 export default function LoadingScreen({isLoading}){
-    
+    const [loading,setLoading] = useState(false);
+
+    useEffect(() =>{
+        setLoading(isLoading);
+    },[isLoading]);
     return(
         <div>
-        <Oval
+        { loading && <Oval
         height={80}
         width={80}
         color="#4fa94d"
@@ -22,6 +27,7 @@ export default function LoadingScreen({isLoading}){
         strokeWidth={2}
         strokeWidthSecondary={2}
         />
+        }
         </div>
     );
 }
