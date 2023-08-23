@@ -43,7 +43,7 @@ export default function Register() {
         </div>
         <div className="grid h-screen w-full items-center justify-center">
           <div className="grid h-fit w-fit rounded-xl bg-white px-10 pb-14 pt-10 shadow-2xl">
-            <div className="mx-auto font-zenkaku text-xl font-bold tracking-widest text-default">とうろく</div>
+            <div className="mx-auto font-zenkaku text-3xl font-bold tracking-widest text-default">とうろく</div>
             <ThemeProvider theme={theme}>
               <TextField
                 className="mt-7"
