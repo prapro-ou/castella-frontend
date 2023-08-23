@@ -1,16 +1,21 @@
 export default async function postDMMessagesRequest(dmId, messageId, body) {
   const cookieAsJson = JSON.parse(document.cookie);
-  return fetch(`${process.env.NEXT_PUBLIC_URL}/destinations/dms/${dmId}/${encodeURIComponent(messageId)}`, {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${cookieAsJson.token}`,
+  return fetch(
+    `${
+      process.env.NEXT_PUBLIC_URL
+    }/destinations/dms/${dmId}/${encodeURIComponent(messageId)}`,
+    {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${cookieAsJson.token}`,
+      },
+      body: JSON.stringify({
+        body: body,
+      }),
     },
-    body: JSON.stringify({
-      body: body,
-    }),
-  })
+  )
     .then(function (response) {
       return response.json();
     })

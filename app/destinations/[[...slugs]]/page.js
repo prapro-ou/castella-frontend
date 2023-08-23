@@ -6,8 +6,9 @@ import CreateDMDialog from '@/features/destinations/dm/components/CreatDMDialog'
 import ThreadScreen from '@/features/threads/components/ThreadScreen';
 import MessageScreen from '@/features/messages/components/MessageScreen';
 import useData from '@/features/hooks/UseData';
-import CreateDMThreadDialog from "@/features/threads/components/CreateDMThreadDialog";
-import CreateDMMessageDialog from "@/features/messages/components/CreateDMMessageDialog";
+import CreateDMThreadDialog from '@/features/threads/components/CreateDMThreadDialog';
+import CreateDMMessageDialog from '@/features/messages/components/CreateDMMessageDialog';
+import Header from '@/features/components/Header';
 
 export default function App() {
   const [
@@ -21,12 +22,14 @@ export default function App() {
     setSelectedMessageId,
   ] = useData();
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
-  const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] = useState(false);
-  const [openCreateDMMessageDialog, setOpenCreateDMMessageDialog] = useState(false);
-
+  const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] =
+    useState(false);
+  const [openCreateDMMessageDialog, setOpenCreateDMMessageDialog] =
+    useState(false);
 
   return (
     <>
+      <Header />
       <div className='grid h-screen grid-cols-8 bg-gray'>
         <DestinationScreen
           destinations={destinations}
