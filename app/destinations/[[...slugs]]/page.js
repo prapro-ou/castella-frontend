@@ -8,6 +8,7 @@ import MessageScreen from '@/features/messages/components/MessageScreen';
 import useData from '@/features/hooks/UseData';
 import CreateDMThreadDialog from "@/features/threads/components/CreateDMThreadDialog";
 import CreateDMMessageDialog from "@/features/messages/components/CreateDMMessageDialog";
+import Header from '@/features/components/Header';
 
 export default function App() {
   const [
@@ -27,6 +28,7 @@ export default function App() {
 
   return (
     <>
+      <Header />
       <div className='grid h-screen grid-cols-8 bg-gray'>
         <DestinationScreen
           destinations={destinations}
