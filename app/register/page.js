@@ -42,9 +42,9 @@ export default function Register() {
           </div>
         </div>
         <div className="grid h-screen w-full items-center justify-center">
-          <div className="grid h-fit w-fit rounded-xl bg-white px-10 py-16 shadow-2xl">
+          <div className="grid h-fit w-fit rounded-xl bg-white px-10 pb-14 pt-8 shadow-2xl">
             <Image
-              className="m-auto"
+              className="mx-auto"
               src={icon}
               width={55}
               height={55}
@@ -52,6 +52,7 @@ export default function Register() {
             />
             <ThemeProvider theme={theme}>
               <TextField
+                className="mt-4"
                 label="メールアドレス"
                 id="address"
                 type="email"
@@ -61,6 +62,7 @@ export default function Register() {
                 variant="outlined"
               />
               <TextField
+                className="mt-4"
                 label="ログインパスワード"
                 id="loginPassword"
                 type="password"
@@ -70,6 +72,7 @@ export default function Register() {
                 variant="outlined"
               />
               <TextField
+                className="mt-4"
                 label="メールパスワード"
                 id="mailPassword"
                 type="password"
@@ -80,7 +83,7 @@ export default function Register() {
               />
               <Button
                 variant="contained"
-                className="bg-primary"
+                className="mt-8 bg-primary"
                 color="castella"
                 onClick={async () => {
                   const isSuccessToRegister = await PostRegisterRequest(
