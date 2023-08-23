@@ -26,24 +26,31 @@ export default function Register() {
 
   return (
     <main>
-      <ThemeProvider theme={theme}>
-        <div className="flex">
-          <div className="grid h-screen w-2/3 items-center justify-center rounded-r-3xl bg-primary">
-            <div>
-              <Image
-                className="m-auto"
-                src={icon}
-                width={170}
-                height={170}
-                alt="icon"
-              />
-              <div className="mt-10 font-zenkaku text-5xl font-bold tracking-widest text-white">
-                かすていら
-              </div>
+      <div className="flex bg-gray">
+        <div className="grid h-screen w-2/3 items-center justify-center rounded-r-3xl bg-primary">
+          <div>
+            <Image
+              className="m-auto"
+              src={icon}
+              width={170}
+              height={170}
+              alt="icon"
+            />
+            <div className="mt-10 font-zenkaku text-5xl font-bold tracking-widest text-white">
+              かすていら
             </div>
           </div>
-          <div className="grid h-screen w-full items-center justify-center">
-            <div className="grid h-fit w-fit space-y-3">
+        </div>
+        <div className="grid h-screen w-full items-center justify-center">
+          <div className="grid h-fit w-fit rounded-xl bg-white px-10 py-16 shadow-2xl">
+            <Image
+              className="m-auto"
+              src={icon}
+              width={55}
+              height={55}
+              alt="icon"
+            />
+            <ThemeProvider theme={theme}>
               <TextField
                 label="メールアドレス"
                 id="address"
@@ -92,11 +99,10 @@ export default function Register() {
               >
                 送信
               </Button>
-            </div>
-            {/* <div></div> */}
+            </ThemeProvider>
           </div>
         </div>
-      </ThemeProvider>
+      </div>
     </main>
   );
 }
