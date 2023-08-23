@@ -52,7 +52,7 @@ export default function Register() {
             />
             <ThemeProvider theme={theme}>
               <TextField
-                className="mt-4"
+                className="mt-3"
                 label="メールアドレス"
                 id="address"
                 type="email"
@@ -62,7 +62,7 @@ export default function Register() {
                 variant="outlined"
               />
               <TextField
-                className="mt-4"
+                className="mt-3"
                 label="ログインパスワード"
                 id="loginPassword"
                 type="password"
@@ -72,7 +72,7 @@ export default function Register() {
                 variant="outlined"
               />
               <TextField
-                className="mt-4"
+                className="mt-3"
                 label="メールパスワード"
                 id="mailPassword"
                 type="password"
@@ -83,7 +83,7 @@ export default function Register() {
               />
               <Button
                 variant="contained"
-                className="mt-8 bg-primary"
+                className="mt-14 bg-primary"
                 color="castella"
                 onClick={async () => {
                   const isSuccessToRegister = await PostRegisterRequest(
