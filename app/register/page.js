@@ -42,17 +42,11 @@ export default function Register() {
           </div>
         </div>
         <div className="grid h-screen w-full items-center justify-center">
-          <div className="grid h-fit w-fit rounded-xl bg-white px-10 pb-14 pt-8 shadow-2xl">
-            <Image
-              className="mx-auto"
-              src={icon}
-              width={55}
-              height={55}
-              alt="icon"
-            />
+          <div className="grid h-fit w-fit rounded-xl bg-white px-10 pb-14 pt-10 shadow-2xl">
+            <div className="mx-auto font-zenkaku text-xl font-bold tracking-widest text-default">とうろく</div>
             <ThemeProvider theme={theme}>
               <TextField
-                className="mt-3"
+                className="mt-7"
                 label="メールアドレス"
                 id="address"
                 type="email"
