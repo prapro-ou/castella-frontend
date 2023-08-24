@@ -10,7 +10,7 @@ import { Oval } from  'react-loader-spinner';
 export default function LoadingScreen({isLoading}){
 
     return(
-      <div className='bg-gray'>
+      <div className='m-auto bg-gray'>
           <div>
               {isLoading && <Oval
                 height={80}

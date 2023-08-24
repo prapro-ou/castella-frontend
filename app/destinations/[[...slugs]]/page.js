@@ -35,8 +35,8 @@ export default function App() {
   return (
     <>
       <Header />
-      <div className='grid h-screen grid-cols-8 bg-gray'>
-        <div className='col-span-2 border-r-2 border-r-gray'>
+      <div className='grid h-[calc(100vh-96px)] grid-cols-8 bg-gray'>
+        <div className='col-span-2 grid border-r-2 border-r-gray'>
           {isLoadingDestinations ? (
             <LoadingScreen isLoading={true} />
           ):(
@@ -48,7 +48,7 @@ export default function App() {
           )}
         </div>
 
-        <div className='col-span-3 border-r-2 border-r-gray'>
+        <div className='col-span-3 grid border-r-2 border-r-gray'>
           {isLoadingThreads ? (
             <LoadingScreen isLoading={true} />
           ):(
@@ -60,7 +60,7 @@ export default function App() {
           )}
         </div>
 
-        <div className='col-span-3'>
+        <div className='col-span-3 grid'>
           {isLoadingMessages ?(
             <LoadingScreen isLoading={true} />
           ):(         
