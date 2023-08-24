@@ -22,8 +22,10 @@ export default function useData() {
   useEffect(() => {
     (async () => {
       const getDestination = getDestinationsRequest();
+      setIsLoadingDestinations(true);
       if (dmId) {
         const getThreads = getDMThreadsRequest(dmId);
+        setIsLoadingThreads(true);
         if (messageId) {
           const getMessage = getDMMessagesRequest(dmId, messageId);
           setIsLoadingMessages(true);
@@ -39,7 +41,6 @@ export default function useData() {
             : (thread.selected = false);
           return thread;
         });
-        setIsLoadingThreads(true);
         setThreads(await newThreads);
         setIsLoadingThreads(false);
       } else {
@@ -53,7 +54,6 @@ export default function useData() {
         return dm;
       });
 
-      setIsLoadingDestinations(true);
       setDestinations({ dms: newDMs, groups: [] });
       setIsLoadingDestinations(false);
     })();
