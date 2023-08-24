@@ -9,6 +9,7 @@ import useData from '@/features/hooks/UseData';
 import CreateDMThreadDialog from '@/features/threads/components/CreateDMThreadDialog';
 import CreateDMMessageDialog from '@/features/messages/components/CreateDMMessageDialog';
 import Header from '@/features/components/Header';
+import LoadingScreen from '@/features/components/LoadingScreen';
 
 export default function App() {
   const [
@@ -20,6 +21,9 @@ export default function App() {
     createDMMessage,
     setSelectedDMId,
     setSelectedMessageId,
+    isLoadingDestinations,
+    isLoadingThreads,
+    isLoadingMessages,
   ] = useData();
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
   const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] =
