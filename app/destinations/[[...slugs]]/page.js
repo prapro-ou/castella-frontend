@@ -31,29 +31,45 @@ export default function App() {
   const [openCreateDMMessageDialog, setOpenCreateDMMessageDialog] =
     useState(false);
 
+
   return (
     <>
       <Header />
       <div className='grid h-screen grid-cols-8 bg-gray'>
-        <DestinationScreen
-          destinations={destinations}
-          onClickAddButton={() => setOpenCreateDMDialog(true)}
-          onClickDMTile={setSelectedDMId}
-          className='col-span-2 border-r-2 border-r-gray'
-        />
+        <div className='col-span-2 border-r-2 border-r-gray'>
+          {isLoadingDestinations ? (
+            <LoadingScreen isLoading={true} />
+          ):(
+            <DestinationScreen
+              destinations={destinations}
+              onClickAddButton={() => setOpenCreateDMDialog(true)}
+              onClickDMTile={setSelectedDMId}
+            />
+          )}
+        </div>
 
-        <ThreadScreen
-          threads={threads}
-          onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
-          onClickTile={setSelectedMessageId}
-          className='col-span-3 border-r-2 border-r-gray'
-        />
+        <div className='col-span-3 border-r-2 border-r-gray'>
+          {isLoadingThreads ? (
+            <LoadingScreen isLoading={true} />
+          ):(
+            <ThreadScreen
+              threads={threads}
+              onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
+              onClickTile={setSelectedMessageId}
+            />
+          )}
+        </div>
 
-        <MessageScreen
-          messages={messages}
-          onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
-          className='col-span-3'
-        />
+        <div className='col-span-3'>
+          {isLoadingMessages ?(
+            <LoadingScreen isLoading={true} />
+          ):(         
+            <MessageScreen
+              messages={messages}
+              onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
+            />
+          )}
+        </div>  
       </div>
       <CreateDMDialog
         isOpened={openCreateDMDialog}
