@@ -60,6 +60,7 @@ export default function useData() {
   }, [dmId, messageId]);
 
   const createDM = async (name, email) => {
+    setIsLoadingDestinations(true);
     await postDestinationsRequest(name, email);
     const getDestination = getDestinationsRequest();
     const newDMs = (await getDestination).dms.map((dm) => {
@@ -71,14 +72,18 @@ export default function useData() {
     });
 
     setDestinations({ dms: newDMs, groups: [] });
+    setIsLoadingDestinations(false);
   };
 
   const createDMThread = async (subject, body) => {
+    setIsLoadingThreads(true);
     await postDMThreadsRequest(dmId, subject, body);
     const getThreads = getDMThreadsRequest(dmId);
     if (messageId) {
       const getMessage = getDMMessagesRequest(dmId, messageId);
+      setIsLoadingMessages(true);
       setMessages(await getMessage);
+      setIsLoadingMessages(false);
     }
     const newThreads = (await getThreads).map((thread) => {
       const correspondThread = threads.find((t) => t.id === thread.id);
@@ -88,12 +93,15 @@ export default function useData() {
       return thread;
     });
     setThreads(await newThreads);
+    setIsLoadingThreads(false);
   };
 
   const createDMMessage = async (body) => {
+    setIsLoadingMessages(true);
     await postDMMessagesRequest(dmId, messageId, body);
     const getMessage = getDMMessagesRequest(dmId, messageId);
     setMessages(await getMessage);
+    setIsLoadingMessages(false);
   };
 
   const setSelectedDMId = (dmId) => {
