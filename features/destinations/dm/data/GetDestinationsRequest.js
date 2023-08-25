@@ -23,37 +23,37 @@ export default async function fakeGetDestinationsRequest() {
   return {
     dms: [
       {
-        id: "dmId1",
-        name: "name1",
-        new_message_count: 0
+        id: 'dmId1',
+        name: 'name1',
+        new_message_count: 0,
       },
       {
-        id: "dmId2",
-        name: "name2",
-        new_message_count: 1
+        id: 'dmId2',
+        name: 'name2',
+        new_message_count: 1,
       },
       {
-        id: "dmId3",
-        name: "name3",
-        new_message_count: 2
-      }
+        id: 'dmId3',
+        name: 'name3',
+        new_message_count: 2,
+      },
     ],
-    "groups": [
+    groups: [
       {
-        "id": "groupId1",
-        "name": "name1",
-        "new_message_count": 0
+        id: 'groupId1',
+        name: 'name1',
+        new_message_count: 0,
       },
       {
-        "id": "groupId2",
-        "name": "name2",
-        "new_message_count": 1
+        id: 'groupId2',
+        name: 'name2',
+        new_message_count: 1,
       },
       {
-        "id": "groupId3",
-        "name": "name3",
-        "new_message_count": 2
-      }
-    ]
+        id: 'groupId3',
+        name: 'name3',
+        new_message_count: 2,
+      },
+    ],
   };
 }

@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={inter.className + " overflow-hidden"}>
+      <body className={inter.className + ' overflow-hidden'}>
         <Header />
         {children}
       </body>
@@ -25,7 +25,9 @@ function Header() {
   return (
     <header className='flex h-24 items-center bg-primary shadow-md'>
       <Image className='mx-6' src={icon} width={56} height={56} alt='icon' />
-      <div className='indent-2 font-zenkaku text-3xl font-bold tracking-widest text-white'>かすていら</div>
+      <div className='indent-2 font-zenkaku text-3xl font-bold tracking-widest text-white'>
+        かすていら
+      </div>
     </header>
   );
 }
