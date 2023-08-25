@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 async function getDMMessagesRequest(dmId, messageId) {
   const cookieAsJson = JSON.parse(document.cookie);
   return fetch(

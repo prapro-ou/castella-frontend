@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 async function getDMThreadsRequest(dmId) {
   const cookieAsJson = JSON.parse(document.cookie);
   return fetch(`${process.env.NEXT_PUBLIC_URL}/destinations/dms/${dmId}`, {
