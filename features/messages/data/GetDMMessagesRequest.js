@@ -23,7 +23,10 @@ async function getDMMessagesRequest(dmId, messageId) {
     });
 }
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export default async function fakeGetDMMessagesRequest() {
+  await sleep(2000);
   return [
     {
       "id": "message_id1",
