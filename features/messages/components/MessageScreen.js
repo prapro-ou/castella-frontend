@@ -3,7 +3,7 @@ import React from 'react';
 import MessageTile from './MessageTile';
 import FloatActionButton from '@/features/components/FloatActionButton';
 import editWhite from '@/public/icon/edit/edit_white.svg';
-
+import Tips from '@/features/components/Tips.js';
 /**
  * メッセージと返信欄を示すためのコンポーネント
  * @param {Array} messages 子コンポーネントMessageTileに必要となる引数を持つ配列
@@ -16,6 +16,10 @@ export default function MessageScreen({
   className,
 }) {
   return (
+    <div style={{ zIndex: 0 }}>
+    {messageId === false ? (
+      <Tips />
+    ) : (
     <div className={`relative bg-white ${className}`}>
       <div className='flex h-[calc(100vh-96px)] flex-col items-center space-y-10 overflow-auto py-10'>
         {messages.map((message) => (
@@ -37,6 +41,8 @@ export default function MessageScreen({
           onClickButton={onClickCreateReplyButton}
         />
       </div>
+    </div>
+    )}
     </div>
   );
 }

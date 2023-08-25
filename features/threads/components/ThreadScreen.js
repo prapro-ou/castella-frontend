@@ -9,6 +9,12 @@ export default function ThreadScreen({
   className,
 }) {
   return (
+    <div style={{ zIndex: 1 }}>
+    {threads.length === 0 ? (
+        <div className={`relative bg-white col-span-6 border-r-2 border-r-gray`}>
+      <Tips />
+      </div>
+    ) : (
     <div className={`relative bg-white ${className}`}>
       <div className='flex h-[calc(100vh-96px)] flex-col items-center space-y-10 overflow-auto py-10'>
         {threads.map((thread) => (
@@ -33,6 +39,8 @@ export default function ThreadScreen({
           onClickButton={onClickCreateThreadButton}
         />
       </div>
+    </div>
+    )}
     </div>
   );
 }

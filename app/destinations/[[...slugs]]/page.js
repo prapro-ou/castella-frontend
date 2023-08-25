@@ -34,10 +34,13 @@ export default function App() {
         <DestinationScreen
           destinations={destinations}
           onClickAddButton={() => setOpenCreateDMDialog(true)}
-          onClickDMTile={setSelectedDMId}
+          onClickDMTile={() => {
+            setSelectedDMId;
+            setMessageId(false);
+          }}
           className='col-span-2 border-r-2 border-r-gray'
         />
-
+        
         <ThreadScreen
           threads={threads}
           onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
