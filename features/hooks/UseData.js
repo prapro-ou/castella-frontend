@@ -3,8 +3,8 @@ import getDestinationsRequest from '@/features/destinations/dm/data/GetDestinati
 import getDMThreadsRequest from '@/features/threads/data/GetDMThreadsRequest';
 import getDMMessagesRequest from '@/features/messages/data/GetDMMessagesRequest';
 import postDestinationsRequest from '@/features/destinations/dm/data/PostDestinationsRequest';
-import postDMThreadsRequest from "@/features/threads/data/PostDMThreadsRequest";
-import postDMMessagesRequest from "@/features/messages/data/PostDMMessagesRequest";
+import postDMThreadsRequest from '@/features/threads/data/PostDMThreadsRequest';
+import postDMMessagesRequest from '@/features/messages/data/PostDMMessagesRequest';
 
 export default function useData() {
   const [destinations, setDestinations] = useState({ dms: [], groups: [] });
@@ -22,21 +22,29 @@ export default function useData() {
         if (messageId) {
           const getMessage = getDMMessagesRequest(dmId, messageId);
           setMessages(await getMessage);
-        } else { setMessages([]); }
+        } else {
+          setMessages([]);
+        }
         const newThreads = (await getThreads).map((thread) => {
           const correspondThread = threads.find((t) => t.id === thread.id);
-          correspondThread ? thread.selected = correspondThread.selected : thread.selected = false;
+          correspondThread
+            ? (thread.selected = correspondThread.selected)
+            : (thread.selected = false);
           return thread;
         });
         setThreads(await newThreads);
-      } else { setThreads([]); }
+      } else {
+        setThreads([]);
+      }
       const newDMs = (await getDestination).dms.map((dm) => {
         const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
-        correspondDMs ? dm.selected = correspondDMs.selected : dm.selected = false;
+        correspondDMs
+          ? (dm.selected = correspondDMs.selected)
+          : (dm.selected = false);
         return dm;
       });
 
-      setDestinations({ dms: newDMs, groups: []});
+      setDestinations({ dms: newDMs, groups: [] });
     })();
   }, [dmId, messageId]);
 
@@ -45,11 +53,13 @@ export default function useData() {
     const getDestination = getDestinationsRequest();
     const newDMs = (await getDestination).dms.map((dm) => {
       const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
-      correspondDMs ? dm.selected = correspondDMs.selected : dm.selected = false;
+      correspondDMs
+        ? (dm.selected = correspondDMs.selected)
+        : (dm.selected = false);
       return dm;
     });
 
-    setDestinations({ dms: newDMs, groups: []});
+    setDestinations({ dms: newDMs, groups: [] });
   };
 
   const createDMThread = async (subject, body) => {
@@ -61,7 +71,9 @@ export default function useData() {
     }
     const newThreads = (await getThreads).map((thread) => {
       const correspondThread = threads.find((t) => t.id === thread.id);
-      correspondThread ? thread.selected = correspondThread.selected : thread.selected = false;
+      correspondThread
+        ? (thread.selected = correspondThread.selected)
+        : (thread.selected = false);
       return thread;
     });
     setThreads(await newThreads);

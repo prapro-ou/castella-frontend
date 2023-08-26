@@ -17,7 +17,7 @@ export default function DMList({ dms, onClickTile, onClickAddButton }) {
           <div key={item.id}>
             <DestinationTile
               name={item.name}
-              messageCount={item.messageCount}
+              messageCount={item.message_count}
               selected={item.selected}
               onClick={() => onClickTile(item.id)}
             />

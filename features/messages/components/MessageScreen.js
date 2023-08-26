@@ -10,7 +10,11 @@ import editWhite from '@/public/icon/edit/edit_white.svg';
  * @param {() => void} onClickCreateReplyButton ボタンを押した時に動かす関数
  * @param className
  */
-export default function MessageScreen({ messages, onClickCreateReplyButton, className }) {
+export default function MessageScreen({
+  messages,
+  onClickCreateReplyButton,
+  className,
+}) {
   return (
     <div className={`relative bg-white ${className}`}>
       <div className='flex h-[calc(100vh-96px)] flex-col items-center space-y-10 overflow-auto py-10'>

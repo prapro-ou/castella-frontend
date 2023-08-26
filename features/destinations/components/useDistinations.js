@@ -7,7 +7,7 @@ export default function useDistinations(){
     const [destinations, setDestinations] = useState({ dms: [], groups: [] });
     const [dmId, setDMId] = useState();
     const [messageId, setMessageId] = useState();
-    const [setIdMessagesId] = useThreads;
+    const [setIdMessagesId] = useThreads();
     
     useEffect(() => {
         (async () => {
@@ -17,6 +17,7 @@ export default function useDistinations(){
             correspondDMs ? dm.selected = correspondDMs.selected : dm.selected = false;
             return dm;});
             setDestinations({ dms: newDMs, groups: []});
+            setIdMessagesId(dmId, messageId);
     });},[dmId]);
 
     const createDM = async (name, email) => {
@@ -44,8 +45,6 @@ export default function useDistinations(){
         setDMId(dmId);
         setMessageId(undefined);
       };
-
-      setIdMessagesId(dmId, messageId);
 
       return[destinations, createDM, setSelectedDMId];
 }

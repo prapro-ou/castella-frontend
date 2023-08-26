@@ -7,9 +7,9 @@ export default function useMessages(){
     const [messages, setMessages] = useState([]);
     const [messageId, setMessageId] = useState();
 
-    const setIds = (dmId, threadId) => {
+    const setIds = (dmId, messageId) => {
         setDMId(dmId);
-        setMessageId(threadId);
+        setMessageId(messageId);
     };
 
     useEffect(() => {

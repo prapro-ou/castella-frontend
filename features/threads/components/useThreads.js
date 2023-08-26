@@ -8,7 +8,7 @@ export default function useThreads(){
     const [threads, setThreads] = useState([]);
     const [dmId, setDMId] = useState();
     const [messageId, setMessageId] = useState();
-    const [setIds] = useMessages;
+    const [setIds] = useMessages();
 
     useEffect(() => {
         (async () => {
@@ -21,6 +21,7 @@ export default function useThreads(){
                 });
                 setThreads(await newThreads);
             } else { setThreads([]); }
+            setIds(dmId, messageId);
         });},[dmId]);
 
     const createDMThread = async (subject, body) => {
@@ -42,8 +43,6 @@ export default function useThreads(){
         setThreads(newThreads);
         setMessageId(messageId);
       };
-
-      setIds(dmId, messageId);
 
       const setIdMessagesId = (dmId, messageId) => {
         setDMId(dmId);

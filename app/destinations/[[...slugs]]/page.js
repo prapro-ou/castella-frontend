@@ -7,21 +7,24 @@ import ThreadScreen from '@/features/threads/components/ThreadScreen';
 import MessageScreen from '@/features/messages/components/MessageScreen';
 import CreateDMThreadDialog from "@/features/threads/components/CreateDMThreadDialog";
 import CreateDMMessageDialog from "@/features/messages/components/CreateDMMessageDialog";
-import useDistination from '@/features/destinations/components/useDistinations';
 import useThreads from '@/features/threads/components/useThreads';
 import useMessages from '@/features/messages/components/useMessages';
+import useDistinations from '@/features/destinations/components/useDistinations';
+import Header from '@/features/components/Header';
 
 export default function App() {
-  const [destinations, createDM, setSelectedDMId]=useDistination;
-  const [threads,createDMThread, setSelectedMessageId] = useThreads;
-  const [messages,createDMMessage] = useMessages;
+  const [destinations, createDM, setSelectedDMId]=useDistinations();
+  const [threads,createDMThread, setSelectedMessageId] = useThreads();
+  const [messages,createDMMessage] = useMessages();
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
-  const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] = useState(false);
-  const [openCreateDMMessageDialog, setOpenCreateDMMessageDialog] = useState(false);
-
+  const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] =
+    useState(false);
+  const [openCreateDMMessageDialog, setOpenCreateDMMessageDialog] =
+    useState(false);
 
   return (
     <>
+      <Header />
       <div className='grid h-screen grid-cols-8 bg-gray'>
         <DestinationScreen
           destinations={destinations}
