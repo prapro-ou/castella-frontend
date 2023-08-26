@@ -11,7 +11,7 @@ export default function ThreadScreen({
 }) {
   return (
     <div className='z-10'>
-    {threads.length === 0 ? (
+    {threads === undefined ? (
         <div className={`relative bg-white col-span-6 border-r-2 border-r-gray`}>
       <Tips />
       </div>

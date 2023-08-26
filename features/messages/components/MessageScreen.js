@@ -18,7 +18,7 @@ export default function MessageScreen({
 }) {
   return (
     <div className='z-0'>
-    {messageId === false ? (
+    {messages === undefined ? (
       <Tips />
     ) : (
     <div className={`relative bg-white ${className}`}>
