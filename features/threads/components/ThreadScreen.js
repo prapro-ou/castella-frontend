@@ -1,6 +1,7 @@
 import FloatActionButton from '@/features/components/FloatActionButton';
 import ThreadTile from './ThreadTile';
 import plusWhite from '@/public/icon/plus/plus_white.svg';
+import Tips from '@/features/components/Tips.js';
 
 export default function ThreadScreen({
   threads,
@@ -9,7 +10,7 @@ export default function ThreadScreen({
   className,
 }) {
   return (
-    <div style={{ zIndex: 1 }}>
+    <div className='z-10'>
     {threads.length === 0 ? (
         <div className={`relative bg-white col-span-6 border-r-2 border-r-gray`}>
       <Tips />

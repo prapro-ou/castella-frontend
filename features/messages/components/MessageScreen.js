@@ -4,6 +4,7 @@ import MessageTile from './MessageTile';
 import FloatActionButton from '@/features/components/FloatActionButton';
 import editWhite from '@/public/icon/edit/edit_white.svg';
 import Tips from '@/features/components/Tips.js';
+
 /**
  * メッセージと返信欄を示すためのコンポーネント
  * @param {Array} messages 子コンポーネントMessageTileに必要となる引数を持つ配列
@@ -16,7 +17,7 @@ export default function MessageScreen({
   className,
 }) {
   return (
-    <div style={{ zIndex: 0 }}>
+    <div className='z-0'>
     {messageId === false ? (
       <Tips />
     ) : (
