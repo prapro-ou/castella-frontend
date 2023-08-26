@@ -5,21 +5,16 @@ import DestinationScreen from '@/features/destinations/components/DestinationScr
 import CreateDMDialog from '@/features/destinations/dm/components/CreatDMDialog';
 import ThreadScreen from '@/features/threads/components/ThreadScreen';
 import MessageScreen from '@/features/messages/components/MessageScreen';
-import useData from '@/features/hooks/UseData';
 import CreateDMThreadDialog from "@/features/threads/components/CreateDMThreadDialog";
 import CreateDMMessageDialog from "@/features/messages/components/CreateDMMessageDialog";
+import useDistination from '@/features/destinations/components/useDistinations';
+import useThreads from '@/features/threads/components/useThreads';
+import useMessages from '@/features/messages/components/useMessages';
 
 export default function App() {
-  const [
-    destinations,
-    threads,
-    messages,
-    createDM,
-    createDMThread,
-    createDMMessage,
-    setSelectedDMId,
-    setSelectedMessageId,
-  ] = useData();
+  const [destinations, createDM, setSelectedDMId]=useDistination;
+  const [threads,createDMThread, setSelectedMessageId] = useThreads;
+  const [messages,createDMMessage] = useMessages;
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
   const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] = useState(false);
   const [openCreateDMMessageDialog, setOpenCreateDMMessageDialog] = useState(false);
