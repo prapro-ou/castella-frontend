@@ -9,16 +9,16 @@ import CreateDMThreadDialog from '@/features/threads/components/CreateDMThreadDi
 import CreateDMMessageDialog from '@/features/messages/components/CreateDMMessageDialog';
 import useThreads from '@/features/threads/components/useThreads';
 import useMessages from '@/features/messages/components/useMessages';
-import Distinations from '@/features/destinations/components/useDistinations';
+import useDestinations from '@/features/destinations/components/useDestinations';
 import Header from '@/features/components/Header';
 import LoadingScreen from '@/features/components/LoadingScreen';
 
 export default function App() {
-  const [messages, createDMMessage, , isLoadingMessages] = useMessages();
-  const [threads, createDMThread, setSelectedMessageId, setIdMessageId, isLoadingThreads] =
-    useThreads();
   const [destinations, createDM, setSelectedDMId, isLoadingDestinations] =
-    Distinations(setIdMessageId);
+  useDestinations();
+  const [threads, createDMThread, setSelectedMessageId, setThreadDMIds, isLoadingThreads] =
+  useThreads();
+  const [messages, createDMMessage, setDMIds, setMessageIds, isLoadingMessages] = useMessages();
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
   const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] =
     useState(false);
@@ -37,7 +37,11 @@ export default function App() {
           <DestinationScreen
             destinations={destinations}
             onClickAddButton={() => setOpenCreateDMDialog(true)}
-            onClickDMTile={setSelectedDMId}
+            onClickDMTile={(dmId)=>{
+            setSelectedDMId(dmId);
+            setThreadDMIds(dmId);
+            setDMIds(dmId);
+          }}
           />
         </div>
 
@@ -46,7 +50,10 @@ export default function App() {
           <ThreadScreen
             threads={threads}
             onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
-            onClickTile={setSelectedMessageId}
+            onClickTile={(messageId)=>{
+              setSelectedMessageId(messageId);
+              setMessageIds(messageId);
+            }}
           />
         </div>
 

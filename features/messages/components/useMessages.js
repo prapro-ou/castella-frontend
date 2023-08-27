@@ -27,10 +27,12 @@ export default function useMessages() {
     setMessages(await getMessage);
   };
 
-  const setIds = (dmId, messageId) => {
+  const setDMIds = (dmId) => {
     setDMId(dmId);
+  };
+  const setMessageIds = (messageId) => {
     setMessageId(messageId);
   };
 
-  return [messages, createDMMessage, setIds, isLoadingMessages];
+  return [messages, createDMMessage, setDMIds, setMessageIds, isLoadingMessages];
 }

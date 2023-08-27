@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
 import postDMThreadsRequest from '../data/PostDMThreadsRequest';
 import getDMThreadsRequest from '../data/GetDMThreadsRequest';
-import useMessages from '@/features/messages/components/useMessages';
 
 export default function useThreads() {
   const [threads, setThreads] = useState([]);
   const [dmId, setDMId] = useState();
   const [messageId, setMessageId] = useState();
-  const [, , setIds] = useMessages();
   const [isLoadingThreads, setIsLoadingThreads] = useState(false);
 
   useEffect(() => {
@@ -27,7 +25,6 @@ export default function useThreads() {
         setThreads([]);
       }
       setIsLoadingThreads(false);
-      setIds(dmId, messageId);
     })();
   }, [dmId, messageId]);
 
@@ -53,16 +50,15 @@ export default function useThreads() {
     setMessageId(messageId);
   };
 
-  const setIdMessagesId = (dmId, messageId) => {
+  const setThreadDMId = (dmId) => {
     setDMId(dmId);
-    setMessageId(messageId);
   };
 
   return [
     threads,
     createDMThread,
     setSelectedMessageId,
-    setIdMessagesId,
+    setThreadDMId,
     isLoadingThreads,
   ];
 }

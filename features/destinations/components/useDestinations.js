@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import getDestinationsRequest from '@/features/destinations/dm/data/GetDestinationsRequest';
 import postDestinationsRequest from '@/features/destinations/dm/data/PostDestinationsRequest';
 
-export default function useDestinations(setIdMessagesId) {
+export default function useDestinations() {
   const [destinations, setDestinations] = useState({ dms: [], groups: [] });
   const [dmId, setDMId] = useState();
-  const [messageId, setMessageId] = useState();
   const [isLoadingDestinations, setIsLoadingDestinations] = useState(false);
 
   useEffect(() => {
@@ -21,7 +20,6 @@ export default function useDestinations(setIdMessagesId) {
       });
       setDestinations({ dms: newDMs, groups: [] });
       setIsLoadingDestinations(false);
-      setIdMessagesId(dmId, messageId);
     })();
   }, [dmId]);
 
@@ -49,7 +47,6 @@ export default function useDestinations(setIdMessagesId) {
     });
     setDestinations({ dms: newDMs, groups: newGroups });
     setDMId(dmId);
-    setMessageId(undefined);
   };
 
   return [destinations, createDM, setSelectedDMId, isLoadingDestinations];
