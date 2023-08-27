@@ -14,6 +14,10 @@ export default function useData() {
   const [dmId, setDMId] = useState();
   const [messageId, setMessageId] = useState();
 
+  const [isLoadingDestinations, setIsLoadingDestinations] = useState(false);
+  const [isLoadingThreads, setIsLoadingThreads] = useState(false);
+  const [isLoadingMessages, setIsLoadingMessages] = useState(false);
+
   useEffect(() => {
     (async () => {
       const getDestination = getDestinationsRequest();
@@ -21,9 +25,12 @@ export default function useData() {
         const getThreads = getDMThreadsRequest(dmId);
         if (messageId) {
           const getMessage = getDMMessagesRequest(dmId, messageId);
+          setIsLoadingMessages(true);
           setMessages(await getMessage);
+          setIsLoadingMessages(false);
         } else {
           setMessages([]);
+          setIsLoadingThreads(true);
         }
         const newThreads = (await getThreads).map((thread) => {
           const correspondThread = threads.find((t) => t.id === thread.id);
@@ -33,8 +40,10 @@ export default function useData() {
           return thread;
         });
         setThreads(await newThreads);
+        setIsLoadingThreads(false);
       } else {
         setThreads([]);
+        setIsLoadingDestinations(true);
       }
       const newDMs = (await getDestination).dms.map((dm) => {
         const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
@@ -45,10 +54,12 @@ export default function useData() {
       });
 
       setDestinations({ dms: newDMs, groups: [] });
+      setIsLoadingDestinations(false);
     })();
   }, [dmId, messageId]);
 
   const createDM = async (name, email) => {
+    setIsLoadingDestinations(true);
     await postDestinationsRequest(name, email);
     const getDestination = getDestinationsRequest();
     const newDMs = (await getDestination).dms.map((dm) => {
@@ -60,14 +71,18 @@ export default function useData() {
     });
 
     setDestinations({ dms: newDMs, groups: [] });
+    setIsLoadingDestinations(false);
   };
 
   const createDMThread = async (subject, body) => {
+    setIsLoadingThreads(true);
     await postDMThreadsRequest(dmId, subject, body);
     const getThreads = getDMThreadsRequest(dmId);
     if (messageId) {
       const getMessage = getDMMessagesRequest(dmId, messageId);
+      setIsLoadingMessages(true);
       setMessages(await getMessage);
+      setIsLoadingMessages(false);
     }
     const newThreads = (await getThreads).map((thread) => {
       const correspondThread = threads.find((t) => t.id === thread.id);
@@ -77,12 +92,15 @@ export default function useData() {
       return thread;
     });
     setThreads(await newThreads);
+    setIsLoadingThreads(false);
   };
 
   const createDMMessage = async (body) => {
+    setIsLoadingMessages(true);
     await postDMMessagesRequest(dmId, messageId, body);
     const getMessage = getDMMessagesRequest(dmId, messageId);
     setMessages(await getMessage);
+    setIsLoadingMessages(false);
   };
 
   const setSelectedDMId = (dmId) => {
@@ -117,5 +135,8 @@ export default function useData() {
     createDMMessage,
     setSelectedDMId,
     setSelectedMessageId,
+    isLoadingDestinations,
+    isLoadingThreads,
+    isLoadingMessages,
   ];
 }

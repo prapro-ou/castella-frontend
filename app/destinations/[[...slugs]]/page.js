@@ -9,6 +9,7 @@ import useData from '@/features/hooks/UseData';
 import CreateDMThreadDialog from '@/features/threads/components/CreateDMThreadDialog';
 import CreateDMMessageDialog from '@/features/messages/components/CreateDMMessageDialog';
 import Header from '@/features/components/Header';
+import LoadingScreen from '@/features/components/LoadingScreen';
 
 export default function App() {
   const [
@@ -20,6 +21,9 @@ export default function App() {
     createDMMessage,
     setSelectedDMId,
     setSelectedMessageId,
+    isLoadingDestinations,
+    isLoadingThreads,
+    isLoadingMessages,
   ] = useData();
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
   const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] =
@@ -30,26 +34,36 @@ export default function App() {
   return (
     <>
       <Header />
-      <div className='grid h-screen grid-cols-8 bg-gray'>
-        <DestinationScreen
-          destinations={destinations}
-          onClickAddButton={() => setOpenCreateDMDialog(true)}
-          onClickDMTile={setSelectedDMId}
-          className='col-span-2 border-r-2 border-r-gray'
-        />
+      <div className='grid h-[calc(100vh-96px)] grid-cols-8 bg-gray'>
+        <div className='relative col-span-2 grid border-r-2 border-r-gray'>
+          <LoadingScreen
+            className={'absolute'}
+            isLoading={isLoadingDestinations}
+          />
+          <DestinationScreen
+            className={''}
+            destinations={destinations}
+            onClickAddButton={() => setOpenCreateDMDialog(true)}
+            onClickDMTile={setSelectedDMId}
+          />
+        </div>
 
-        <ThreadScreen
-          threads={threads}
-          onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
-          onClickTile={setSelectedMessageId}
-          className='col-span-3 border-r-2 border-r-gray'
-        />
+        <div className='relative col-span-3 grid border-r-2 border-r-gray'>
+          <LoadingScreen className={'absolute'} isLoading={isLoadingThreads} />
+          <ThreadScreen
+            threads={threads}
+            onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
+            onClickTile={setSelectedMessageId}
+          />
+        </div>
 
-        <MessageScreen
-          messages={messages}
-          onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
-          className='col-span-3'
-        />
+        <div className='relative col-span-3 grid'>
+          <LoadingScreen className={'absolute'} isLoading={isLoadingMessages} />
+          <MessageScreen
+            messages={messages}
+            onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
+          />
+        </div>
       </div>
       <CreateDMDialog
         isOpened={openCreateDMDialog}
