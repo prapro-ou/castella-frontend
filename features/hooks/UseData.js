@@ -22,10 +22,8 @@ export default function useData() {
   useEffect(() => {
     (async () => {
       const getDestination = getDestinationsRequest();
-      setIsLoadingDestinations(true);
       if (dmId) {
         const getThreads = getDMThreadsRequest(dmId);
-        setIsLoadingThreads(true);
         if (messageId) {
           const getMessage = getDMMessagesRequest(dmId, messageId);
           setIsLoadingMessages(true);
@@ -33,6 +31,7 @@ export default function useData() {
           setIsLoadingMessages(false);
         } else {
           setMessages([]);
+          setIsLoadingThreads(true);
         }
         const newThreads = (await getThreads).map((thread) => {
           const correspondThread = threads.find((t) => t.id === thread.id);
@@ -45,6 +44,7 @@ export default function useData() {
         setIsLoadingThreads(false);
       } else {
         setThreads([]);
+        setIsLoadingDestinations(true);
       }
       const newDMs = (await getDestination).dms.map((dm) => {
         const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
