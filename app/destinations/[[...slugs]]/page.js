@@ -34,10 +34,7 @@ export default function App() {
         <DestinationScreen
           destinations={destinations}
           onClickAddButton={() => setOpenCreateDMDialog(true)}
-          onClickDMTile={() => {
-            setSelectedDMId;
-            setMessageId(false);
-          }}
+          onClickDMTile={setSelectedDMId}
           className='col-span-2 border-r-2 border-r-gray'
         />
         
