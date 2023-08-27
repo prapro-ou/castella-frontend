@@ -31,13 +31,15 @@ export default function App() {
   const [openCreateDMMessageDialog, setOpenCreateDMMessageDialog] =
     useState(false);
 
-
   return (
     <>
       <Header />
       <div className='grid h-[calc(100vh-96px)] grid-cols-8 bg-gray'>
         <div className='relative col-span-2 grid border-r-2 border-r-gray'>
-          <LoadingScreen className={'absolute'} isLoading={isLoadingDestinations} />
+          <LoadingScreen
+            className={'absolute'}
+            isLoading={isLoadingDestinations}
+          />
           <DestinationScreen
             className={''}
             destinations={destinations}
@@ -61,7 +63,7 @@ export default function App() {
             messages={messages}
             onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
           />
-        </div>  
+        </div>
       </div>
       <CreateDMDialog
         isOpened={openCreateDMDialog}

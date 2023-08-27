@@ -14,10 +14,9 @@ export default function useData() {
   const [dmId, setDMId] = useState();
   const [messageId, setMessageId] = useState();
 
-  const [isLoadingDestinations,setIsLoadingDestinations] =useState(false);
-  const [isLoadingThreads,setIsLoadingThreads] =useState(false);
-  const [isLoadingMessages,setIsLoadingMessages] =useState(false);
-
+  const [isLoadingDestinations, setIsLoadingDestinations] = useState(false);
+  const [isLoadingThreads, setIsLoadingThreads] = useState(false);
+  const [isLoadingMessages, setIsLoadingMessages] = useState(false);
 
   useEffect(() => {
     (async () => {
