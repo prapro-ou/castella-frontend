@@ -5,17 +5,20 @@ import DestinationScreen from '@/features/destinations/components/DestinationScr
 import CreateDMDialog from '@/features/destinations/dm/components/CreatDMDialog';
 import ThreadScreen from '@/features/threads/components/ThreadScreen';
 import MessageScreen from '@/features/messages/components/MessageScreen';
-import CreateDMThreadDialog from "@/features/threads/components/CreateDMThreadDialog";
-import CreateDMMessageDialog from "@/features/messages/components/CreateDMMessageDialog";
+import CreateDMThreadDialog from '@/features/threads/components/CreateDMThreadDialog';
+import CreateDMMessageDialog from '@/features/messages/components/CreateDMMessageDialog';
 import useThreads from '@/features/threads/components/useThreads';
 import useMessages from '@/features/messages/components/useMessages';
 import useDistinations from '@/features/destinations/components/useDistinations';
 import Header from '@/features/components/Header';
+import LoadingScreen from '@/features/components/LoadingScreen';
 
 export default function App() {
-  const [destinations, createDM, setSelectedDMId]=useDistinations();
-  const [threads,createDMThread, setSelectedMessageId] = useThreads();
-  const [messages,createDMMessage] = useMessages();
+  const [destinations, createDM, setSelectedDMId, isLoadingDestinations] =
+    useDistinations();
+  const [threads, createDMThread, setSelectedMessageId, , isLoadingThreads] =
+    useThreads();
+  const [messages, createDMMessage, , isLoadingMessages] = useMessages();
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
   const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] =
     useState(false);
@@ -26,6 +29,10 @@ export default function App() {
     <>
       <Header />
       <div className='grid h-screen grid-cols-8 bg-gray'>
+        <LoadingScreen
+          className={'absolute'}
+          isLoading={isLoadingDestinations}
+        />
         <DestinationScreen
           destinations={destinations}
           onClickAddButton={() => setOpenCreateDMDialog(true)}
@@ -33,18 +40,22 @@ export default function App() {
           className='col-span-2 border-r-2 border-r-gray'
         />
 
-        <ThreadScreen
-          threads={threads}
-          onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
-          onClickTile={setSelectedMessageId}
-          className='col-span-3 border-r-2 border-r-gray'
-        />
+        <div className='relative col-span-3 grid border-r-2 border-r-gray'>
+          <LoadingScreen className={'absolute'} isLoading={isLoadingThreads} />
+          <ThreadScreen
+            threads={threads}
+            onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
+            onClickTile={setSelectedMessageId}
+          />
+        </div>
 
-        <MessageScreen
-          messages={messages}
-          onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
-          className='col-span-3'
-        />
+        <div className='relative col-span-3 grid'>
+          <LoadingScreen className={'absolute'} isLoading={isLoadingMessages} />
+          <MessageScreen
+            messages={messages}
+            onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
+          />
+        </div>
       </div>
       <CreateDMDialog
         isOpened={openCreateDMDialog}
