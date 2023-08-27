@@ -14,11 +14,11 @@ import Header from '@/features/components/Header';
 import LoadingScreen from '@/features/components/LoadingScreen';
 
 export default function App() {
-  const [destinations, createDM, setSelectedDMId, isLoadingDestinations] =
-    useDistinations();
-  const [threads, createDMThread, setSelectedMessageId, , isLoadingThreads] =
-    useThreads();
   const [messages, createDMMessage, , isLoadingMessages] = useMessages();
+  const [threads, createDMThread, setSelectedMessageId, setIdMessageId, isLoadingThreads] =
+    useThreads();
+  const [destinations, createDM, setSelectedDMId, isLoadingDestinations] =
+    useDistinations(setIdMessageId);
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
   const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] =
     useState(false);
@@ -29,16 +29,17 @@ export default function App() {
     <>
       <Header />
       <div className='grid h-screen grid-cols-8 bg-gray'>
-        <LoadingScreen
-          className={'absolute'}
-          isLoading={isLoadingDestinations}
-        />
-        <DestinationScreen
-          destinations={destinations}
-          onClickAddButton={() => setOpenCreateDMDialog(true)}
-          onClickDMTile={setSelectedDMId}
-          className='col-span-2 border-r-2 border-r-gray'
-        />
+        <div className='relative col-span-2 border-r-2 border-r-gray'>
+          <LoadingScreen
+            className={'absolute'}
+            isLoading={isLoadingDestinations}
+          />
+          <DestinationScreen
+            destinations={destinations}
+            onClickAddButton={() => setOpenCreateDMDialog(true)}
+            onClickDMTile={setSelectedDMId}
+          />
+        </div>
 
         <div className='relative col-span-3 grid border-r-2 border-r-gray'>
           <LoadingScreen className={'absolute'} isLoading={isLoadingThreads} />

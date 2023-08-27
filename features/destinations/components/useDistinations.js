@@ -1,17 +1,15 @@
 import { useEffect, useState } from 'react';
 import getDestinationsRequest from '@/features/destinations/dm/data/GetDestinationsRequest';
 import postDestinationsRequest from '@/features/destinations/dm/data/PostDestinationsRequest';
-import useThreads from '@/features/threads/components/useThreads';
 
-export default function useDistinations() {
+export default function useDistinations(setIdMessagesId) {
   const [destinations, setDestinations] = useState({ dms: [], groups: [] });
   const [dmId, setDMId] = useState();
   const [messageId, setMessageId] = useState();
-  const [setIdMessagesId] = useThreads();
   const [isLoadingDestinations, setIsLoadingDestinations] = useState(false);
 
   useEffect(() => {
-    async () => {
+    (async () => {
       const getDestination = getDestinationsRequest();
       setIsLoadingDestinations(true);
       const newDMs = (await getDestination).dms.map((dm) => {
@@ -24,7 +22,7 @@ export default function useDistinations() {
       setDestinations({ dms: newDMs, groups: [] });
       setIsLoadingDestinations(false);
       setIdMessagesId(dmId, messageId);
-    };
+    })();
   }, [dmId]);
 
   const createDM = async (name, email) => {

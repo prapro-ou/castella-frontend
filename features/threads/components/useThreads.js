@@ -7,14 +7,14 @@ export default function useThreads() {
   const [threads, setThreads] = useState([]);
   const [dmId, setDMId] = useState();
   const [messageId, setMessageId] = useState();
-  const [setIds] = useMessages();
+  const [, , setIds] = useMessages();
   const [isLoadingThreads, setIsLoadingThreads] = useState(false);
 
   useEffect(() => {
-    async () => {
+    (async () => {
       if (dmId) {
         const getThreads = getDMThreadsRequest(dmId);
-        // setIsLoadingThreads(true);
+        setIsLoadingThreads(true);
         const newThreads = (await getThreads).map((thread) => {
           const correspondThread = threads.find((t) => t.id === thread.id);
           correspondThread
@@ -28,8 +28,8 @@ export default function useThreads() {
       }
       setIsLoadingThreads(false);
       setIds(dmId, messageId);
-    };
-  }, [dmId]);
+    })();
+  }, [dmId, messageId]);
 
   const createDMThread = async (subject, body) => {
     await postDMThreadsRequest(dmId, subject, body);

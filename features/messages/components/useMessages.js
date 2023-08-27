@@ -8,13 +8,8 @@ export default function useMessages() {
   const [messageId, setMessageId] = useState(undefined);
   const [isLoadingMessages, setIsLoadingMessages] = useState(false);
 
-  const setIds = (dmId, messageId) => {
-    setDMId(dmId);
-    setMessageId(messageId);
-  };
-
   useEffect(() => {
-    async () => {
+    (async () => {
       if (messageId) {
         const getMessage = getDMMessagesRequest(dmId, messageId);
         setIsLoadingMessages(true);
@@ -23,13 +18,18 @@ export default function useMessages() {
       } else {
         setMessages([]);
       }
-    };
+    })();
   }, [messageId]);
 
   const createDMMessage = async (body) => {
     await postDMMessagesRequest(dmId, messageId, body);
     const getMessage = getDMMessagesRequest(dmId, messageId);
     setMessages(await getMessage);
+  };
+
+  const setIds = (dmId, messageId) => {
+    setDMId(dmId);
+    setMessageId(messageId);
   };
 
   return [messages, createDMMessage, setIds, isLoadingMessages];
