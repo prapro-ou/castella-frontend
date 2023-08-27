@@ -36,39 +36,31 @@ export default function App() {
     <>
       <Header />
       <div className='grid h-[calc(100vh-96px)] grid-cols-8 bg-gray'>
-        <div className='col-span-2 grid border-r-2 border-r-gray'>
-          {isLoadingDestinations ? (
-            <LoadingScreen isLoading={true} />
-          ):(
-            <DestinationScreen
-              destinations={destinations}
-              onClickAddButton={() => setOpenCreateDMDialog(true)}
-              onClickDMTile={setSelectedDMId}
-            />
-          )}
+        <div className='relative col-span-2 grid border-r-2 border-r-gray'>
+          <LoadingScreen className={'absolute'} isLoading={isLoadingDestinations} />
+          <DestinationScreen
+            className={''}
+            destinations={destinations}
+            onClickAddButton={() => setOpenCreateDMDialog(true)}
+            onClickDMTile={setSelectedDMId}
+          />
         </div>
 
-        <div className='col-span-3 grid border-r-2 border-r-gray'>
-          {isLoadingThreads ? (
-            <LoadingScreen isLoading={true} />
-          ):(
-            <ThreadScreen
-              threads={threads}
-              onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
-              onClickTile={setSelectedMessageId}
-            />
-          )}
+        <div className='relative col-span-3 grid border-r-2 border-r-gray'>
+          <LoadingScreen className={'absolute'} isLoading={isLoadingThreads} />
+          <ThreadScreen
+            threads={threads}
+            onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
+            onClickTile={setSelectedMessageId}
+          />
         </div>
 
-        <div className='col-span-3 grid'>
-          {isLoadingMessages ?(
-            <LoadingScreen isLoading={true} />
-          ):(         
-            <MessageScreen
-              messages={messages}
-              onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
-            />
-          )}
+        <div className='relative col-span-3 grid'>
+          <LoadingScreen className={'absolute'} isLoading={isLoadingMessages} />
+          <MessageScreen
+            messages={messages}
+            onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
+          />
         </div>  
       </div>
       <CreateDMDialog
