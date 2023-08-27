@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
 import postDMThreadsRequest from "../data/PostDMThreadsRequest";
 import getDMThreadsRequest from "../data/GetDMThreadsRequest";
-import useMessages from "@/features/messages/components/useMessages";
 
 
-export default function useThreads(){
+export default function useThreads(setIds){
     const [threads, setThreads] = useState([]);
     const [dmId, setDMId] = useState();
     const [messageId, setMessageId] = useState();
-    const [setIds] = useMessages();
 
     useEffect(() => {
         (async () => {
@@ -22,7 +20,7 @@ export default function useThreads(){
                 setThreads(await newThreads);
             } else { setThreads([]); }
             setIds(dmId, messageId);
-        });},[dmId]);
+        })();},[dmId, messageId]);
 
     const createDMThread = async (subject, body) => {
         await postDMThreadsRequest(dmId, subject, body);

@@ -7,24 +7,24 @@ export default function useMessages(){
     const [messages, setMessages] = useState([]);
     const [messageId, setMessageId] = useState();
 
-    const setIds = (dmId, messageId) => {
-        setDMId(dmId);
-        setMessageId(messageId);
-    };
-
     useEffect(() => {
         (async () => {
             if (messageId) {
                 const getMessage = getDMMessagesRequest(dmId, messageId);
                 setMessages(await getMessage);
               } else { setMessages([]); }
-            });},[messageId]);
+            })();},[messageId]);
 
     const createDMMessage = async (body) => {
         await postDMMessagesRequest(dmId, messageId, body);
         const getMessage = getDMMessagesRequest(dmId, messageId);
         setMessages(await getMessage);
       };
-              
+      
+      const setIds = (dmId, messageId) => {
+        setDMId(dmId);
+        setMessageId(messageId);
+    };
+
     return[messages, createDMMessage, setIds];
 }

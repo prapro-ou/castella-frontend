@@ -13,9 +13,9 @@ import useDistinations from '@/features/destinations/components/useDistinations'
 import Header from '@/features/components/Header';
 
 export default function App() {
-  const [destinations, createDM, setSelectedDMId]=useDistinations();
-  const [threads,createDMThread, setSelectedMessageId] = useThreads();
-  const [messages,createDMMessage] = useMessages();
+  const [messages,createDMMessage,setIds] = useMessages();
+  const [threads,createDMThread, setSelectedMessageId, setIdMessagesId] = useThreads(setIds);
+  const [destinations, createDM, setSelectedDMId]=useDistinations(setIdMessagesId);
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
   const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] =
     useState(false);
