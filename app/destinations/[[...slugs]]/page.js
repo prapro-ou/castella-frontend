@@ -15,10 +15,16 @@ import LoadingScreen from '@/features/components/LoadingScreen';
 
 export default function App() {
   const [destinations, createDM, setSelectedDMId, isLoadingDestinations] =
-  useDestinations();
-  const [threads, createDMThread, setSelectedMessageId, setThreadDMId, isLoadingThreads] =
-  useThreads();
-  const [messages, createDMMessage, setDMId, setMessageId, isLoadingMessages] = useMessages();
+    useDestinations();
+  const [
+    threads,
+    createDMThread,
+    setSelectedMessageId,
+    setThreadDMId,
+    isLoadingThreads,
+  ] = useThreads();
+  const [messages, createDMMessage, setDMId, setMessageId, isLoadingMessages] =
+    useMessages();
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
   const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] =
     useState(false);
@@ -37,11 +43,12 @@ export default function App() {
           <DestinationScreen
             destinations={destinations}
             onClickAddButton={() => setOpenCreateDMDialog(true)}
-            onClickDMTile={(dmId)=>{
-            setSelectedDMId(dmId);
-            setThreadDMId(dmId);
-            setDMId(dmId);
-          }}
+            onClickDMTile={(dmId) => {
+              setSelectedDMId(dmId);
+              setThreadDMId(dmId);
+              setDMId(dmId);
+              setMessageId(undefined);
+            }}
           />
         </div>
 
@@ -50,7 +57,7 @@ export default function App() {
           <ThreadScreen
             threads={threads}
             onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
-            onClickTile={(messageId)=>{
+            onClickTile={(messageId) => {
               setSelectedMessageId(messageId);
               setMessageId(messageId);
             }}

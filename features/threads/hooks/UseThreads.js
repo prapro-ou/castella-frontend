@@ -41,7 +41,6 @@ export default function useThreads() {
     return newThreads;
   };
 
-
   return [
     threads,
     createDMThread,

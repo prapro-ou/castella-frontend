@@ -29,8 +29,7 @@ export default function useDestinations() {
     setDestinations({ dms: newDMs, groups: newGroups });
   };
 
-
-  const _fetchDMs = async() => {
+  const _fetchDMs = async () => {
     setIsLoadingDestinations(true);
     const getDestination = getDestinationsRequest();
     const newDMs = (await getDestination).dms.map((dm) => {
@@ -44,4 +43,5 @@ export default function useDestinations() {
     return { dms: newDMs, groups: [] };
   };
 
-  return [destinations, createDM, setSelectedDMId, isLoadingDestinations];}
+  return [destinations, createDM, setSelectedDMId, isLoadingDestinations];
+}
