@@ -7,16 +7,19 @@ export default function useMessages() {
   const [dmId, setDMId] = useState();
   const [messageId, setMessageId] = useState(undefined);
   const [isLoadingMessages, setIsLoadingMessages] = useState(false);
+  const [isShowingTipsOnMessages, setIsShowingTipsOnMessages] = useState(true);
 
   useEffect(() => {
     (async () => {
-      if (messageId) {
+      if (!dmId || !messageId) {
+        setMessages([]);
+        setIsShowingTipsOnMessages(true);
+      } else {
+        setIsShowingTipsOnMessages(false);
         const getMessage = getDMMessagesRequest(dmId, messageId);
         setIsLoadingMessages(true);
         setMessages(await getMessage);
         setIsLoadingMessages(false);
-      } else {
-        setMessages([]);
       }
     })();
   }, [dmId, messageId]);
@@ -27,5 +30,12 @@ export default function useMessages() {
     setMessages(await getMessage);
   };
 
-  return [messages, createDMMessage, setDMId, setMessageId, isLoadingMessages];
+  return [
+    messages,
+    createDMMessage,
+    setDMId,
+    setMessageId,
+    isLoadingMessages,
+    isShowingTipsOnMessages,
+  ];
 }

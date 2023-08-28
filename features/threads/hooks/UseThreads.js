@@ -6,11 +6,14 @@ export default function useThreads() {
   const [threads, setThreads] = useState([]);
   const [dmId, setDMId] = useState();
   const [isLoadingThreads, setIsLoadingThreads] = useState(false);
+  const [isShowingTipsOnThreads, setIsShowingTipsOnThreads] = useState(true);
 
   useEffect(() => {
     (async () => {
-      if (dmId) setThreads(await _fetchDMThreads(dmId));
-      else setThreads([]);
+      if (dmId) {
+        setIsShowingTipsOnThreads(false);
+        setThreads(await _fetchDMThreads(dmId));
+      } else setThreads([]);
     })();
   }, [dmId]);
 
@@ -29,14 +32,16 @@ export default function useThreads() {
 
   const _fetchDMThreads = async (dmId) => {
     setIsLoadingThreads(true);
-    const getThreads = getDMThreadsRequest(dmId);
-    const newThreads = (await getThreads).map((thread) => {
-      const correspondThread = threads.find((t) => t.id === thread.id);
-      correspondThread
-        ? (thread.selected = correspondThread.selected)
-        : (thread.selected = false);
-      return thread;
-    });
+    let newThreads = getDMThreadsRequest(dmId);
+    if (threads) {
+      newThreads = (await newThreads).map((thread) => {
+        const correspondThread = threads.find((t) => t.id === thread.id);
+        correspondThread
+          ? (thread.selected = correspondThread.selected)
+          : (thread.selected = false);
+        return thread;
+      });
+    }
     setIsLoadingThreads(false);
     return newThreads;
   };
@@ -47,5 +52,6 @@ export default function useThreads() {
     setSelectedMessageId,
     setDMId,
     isLoadingThreads,
+    isShowingTipsOnThreads,
   ];
 }

@@ -1,5 +1,4 @@
-// eslint-disable-next-line no-unused-vars
-async function getDMMessagesRequest(dmId, messageId) {
+export default async function getDMMessagesRequest(dmId, messageId) {
   const cookieAsJson = JSON.parse(document.cookie);
   return fetch(
     `${
@@ -22,34 +21,4 @@ async function getDMMessagesRequest(dmId, messageId) {
     .catch(function (error) {
       console.log(error);
     });
-}
-
-// eslint-disable-next-line no-undef
-const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-export default async function fakeGetDMMessagesRequest() {
-  await sleep(2000);
-  return [
-    {
-      id: 'message_id1',
-      from: 'user@example.com',
-      body: '本文1',
-      is_recent: false,
-      created_at: '2010-06-01',
-    },
-    {
-      id: 'message_id2',
-      from: 'sample@example.com',
-      is_recent: false,
-      body: '本文2',
-      created_at: '2010-06-01',
-    },
-    {
-      id: 'message_id3',
-      from: 'sample@example.com',
-      body: '本文3',
-      is_recent: true,
-      created_at: '2010-06-01',
-    },
-  ];
 }

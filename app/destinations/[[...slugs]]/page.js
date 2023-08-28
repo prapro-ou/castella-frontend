@@ -12,6 +12,7 @@ import useMessages from '@/features/messages/hooks/UseMessages';
 import useDestinations from '@/features/destinations/hooks/UseDestinations';
 import Header from '@/features/components/Header';
 import LoadingScreen from '@/features/components/LoadingScreen';
+import Tips from '@/features/components/Tips';
 
 export default function App() {
   const [destinations, createDM, setSelectedDMId, isLoadingDestinations] =
@@ -22,9 +23,16 @@ export default function App() {
     setSelectedMessageId,
     setThreadDMId,
     isLoadingThreads,
+    isShowingTipsOnThreads,
   ] = useThreads();
-  const [messages, createDMMessage, setDMId, setMessageId, isLoadingMessages] =
-    useMessages();
+  const [
+    messages,
+    createDMMessage,
+    setDMId,
+    setMessageId,
+    isLoadingMessages,
+    isShowingTipsOnMessages,
+  ] = useMessages();
   const [openCreateDMDialog, setOpenCreateDMDialog] = useState(false);
   const [openCreateDMThreadDialog, setOpenCreateDMThreadDialog] =
     useState(false);
@@ -52,25 +60,47 @@ export default function App() {
           />
         </div>
 
-        <div className='relative col-span-3 grid border-r-2 border-r-gray'>
-          <LoadingScreen className={'absolute'} isLoading={isLoadingThreads} />
-          <ThreadScreen
-            threads={threads}
-            onClickCreateThreadButton={() => setOpenCreateDMThreadDialog(true)}
-            onClickTile={(messageId) => {
-              setSelectedMessageId(messageId);
-              setMessageId(messageId);
-            }}
-          />
-        </div>
+        {isShowingTipsOnThreads ? (
+          <div className='col-span-6'>
+            <Tips />
+          </div>
+        ) : (
+          <>
+            <div className='relative col-span-3 grid border-r-2 border-r-gray'>
+              <LoadingScreen
+                className={'absolute'}
+                isLoading={isLoadingThreads}
+              />
+              <ThreadScreen
+                threads={threads}
+                onClickCreateThreadButton={() =>
+                  setOpenCreateDMThreadDialog(true)
+                }
+                onClickTile={(messageId) => {
+                  setSelectedMessageId(messageId);
+                  setMessageId(messageId);
+                }}
+              />
+            </div>
 
-        <div className='relative col-span-3 grid'>
-          <LoadingScreen className={'absolute'} isLoading={isLoadingMessages} />
-          <MessageScreen
-            messages={messages}
-            onClickCreateReplyButton={() => setOpenCreateDMMessageDialog(true)}
-          />
-        </div>
+            <div className='relative col-span-3 grid'>
+              <LoadingScreen
+                className={'absolute'}
+                isLoading={isLoadingMessages}
+              />
+              {isShowingTipsOnMessages ? (
+                <Tips />
+              ) : (
+                <MessageScreen
+                  messages={messages}
+                  onClickCreateReplyButton={() =>
+                    setOpenCreateDMMessageDialog(true)
+                  }
+                />
+              )}
+            </div>
+          </>
+        )}
       </div>
       <CreateDMDialog
         isOpened={openCreateDMDialog}
