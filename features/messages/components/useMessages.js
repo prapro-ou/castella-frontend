@@ -3,8 +3,8 @@ import getDMMessagesRequest from '../data/GetDMMessagesRequest';
 import postDMMessagesRequest from '../data/PostDMMessagesRequest';
 
 export default function useMessages() {
-  const [dmId, setDMId] = useState();
   const [messages, setMessages] = useState([]);
+  const [dmId, setDMId] = useState();
   const [messageId, setMessageId] = useState(undefined);
   const [isLoadingMessages, setIsLoadingMessages] = useState(false);
 
@@ -19,7 +19,7 @@ export default function useMessages() {
         setMessages([]);
       }
     })();
-  }, [messageId]);
+  }, [dmId, messageId]);
 
   const createDMMessage = async (body) => {
     await postDMMessagesRequest(dmId, messageId, body);
