@@ -3,7 +3,6 @@ import React from 'react';
 import MessageTile from './MessageTile';
 import FloatActionButton from '@/features/components/FloatActionButton';
 import editWhite from '@/public/icon/edit/edit_white.svg';
-import Tips from '@/features/components/Tips.js';
 
 /**
  * メッセージと返信欄を示すためのコンポーネント
