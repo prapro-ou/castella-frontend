@@ -4,7 +4,6 @@ import postDestinationsRequest from '@/features/destinations/dm/data/PostDestina
 
 export default function useDestinations() {
   const [destinations, setDestinations] = useState({ dms: [], groups: [] });
-  const [dmId, setDMId] = useState();
   const [isLoadingDestinations, setIsLoadingDestinations] = useState(false);
 
   useEffect(() => {
@@ -21,7 +20,7 @@ export default function useDestinations() {
       setDestinations({ dms: newDMs, groups: [] });
       setIsLoadingDestinations(false);
     })();
-  }, [dmId]);
+  }, []);
 
   const createDM = async (name, email) => {
     await postDestinationsRequest(name, email);
@@ -46,7 +45,6 @@ export default function useDestinations() {
       return group;
     });
     setDestinations({ dms: newDMs, groups: newGroups });
-    setDMId(dmId);
   };
 
   return [destinations, createDM, setSelectedDMId, isLoadingDestinations];
