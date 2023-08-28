@@ -27,12 +27,5 @@ export default function useMessages() {
     setMessages(await getMessage);
   };
 
-  const setDMIds = (dmId) => {
-    setDMId(dmId);
-  };
-  const setMessageIds = (messageId) => {
-    setMessageId(messageId);
-  };
-
-  return [messages, createDMMessage, setDMIds, setMessageIds, isLoadingMessages];
+  return [messages, createDMMessage, setDMId, setMessageId, isLoadingMessages];
 }

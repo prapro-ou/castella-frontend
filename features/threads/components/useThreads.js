@@ -48,15 +48,12 @@ export default function useThreads() {
     setThreads(newThreads);
   };
 
-  const setThreadDMId = (dmId) => {
-    setDMId(dmId);
-  };
 
   return [
     threads,
     createDMThread,
     setSelectedMessageId,
-    setThreadDMId,
+    setDMId,
     isLoadingThreads,
   ];
 }
