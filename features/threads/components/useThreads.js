@@ -9,35 +9,14 @@ export default function useThreads() {
 
   useEffect(() => {
     (async () => {
-      if (dmId) {
-        const getThreads = getDMThreadsRequest(dmId);
-        setIsLoadingThreads(true);
-        const newThreads = (await getThreads).map((thread) => {
-          const correspondThread = threads.find((t) => t.id === thread.id);
-          correspondThread
-            ? (thread.selected = correspondThread.selected)
-            : (thread.selected = false);
-          return thread;
-        });
-        setThreads(await newThreads);
-      } else {
-        setThreads([]);
-      }
-      setIsLoadingThreads(false);
+      if (dmId) setThreads(await _fetchDMThreads(dmId));
+      else setThreads([]);
     })();
   }, [dmId]);
 
   const createDMThread = async (subject, body) => {
     await postDMThreadsRequest(dmId, subject, body);
-    const getThreads = getDMThreadsRequest(dmId);
-    const newThreads = (await getThreads).map((thread) => {
-      const correspondThread = threads.find((t) => t.id === thread.id);
-      correspondThread
-        ? (thread.selected = correspondThread.selected)
-        : (thread.selected = false);
-      return thread;
-    });
-    setThreads(await newThreads);
+    await _fetchDMThreads();
   };
 
   const setSelectedMessageId = (messageId) => {
@@ -46,6 +25,20 @@ export default function useThreads() {
       return thread;
     });
     setThreads(newThreads);
+  };
+
+  const _fetchDMThreads = async (dmId) => {
+    setIsLoadingThreads(true);
+    const getThreads = getDMThreadsRequest(dmId);
+    const newThreads = (await getThreads).map((thread) => {
+      const correspondThread = threads.find((t) => t.id === thread.id);
+      correspondThread
+        ? (thread.selected = correspondThread.selected)
+        : (thread.selected = false);
+      return thread;
+    });
+    setIsLoadingThreads(false);
+    return newThreads;
   };
 
 
