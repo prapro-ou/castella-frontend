@@ -7,9 +7,9 @@ import ThreadScreen from '@/features/threads/components/ThreadScreen';
 import MessageScreen from '@/features/messages/components/MessageScreen';
 import CreateDMThreadDialog from '@/features/threads/components/CreateDMThreadDialog';
 import CreateDMMessageDialog from '@/features/messages/components/CreateDMMessageDialog';
-import useThreads from '@/features/threads/components/useThreads';
-import useMessages from '@/features/messages/components/useMessages';
-import useDestinations from '@/features/destinations/components/useDestinations';
+import useThreads from '@/features/threads/hooks/UseThreads';
+import useMessages from '@/features/messages/hooks/UseMessages';
+import useDestinations from '@/features/destinations/hooks/UseDestinations';
 import Header from '@/features/components/Header';
 import LoadingScreen from '@/features/components/LoadingScreen';
 

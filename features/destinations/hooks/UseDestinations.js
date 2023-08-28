@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import getDestinationsRequest from '@/features/destinations/dm/data/GetDestinationsRequest';
-import postDestinationsRequest from '@/features/destinations/dm/data/PostDestinationsRequest';
+import getDestinationsRequest from '@/features/destinations/data/GetDestinationsRequest';
+import postDestinationsRequest from '@/features/destinations/data/PostDestinationsRequest';
 
 export default function useDestinations() {
   const [destinations, setDestinations] = useState({ dms: [], groups: [] });
