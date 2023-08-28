@@ -1,7 +1,6 @@
 import FloatActionButton from '@/features/components/FloatActionButton';
 import ThreadTile from './ThreadTile';
 import plusWhite from '@/public/icon/plus/plus_white.svg';
-import Tips from '@/features/components/Tips.js';
 
 export default function ThreadScreen({
   threads,
@@ -10,12 +9,6 @@ export default function ThreadScreen({
   className,
 }) {
   return (
-    <div className='z-10'>
-    {threads === undefined ? (
-        <div className={`relative bg-white col-span-6 border-r-2 border-r-gray`}>
-      <Tips />
-      </div>
-    ) : (
     <div className={`relative bg-white ${className}`}>
       <div className='flex h-[calc(100vh-96px)] flex-col items-center space-y-10 overflow-auto py-10'>
         {threads.map((thread) => (
@@ -40,8 +33,6 @@ export default function ThreadScreen({
           onClickButton={onClickCreateThreadButton}
         />
       </div>
-    </div>
-    )}
     </div>
   );
 }

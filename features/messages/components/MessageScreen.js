@@ -17,10 +17,6 @@ export default function MessageScreen({
   className,
 }) {
   return (
-    <div className='z-0'>
-    {messages === undefined ? (
-      <Tips />
-    ) : (
     <div className={`relative bg-white ${className}`}>
       <div className='flex h-[calc(100vh-96px)] flex-col items-center space-y-10 overflow-auto py-10'>
         {messages.map((message) => (
@@ -42,8 +38,6 @@ export default function MessageScreen({
           onClickButton={onClickCreateReplyButton}
         />
       </div>
-    </div>
-    )}
     </div>
   );
 }
