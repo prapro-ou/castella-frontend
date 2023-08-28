@@ -10,14 +10,7 @@ export default function useDestinations() {
     (async () => {
       const getDestination = getDestinationsRequest();
       setIsLoadingDestinations(true);
-      const newDMs = (await getDestination).dms.map((dm) => {
-        const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
-        correspondDMs
-          ? (dm.selected = correspondDMs.selected)
-          : (dm.selected = false);
-        return dm;
-      });
-      setDestinations({ dms: newDMs, groups: [] });
+      await resetDM(getDestination);
       setIsLoadingDestinations(false);
     })();
   }, []);
@@ -25,14 +18,7 @@ export default function useDestinations() {
   const createDM = async (name, email) => {
     await postDestinationsRequest(name, email);
     const getDestination = getDestinationsRequest();
-    const newDMs = (await getDestination).dms.map((dm) => {
-      const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
-      correspondDMs
-        ? (dm.selected = correspondDMs.selected)
-        : (dm.selected = false);
-      return dm;
-    });
-    setDestinations({ dms: newDMs, groups: [] });
+    resetDM(getDestination);
   };
 
   const setSelectedDMId = (dmId) => {
@@ -47,5 +33,16 @@ export default function useDestinations() {
     setDestinations({ dms: newDMs, groups: newGroups });
   };
 
-  return [destinations, createDM, setSelectedDMId, isLoadingDestinations];
-}
+
+  const resetDM = async(getDestination) => {
+    const newDMs = (await getDestination).dms.map((dm) => {
+      const correspondDMs = destinations.dms.find((d) => d.id === dm.id);
+      correspondDMs
+        ? (dm.selected = correspondDMs.selected)
+        : (dm.selected = false);
+      return dm;
+    });
+    setDestinations({ dms: newDMs, groups: [] });
+  };
+
+  return [destinations, createDM, setSelectedDMId, isLoadingDestinations];}
