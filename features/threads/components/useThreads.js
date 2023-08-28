@@ -5,7 +5,6 @@ import getDMThreadsRequest from '../data/GetDMThreadsRequest';
 export default function useThreads() {
   const [threads, setThreads] = useState([]);
   const [dmId, setDMId] = useState();
-  const [messageId, setMessageId] = useState();
   const [isLoadingThreads, setIsLoadingThreads] = useState(false);
 
   useEffect(() => {
@@ -26,7 +25,7 @@ export default function useThreads() {
       }
       setIsLoadingThreads(false);
     })();
-  }, [dmId, messageId]);
+  }, [dmId]);
 
   const createDMThread = async (subject, body) => {
     await postDMThreadsRequest(dmId, subject, body);
@@ -47,7 +46,6 @@ export default function useThreads() {
       return thread;
     });
     setThreads(newThreads);
-    setMessageId(messageId);
   };
 
   const setThreadDMId = (dmId) => {
